@@ -1,0 +1,214 @@
+[
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "porto-vecchio:A-BERLINA",
+        "name": "A Berlina",
+        "routes": [
+            "LC",
+            "LB",
+            "LA"
+        ],
+        "stopCount": 88,
+        "centroid": {
+            "lat": 41.54630569318183,
+            "lon": 9.235688056818184
+        },
+        "bbox": {
+            "minLat": 41.3873,
+            "maxLat": 41.698914,
+            "minLon": 9.0132,
+            "maxLon": 9.34739
+        },
+        "radiusMeters": 25617.822542247184,
+        "updatedAt": "2025-11-17T13:34:01+00:00"
+    },
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "interurbain-cor:LIGNES-PRIVEES-CORSE",
+        "name": "Lignes privées Corse",
+        "routes": [
+            "CBa",
+            "SFBa",
+            "IRSF",
+            "BaPV",
+            "BoPV",
+            "CCa"
+        ],
+        "stopCount": 62,
+        "centroid": {
+            "lat": 42.2747491935484,
+            "lon": 9.310266032258069
+        },
+        "bbox": {
+            "minLat": 41.38752,
+            "maxLat": 42.70275,
+            "minLon": 8.75603,
+            "maxLon": 9.5485
+        },
+        "radiusMeters": 108818.12591535324,
+        "updatedAt": "2025-11-17T13:33:57+00:00"
+    },
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "vico:11215498",
+        "name": "Spelunca Liamone",
+        "routes": [
+            "1",
+            "2",
+            "3"
+        ],
+        "stopCount": 40,
+        "centroid": {
+            "lat": 42.150781,
+            "lon": 8.815706087500002
+        },
+        "bbox": {
+            "minLat": 41.979237,
+            "maxLat": 42.32416,
+            "minLon": 8.5961075,
+            "maxLon": 8.984385
+        },
+        "radiusMeters": 26429.204992601277,
+        "updatedAt": "2025-11-17T13:34:07+00:00"
+    },
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "porto-vecchio:1",
+        "name": "Transports Urbains Porto Vecchiais\tEurope\/Paris\thttp:\/\/acitadina.porto-vecchio.corsica\/",
+        "routes": [
+            "MARINA",
+            "PRU"
+        ],
+        "stopCount": 52,
+        "centroid": {
+            "lat": 41.59177567307693,
+            "lon": 9.277260615384614
+        },
+        "bbox": {
+            "minLat": 41.57964,
+            "maxLat": 41.605972,
+            "minLon": 9.265679,
+            "maxLon": 9.28406
+        },
+        "radiusMeters": 1849.1358910141087,
+        "updatedAt": "2025-11-17T13:34:00+00:00"
+    },
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "bastia:VIABASTIA",
+        "name": "VIABASTIA",
+        "routes": [
+            "S10",
+            "S3",
+            "Scolaire Ligne 41",
+            "L4",
+            "S7",
+            "S5",
+            "Scolaire Ligne 51",
+            "S6",
+            "Scolaire Ligne 21",
+            "LN",
+            "LC",
+            "LB",
+            "Scolaire Ligne 25",
+            "LA",
+            "S4",
+            "Scolaire Ligne 22",
+            "Scolaire Ligne 24",
+            "Scolaire Ligne 23",
+            "L6",
+            "L5",
+            "L3",
+            "S2",
+            "L2",
+            "L1",
+            "S1",
+            "Scolaire Ligne 71",
+            "S9"
+        ],
+        "stopCount": 150,
+        "centroid": {
+            "lat": 42.69643891333333,
+            "lon": 9.443813800000003
+        },
+        "bbox": {
+            "minLat": 42.61986,
+            "maxLat": 42.80812,
+            "minLon": 9.414022,
+            "maxLon": 9.488801
+        },
+        "radiusMeters": 12950.22456754823,
+        "updatedAt": "2025-11-17T13:34:06+00:00"
+    },
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "interurbain-cor:TRANSPORT-REGULIER-CORSE-DU-SUD",
+        "name": "Via Strada",
+        "routes": [
+            "C12",
+            "C11",
+            "C10",
+            "C1bis",
+            "C2bis",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C1",
+            "C2"
+        ],
+        "stopCount": 183,
+        "centroid": {
+            "lat": 41.99823937704921,
+            "lon": 9.052653278688517
+        },
+        "bbox": {
+            "minLat": 41.38946,
+            "maxLat": 42.70337,
+            "minLon": 8.596104,
+            "maxLon": 9.538593
+        },
+        "radiusMeters": 87989.87680297258,
+        "updatedAt": "2025-11-17T13:33:55+00:00"
+    },
+    {
+        "region": "cor",
+        "endpoint": "https:\/\/otp-cor.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "ajaccio:1",
+        "name": "muvitarra",
+        "routes": [
+            "STANT",
+            "L11",
+            "L9",
+            "L8",
+            "L12",
+            "L5",
+            "L4",
+            "L7",
+            "L6",
+            "L10",
+            "L1",
+            "L3",
+            "L2"
+        ],
+        "stopCount": 245,
+        "centroid": {
+            "lat": 41.92928402857141,
+            "lon": 8.737954865306122
+        },
+        "bbox": {
+            "minLat": 41.901554,
+            "maxLat": 41.985912,
+            "minLon": 8.618554,
+            "maxLon": 8.841902
+        },
+        "radiusMeters": 11710.154922604315,
+        "updatedAt": "2025-11-17T13:33:59+00:00"
+    }
+]

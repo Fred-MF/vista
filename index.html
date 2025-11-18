@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Vista – Monitoring réseaux TC</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://unpkg.com/maplibre-gl@3.0.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Vista</h1>
+    <div class="controls">
+      <label for="region-select">Région :</label>
+      <select id="region-select">
+        <option value="">– choisir –</option>
+        <option value="ara">Auvergne-Rhône-Alpes</option>
+        <option value="bfc">Bourgogne-Franche-Comté</option>
+        <option value="bre">Bretagne</option>
+        <option value="caraibe">Guyane</option>
+        <option value="cor">Corse</option>
+        <option value="cvl">Centre-Val de Loire</option>
+        <option value="ges">Grand Est</option>
+        <option value="gf">Guadeloupe</option>
+        <option value="hdf">Hauts-de-France</option>
+        <option value="idf">Île-de-France</option>
+        <option value="mar">Martinique</option>
+        <option value="naq">Nouvelle-Aquitaine</option>
+        <option value="nor">Normandie</option>
+        <option value="occ">Occitanie</option>
+        <option value="paca">Provence-Alpes-Côte d’Azur</option>
+        <option value="pdl">Pays de la Loire</option>
+        <option value="re">Réunion</option>
+      </select>
+
+      <label for="network-select">Réseau :</label>
+      <select id="network-select" disabled>
+        <option value="">– sélection automatique –</option>
+      </select>
+
+      <button id="load-btn">Charger des arrêts</button>
+    </div>
+    <div class="location-status" id="location-status">
+      Géolocalisation en attente…
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="panel map-panel">
+      <h2>Carte des observations</h2>
+      <div id="map" role="img" aria-label="Carte des arrêts recherchés"></div>
+    </section>
+
+    <section class="panel legend-panel">
+      <h2>Légende</h2>
+      <div class="legend">
+        <div class="legend-item">
+          <span class="legend-bg legend-stop"><img id="legend-stop-img" alt="Arrêt" /></span>
+          <span class="legend-label">Arrêt</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-bg legend-station"><img id="legend-station-img" alt="Station" /></span>
+          <span class="legend-label">Station</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel collapsible" id="panel-stops" data-collapsed="true">
+      <h2 class="collapsible-header" id="panel-stops-header" aria-controls="panel-stops-body" aria-expanded="false">Arrêts trouvés</h2>
+      <div id="panel-stops-body" class="collapsible-body">
+        <ul id="stops-list" class="stops-list">
+          <li>Sélectionne une région puis clique sur « Charger des arrêts ».</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel collapsible" id="panel-debug" data-collapsed="true">
+      <h2 class="collapsible-header" id="panel-debug-header" aria-controls="panel-debug-body" aria-expanded="false">Résultat brut (debug)</h2>
+      <div id="panel-debug-body" class="collapsible-body">
+        <pre id="debug">Réponse JSON brute (utile pour les tests API).</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Prototype Vista – HTML/CSS/JS vanilla</small>
+    <button id="theme-toggle" title="Basculer clair/sombre">Mode sombre</button>
+  </footer>
+
+  <script src="https://unpkg.com/maplibre-gl@3.0.0/dist/maplibre-gl.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

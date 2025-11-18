@@ -1,0 +1,403 @@
+[
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "sainte-marie:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "SM01"
+        ],
+        "stopCount": 34,
+        "centroid": {
+            "lat": 14.78426105882353,
+            "lon": -61.02268694117646
+        },
+        "bbox": {
+            "minLat": 14.777053,
+            "maxLat": 14.794014,
+            "minLon": -61.0369,
+            "maxLon": -60.9968
+        },
+        "radiusMeters": 2986.9623029713275,
+        "updatedAt": "2025-11-17T14:19:00+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-lorrain:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "LR01"
+        ],
+        "stopCount": 37,
+        "centroid": {
+            "lat": 14.82789724324324,
+            "lon": -61.08205267567566
+        },
+        "bbox": {
+            "minLat": 14.807803,
+            "maxLat": 14.844101,
+            "minLon": -61.097412,
+            "maxLon": -61.05457
+        },
+        "radiusMeters": 3704.1009517736925,
+        "updatedAt": "2025-11-17T14:19:00+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-robert:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "ROB1"
+        ],
+        "stopCount": 40,
+        "centroid": {
+            "lat": 14.685991949999998,
+            "lon": -60.934841324999994
+        },
+        "bbox": {
+            "minLat": 14.675907,
+            "maxLat": 14.699751,
+            "minLon": -60.941578,
+            "maxLon": -60.927387
+        },
+        "radiusMeters": 1727.2967160005599,
+        "updatedAt": "2025-11-17T14:19:02+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-joseph-martinique:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "301"
+        ],
+        "stopCount": 36,
+        "centroid": {
+            "lat": 14.67407552777778,
+            "lon": -61.01912616666667
+        },
+        "bbox": {
+            "minLat": 14.669222,
+            "maxLat": 14.679389,
+            "minLon": -61.03935,
+            "maxLon": -60.99891
+        },
+        "radiusMeters": 2254.2173780111953,
+        "updatedAt": "2025-11-17T14:19:02+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "gros-morne:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "GM01"
+        ],
+        "stopCount": 45,
+        "centroid": {
+            "lat": 14.716408511111103,
+            "lon": -60.99731775555557
+        },
+        "bbox": {
+            "minLat": 14.708114,
+            "maxLat": 14.725505,
+            "minLon": -61.01124,
+            "maxLon": -60.981735
+        },
+        "radiusMeters": 1957.4371425023407,
+        "updatedAt": "2025-11-17T14:19:02+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-lamentin:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "401"
+        ],
+        "stopCount": 25,
+        "centroid": {
+            "lat": 14.615561760000002,
+            "lon": -60.99353484
+        },
+        "bbox": {
+            "minLat": 14.59766,
+            "maxLat": 14.631801,
+            "minLon": -61.00208,
+            "maxLon": -60.985264
+        },
+        "radiusMeters": 2192.681229608281,
+        "updatedAt": "2025-11-17T14:19:03+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "schoelcher:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "100"
+        ],
+        "stopCount": 28,
+        "centroid": {
+            "lat": 14.609719249999998,
+            "lon": -61.08931225
+        },
+        "bbox": {
+            "minLat": 14.602619,
+            "maxLat": 14.621513,
+            "minLon": -61.09929,
+            "maxLon": -61.07168
+        },
+        "radiusMeters": 2306.3055355502265,
+        "updatedAt": "2025-11-17T14:19:03+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "la-trinite:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "TM01"
+        ],
+        "stopCount": 45,
+        "centroid": {
+            "lat": 14.753385488888888,
+            "lon": -60.99045564444444
+        },
+        "bbox": {
+            "minLat": 14.74047,
+            "maxLat": 14.768799,
+            "minLon": -61.016773,
+            "maxLon": -60.962994
+        },
+        "radiusMeters": 3414.1753800257684,
+        "updatedAt": "2025-11-17T14:19:04+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-marigot:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "MA01"
+        ],
+        "stopCount": 18,
+        "centroid": {
+            "lat": 14.809224166666667,
+            "lon": -61.035103944444444
+        },
+        "bbox": {
+            "minLat": 14.78906,
+            "maxLat": 14.82333,
+            "minLon": -61.0433,
+            "maxLon": -61.023655
+        },
+        "radiusMeters": 2557.772695399786,
+        "updatedAt": "2025-11-17T14:19:06+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "fort-de-france:1",
+        "name": "Réseau Centre",
+        "routes": [
+            "A",
+            "B"
+        ],
+        "stopCount": 29,
+        "centroid": {
+            "lat": 14.609235172413797,
+            "lon": -61.035721413793105
+        },
+        "bbox": {
+            "minLat": 14.595487,
+            "maxLat": 14.619055,
+            "minLon": -61.074184,
+            "maxLon": -60.98368
+        },
+        "radiusMeters": 5804.740900645021,
+        "updatedAt": "2025-11-17T14:19:07+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-francois:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "50"
+        ],
+        "stopCount": 13,
+        "centroid": {
+            "lat": 14.61881707692308,
+            "lon": -60.89981638461539
+        },
+        "bbox": {
+            "minLat": 14.61373,
+            "maxLat": 14.625847,
+            "minLon": -60.91066,
+            "maxLon": -60.887962
+        },
+        "radiusMeters": 1495.935930570196,
+        "updatedAt": "2025-11-17T14:19:01+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-esprit:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "47",
+            "48",
+            "49"
+        ],
+        "stopCount": 37,
+        "centroid": {
+            "lat": 14.550569918918919,
+            "lon": -60.91268818918919
+        },
+        "bbox": {
+            "minLat": 14.533605,
+            "maxLat": 14.567224,
+            "minLon": -60.94247,
+            "maxLon": -60.891373
+        },
+        "radiusMeters": 3719.374754124568,
+        "updatedAt": "2025-11-17T14:19:01+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "sainte-luce:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "20"
+        ],
+        "stopCount": 36,
+        "centroid": {
+            "lat": 14.479328277777777,
+            "lon": -60.94578772222222
+        },
+        "bbox": {
+            "minLat": 14.465817,
+            "maxLat": 14.500131,
+            "minLon": -60.981598,
+            "maxLon": -60.903805
+        },
+        "radiusMeters": 5077.312868733631,
+        "updatedAt": "2025-11-17T14:19:03+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "ducos:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "44",
+            "38"
+        ],
+        "stopCount": 14,
+        "centroid": {
+            "lat": 14.583585785714288,
+            "lon": -60.955462857142855
+        },
+        "bbox": {
+            "minLat": 14.57448,
+            "maxLat": 14.602291,
+            "minLon": -60.972916,
+            "maxLon": -60.937958
+        },
+        "radiusMeters": 2806.111150645025,
+        "updatedAt": "2025-11-17T14:19:04+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "riviere-salee:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "14"
+        ],
+        "stopCount": 22,
+        "centroid": {
+            "lat": 14.531358181818177,
+            "lon": -60.96529513636364
+        },
+        "bbox": {
+            "minLat": 14.498295,
+            "maxLat": 14.548747,
+            "minLon": -60.98381,
+            "maxLon": -60.92912
+        },
+        "radiusMeters": 5355.408242311806,
+        "updatedAt": "2025-11-17T14:19:05+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-vauclin:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "33"
+        ],
+        "stopCount": 18,
+        "centroid": {
+            "lat": 14.5590155,
+            "lon": -60.859215999999996
+        },
+        "bbox": {
+            "minLat": 14.545065,
+            "maxLat": 14.571957,
+            "minLon": -60.883976,
+            "maxLon": -60.837425
+        },
+        "radiusMeters": 3083.4715646484483,
+        "updatedAt": "2025-11-17T14:19:05+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-marin:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "24",
+            "23"
+        ],
+        "stopCount": 28,
+        "centroid": {
+            "lat": 14.452821892857143,
+            "lon": -60.866069928571434
+        },
+        "bbox": {
+            "minLat": 14.40277,
+            "maxLat": 14.47371,
+            "minLon": -60.88386,
+            "maxLon": -60.83349
+        },
+        "radiusMeters": 6579.083585029224,
+        "updatedAt": "2025-11-17T14:19:06+00:00"
+    },
+    {
+        "region": "mar",
+        "endpoint": "https:\/\/otp-mar.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "riviere-pilote:1",
+        "name": "mobilite_sud",
+        "routes": [
+            "06"
+        ],
+        "stopCount": 31,
+        "centroid": {
+            "lat": 14.484277741935482,
+            "lon": -60.90801287096775
+        },
+        "bbox": {
+            "minLat": 14.460512,
+            "maxLat": 14.508248,
+            "minLon": -60.923813,
+            "maxLon": -60.8908
+        },
+        "radiusMeters": 3246.2283172478205,
+        "updatedAt": "2025-11-17T14:19:06+00:00"
+    }
+]

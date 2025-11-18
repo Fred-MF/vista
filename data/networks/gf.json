@@ -1,0 +1,43 @@
+[
+    {
+        "region": "gf",
+        "endpoint": "https:\/\/otp-gf.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "cayenne:11215498",
+        "name": "AGGLOBUS PERI URBAIN",
+        "routes": [
+            "N°8",
+            "Ligne. E Boucle 2",
+            "Ligne 10",
+            "Ligne A1",
+            "Ligne A2",
+            "Ligne 7",
+            "N°5",
+            "Ligne D",
+            "Ligne.E Boucle 1",
+            "Ligne F",
+            "N°6",
+            "N°9",
+            "DAD Eskol",
+            "N°1",
+            "Ligne. B",
+            "Ligne. Int Quat Mat",
+            "N°2",
+            "N°3",
+            "DAD Dacca",
+            "N°4"
+        ],
+        "stopCount": 518,
+        "centroid": {
+            "lat": 4.904104432432435,
+            "lon": -52.329375884169885
+        },
+        "bbox": {
+            "minLat": 4.720114,
+            "maxLat": 5.071099,
+            "minLon": -52.566753,
+            "maxLon": -52.25754
+        },
+        "radiusMeters": 33322.095419938174,
+        "updatedAt": "2025-11-17T13:49:30+00:00"
+    }
+]

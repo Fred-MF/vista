@@ -1,0 +1,294 @@
+[
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-pierre-de-la-reunion:ALTERNEO",
+        "name": "ALTERNEO",
+        "routes": [
+            "1"
+        ],
+        "stopCount": 80,
+        "centroid": {
+            "lat": -21.3209614375,
+            "lon": 55.4808419125
+        },
+        "bbox": {
+            "minLat": -21.347094,
+            "maxLat": -21.282473,
+            "minLon": 55.46823,
+            "maxLon": 55.497498
+        },
+        "radiusMeters": 4614.485982293566,
+        "updatedAt": "2025-11-17T15:01:51+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "cilaos:ALTERNEO",
+        "name": "ALTERNEO",
+        "routes": [
+            "60"
+        ],
+        "stopCount": 105,
+        "centroid": {
+            "lat": -21.212017238095246,
+            "lon": 55.45111018095239
+        },
+        "bbox": {
+            "minLat": -21.291887,
+            "maxLat": -21.135109,
+            "minLon": 55.404037,
+            "maxLon": 55.478027
+        },
+        "radiusMeters": 10132.738123233656,
+        "updatedAt": "2025-11-17T15:01:51+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "petite-ile:ALTERNEO",
+        "name": "ALTERNEO",
+        "routes": [
+            "52",
+            "51"
+        ],
+        "stopCount": 119,
+        "centroid": {
+            "lat": -21.33582667226892,
+            "lon": 55.56216900000001
+        },
+        "bbox": {
+            "minLat": -21.354244,
+            "maxLat": -21.31612,
+            "minLon": 55.548435,
+            "maxLon": 55.573986
+        },
+        "radiusMeters": 2612.5572375287943,
+        "updatedAt": "2025-11-17T15:01:55+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "l-etang-sale:ALTERNEO",
+        "name": "ALTERNEO",
+        "routes": [
+            "45",
+            "43",
+            "41",
+            "44",
+            "42"
+        ],
+        "stopCount": 243,
+        "centroid": {
+            "lat": -21.249898061728413,
+            "lon": 55.373871205761326
+        },
+        "bbox": {
+            "minLat": -21.269842,
+            "maxLat": -21.225863,
+            "minLon": 55.360935,
+            "maxLon": 55.39081
+        },
+        "radiusMeters": 3197.617669688068,
+        "updatedAt": "2025-11-17T15:01:58+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "les-avirons:ALTERNEO",
+        "name": "ALTERNEO",
+        "routes": [
+            "88",
+            "85"
+        ],
+        "stopCount": 114,
+        "centroid": {
+            "lat": -21.222175192982455,
+            "lon": 55.34621707894734
+        },
+        "bbox": {
+            "minLat": -21.242386,
+            "maxLat": -21.207474,
+            "minLon": 55.330376,
+            "maxLon": 55.36543
+        },
+        "radiusMeters": 3002.674637100436,
+        "updatedAt": "2025-11-17T15:01:59+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-louis-de-la-reunion:ALTERNEO",
+        "name": "ALTERNEO",
+        "routes": [
+            "21",
+            "23",
+            "25",
+            "22",
+            "24"
+        ],
+        "stopCount": 251,
+        "centroid": {
+            "lat": -21.263792812749,
+            "lon": 55.417548884462136
+        },
+        "bbox": {
+            "minLat": -21.292233,
+            "maxLat": -21.207779,
+            "minLon": 55.38924,
+            "maxLon": 55.449898
+        },
+        "radiusMeters": 7073.538035341783,
+        "updatedAt": "2025-11-17T15:02:00+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "interurbain-reunion:CAR JAUNE",
+        "name": "CAR JAUNE",
+        "routes": [
+            "T",
+            "S3-dec",
+            "S6",
+            "S5",
+            "S4",
+            "ZO",
+            "S2",
+            "S1",
+            "O3",
+            "O2",
+            "E3",
+            "E2",
+            "E1",
+            "S3",
+            "O1"
+        ],
+        "stopCount": 309,
+        "centroid": {
+            "lat": -21.131071381877042,
+            "lon": 55.48575733333337
+        },
+        "bbox": {
+            "minLat": -21.38037,
+            "maxLat": -20.87433,
+            "minLon": 55.218723,
+            "maxLon": 55.826847
+        },
+        "radiusMeters": 45483.04781272249,
+        "updatedAt": "2025-11-17T15:01:55+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "le-port-possession:KAROUEST",
+        "name": "KAROUEST",
+        "routes": [
+            "10",
+            "16"
+        ],
+        "stopCount": 155,
+        "centroid": {
+            "lat": -20.938451503225807,
+            "lon": 55.3331925870968
+        },
+        "bbox": {
+            "minLat": -20.96284,
+            "maxLat": -20.92252,
+            "minLon": 55.2907,
+            "maxLon": 55.37897
+        },
+        "radiusMeters": 5472.832831431563,
+        "updatedAt": "2025-11-17T15:01:50+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-paul-de-la-reunion:KAROUEST",
+        "name": "KAROUEST",
+        "routes": [
+            "1"
+        ],
+        "stopCount": 91,
+        "centroid": {
+            "lat": -20.998897516483527,
+            "lon": 55.309059703296704
+        },
+        "bbox": {
+            "minLat": -21.02184,
+            "maxLat": -20.97704,
+            "minLon": 55.27449,
+            "maxLon": 55.33436
+        },
+        "radiusMeters": 4402.810734242377,
+        "updatedAt": "2025-11-17T15:01:51+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-leu:KAROUEST",
+        "name": "KAROUEST",
+        "routes": [
+            "30"
+        ],
+        "stopCount": 88,
+        "centroid": {
+            "lat": -21.143796272727283,
+            "lon": 55.302749284090915
+        },
+        "bbox": {
+            "minLat": -21.16947,
+            "maxLat": -21.12748,
+            "minLon": 55.27642,
+            "maxLon": 55.32884
+        },
+        "radiusMeters": 3950.268453741265,
+        "updatedAt": "2025-11-17T15:01:55+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "trois-bassins:KAROUEST",
+        "name": "KAROUEST",
+        "routes": [
+            "4"
+        ],
+        "stopCount": 124,
+        "centroid": {
+            "lat": -21.09819381451614,
+            "lon": 55.29231473387099
+        },
+        "bbox": {
+            "minLat": -21.16947,
+            "maxLat": -21.00968,
+            "minLon": 55.26539,
+            "maxLon": 55.32884
+        },
+        "radiusMeters": 10546.89257060415,
+        "updatedAt": "2025-11-17T15:01:57+00:00"
+    },
+    {
+        "region": "re",
+        "endpoint": "https:\/\/otp-re.maasify.io\/otp\/routers\/default\/index\/graphql",
+        "agencyId": "saint-joseph:agency",
+        "name": "carSud",
+        "routes": [
+            "71",
+            "76Bi",
+            "75",
+            "81"
+        ],
+        "stopCount": 226,
+        "centroid": {
+            "lat": -21.350395566371684,
+            "lon": 55.63186475663715
+        },
+        "bbox": {
+            "minLat": -21.382404,
+            "maxLat": -21.288908,
+            "minLon": 55.613506,
+            "maxLon": 55.650627
+        },
+        "radiusMeters": 7107.966420579243,
+        "updatedAt": "2025-11-17T15:01:56+00:00"
+    }
+]

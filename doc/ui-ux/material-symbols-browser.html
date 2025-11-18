@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Material Symbols – Browser & ZIP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- JSZip & FileSaver pour créer le ZIP côté navigateur -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-pd3nCF6nu9dVbNwZm5kX+9nGx5xSd7J4k3NWz4xUDm9EhMm9wT+KH6bBeJcFRG2TC7mAwxACRAbk4kqXcQH0Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-bGQdTh2j8NQ5K8bK6hnib2BYphtkLFSa4R2z7rZ8uHcItiTQ5gkqQ76VIYWrJvJtF8vZ44HfKkG4wY7QYqUGAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    body {
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .controls {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 900px;
+    }
+
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    input[type="text"],
+    select {
+      padding: 0.3rem 0.5rem;
+      border-radius: 0.375rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    button {
+      padding: 0.35rem 0.8rem;
+      border-radius: 0.375rem;
+      border: 1px solid #38bdf8;
+      background: #020617;
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    button:hover {
+      background: #0b1120;
+    }
+
+    #status {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .icon-card {
+      border-radius: 0.5rem;
+      border: 1px solid #1f2937;
+      background: #020617;
+      padding: 0.4rem 0.4rem 0.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+    }
+
+    .icon-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e5e7eb;
+      border-radius: 0.375rem;
+      padding: 0.25rem;
+      min-height: 40px;
+      min-width: 40px;
+    }
+
+    .icon-preview img {
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+
+    .icon-name {
+      text-align: center;
+      word-break: break-all;
+      color: #e5e7eb;
+    }
+
+    .icon-actions {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+
+    .icon-actions input[type="checkbox"] {
+      margin: 0;
+    }
+
+    .toolbar {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    #searchInput {
+      max-width: 220px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Material Symbols – Liste & export ZIP</h1>
+
+  <div class="controls">
+    <div class="controls-row">
+      <label for="styleSelect">Style :</label>
+      <select id="styleSelect">
+        <option value="outlined">outlined</option>
+        <option value="rounded">rounded</option>
+        <option value="sharp">sharp</option>
+      </select>
+
+      <label for="sizeSelect">Taille :</label>
+      <select id="sizeSelect">
+        <option value="24">24px</option>
+        <option value="20">20px</option>
+        <option value="40">40px</option>
+        <option value="48" selected>48px</option>
+      </select>
+    </div>
+
+    <div class="controls-row">
+      <label for="baseUrl">Base URL SVG :</label>
+      <input
+        type="text"
+        id="baseUrl"
+        value="https://cdn.jsdelivr.net/gh/google/material-design-icons@master/symbols/web"
+      />
+    </div>
+
+    <div class="controls-row">
+      <button id="loadIconsBtn">Charger la liste complète (via Iconify)</button>
+      <span id="status"></span>
+    </div>
+
+    <div class="toolbar">
+      <label for="searchInput">Filtre (nom contient) :</label>
+      <input type="text" id="searchInput" placeholder="bus, train, map…" />
+      <button id="selectAllBtn">Tout sélectionner (filtré)</button>
+      <button id="clearSelectionBtn">Effacer la sélection</button>
+      <button id="downloadZipBtn">Télécharger la sélection en ZIP</button>
+    </div>
+  </div>
+
+  <div id="icons" class="grid"></div>
+
+  <script>
+    // URL Iconify : liste des Material Symbols (noms d'icônes)
+    const ICONS_JSON_URL = "https://unpkg.com/@iconify-json/material-symbols@latest/icons.json";
+
+    const loadIconsBtn = document.getElementById("loadIconsBtn");
+    const statusEl = document.getElementById("status");
+    const iconsContainer = document.getElementById("icons");
+    const styleSelect = document.getElementById("styleSelect");
+    const sizeSelect = document.getElementById("sizeSelect");
+    const baseUrlInput = document.getElementById("baseUrl");
+    const searchInput = document.getElementById("searchInput");
+    const selectAllBtn = document.getElementById("selectAllBtn");
+    const clearSelectionBtn = document.getElementById("clearSelectionBtn");
+    const downloadZipBtn = document.getElementById("downloadZipBtn");
+
+    let allIconNames = []; // Liste complète des noms d'icônes
+    let filteredNames = []; // Liste filtrée courante
+
+    function getStyleSegment(style) {
+      switch (style) {
+        case "rounded":
+          return "materialsymbolsrounded";
+        case "sharp":
+          return "materialsymbolssharp";
+        case "outlined":
+        default:
+          return "materialsymbolsoutlined";
+      }
+    }
+
+    function buildSvgUrl(iconName) {
+      const base = baseUrlInput.value.trim().replace(/\/+$/, ""); // retire slash final
+      const style = styleSelect.value;
+      const size = sizeSelect.value;
+      const styleSegment = getStyleSegment(style);
+
+      // Pattern : symbols/web/<name>/<styleSegment>/<name>_<size>px.svg
+      return `${base}/${iconName}/${styleSegment}/${iconName}_${size}px.svg`;
+    }
+
+    function renderIcons() {
+      const filter = searchInput.value.trim().toLowerCase();
+      filteredNames = filter
+        ? allIconNames.filter((name) => name.toLowerCase().includes(filter))
+        : allIconNames;
+
+      iconsContainer.innerHTML = "";
+
+      if (!filteredNames.length) {
+        statusEl.textContent = "Aucune icône ne correspond au filtre.";
+        return;
+      }
+
+      statusEl.textContent = `${filteredNames.length} icônes affichées (sur ${allIconNames.length}).`;
+
+      for (const name of filteredNames) {
+        const card = document.createElement("div");
+        card.className = "icon-card";
+        card.dataset.iconName = name;
+
+        const preview = document.createElement("div");
+        preview.className = "icon-preview";
+
+        const img = document.createElement("img");
+        img.src = buildSvgUrl(name);
+        img.alt = name;
+
+        preview.appendChild(img);
+
+        const label = document.createElement("div");
+        label.className = "icon-name";
+        label.textContent = name;
+
+        const actions = document.createElement("div");
+        actions.className = "icon-actions";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "select-icon-checkbox";
+        checkbox.dataset.iconName = name;
+
+        const checkboxLabel = document.createElement("label");
+        checkboxLabel.textContent = "Inclure dans le ZIP";
+
+        actions.appendChild(checkbox);
+        actions.appendChild(checkboxLabel);
+
+        card.appendChild(preview);
+        card.appendChild(label);
+        card.appendChild(actions);
+
+        iconsContainer.appendChild(card);
+      }
+    }
+
+    async function loadIconsList() {
+      statusEl.textContent = "Chargement de la liste des icônes (Iconify)…";
+      iconsContainer.innerHTML = "";
+
+      try {
+        const res = await fetch(ICONS_JSON_URL);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status} – ${res.statusText}`);
+        }
+        const data = await res.json();
+        const iconsObj = data.icons || {};
+        allIconNames = Object.keys(iconsObj).sort();
+
+        statusEl.textContent = `Liste chargée : ${allIconNames.length} icônes. Rendu…`;
+        renderIcons();
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "Erreur lors du chargement des icônes : " + err.message;
+      }
+    }
+
+    function selectAllFiltered() {
+      const checkboxes = iconsContainer.querySelectorAll(".select-icon-checkbox");
+      checkboxes.forEach((cb) => {
+        cb.checked = true;
+      });
+    }
+
+    function clearSelection() {
+      const checkboxes = iconsContainer.querySelectorAll(".select-icon-checkbox");
+      checkboxes.forEach((cb) => {
+        cb.checked = false;
+      });
+    }
+
+    async function downloadSelectedAsZip() {
+      const checkboxes = Array.from(
+        iconsContainer.querySelectorAll(".select-icon-checkbox:checked")
+      );
+
+      if (!checkboxes.length) {
+        alert("Aucune icône sélectionnée.");
+        return;
+      }
+
+      const style = styleSelect.value;
+      const size = sizeSelect.value;
+
+      const zip = new JSZip();
+      const folderPath = `material-symbols-${style}-${size}px`;
+      const folder = zip.folder(folderPath);
+
+      statusEl.textContent = `Téléchargement des SVG sélectionnés (${checkboxes.length})…`;
+
+      // Télécharger chaque SVG et l’ajouter au ZIP
+      for (const cb of checkboxes) {
+        const name = cb.dataset.iconName;
+        const url = buildSvgUrl(name);
+
+        try {
+          const res = await fetch(url);
+          if (!res.ok) {
+            console.warn("Échec pour", name, url);
+            continue;
+          }
+          const svgText = await res.text();
+          folder.file(`${name}.svg`, svgText);
+        } catch (e) {
+          console.warn("Erreur réseau pour", name, e);
+        }
+      }
+
+      statusEl.textContent = "Génération du ZIP…";
+
+      const blob = await zip.generateAsync({ type: "blob" });
+      const fileName = `${folderPath}-selection.zip`;
+      saveAs(blob, fileName);
+
+      statusEl.textContent = `ZIP généré (${fileName}).`;
+    }
+
+    // Événements
+    loadIconsBtn.addEventListener("click", loadIconsList);
+    searchInput.addEventListener("input", () => {
+      if (!allIconNames.length) return;
+      renderIcons();
+    });
+    styleSelect.addEventListener("change", () => {
+      if (!allIconNames.length) return;
+      renderIcons();
+    });
+    sizeSelect.addEventListener("change", () => {
+      if (!allIconNames.length) return;
+      renderIcons();
+    });
+    baseUrlInput.addEventListener("change", () => {
+      if (!allIconNames.length) return;
+      renderIcons();
+    });
+
+    selectAllBtn.addEventListener("click", selectAllFiltered);
+    clearSelectionBtn.addEventListener("click", clearSelection);
+    downloadZipBtn.addEventListener("click", downloadSelectedAsZip);
+  </script>
+</body>
+</html>
