@@ -1,6 +1,26 @@
-import { DEFAULT_MAP_VIEW, MAP_STYLE_URL, ZOOM_STATIONS_POINTS_MIN, ZOOM_STOPS_MIN, DISABLE_POI_LAYERS, ICON_STOP_URL, ICON_STATION_URL, USE_SPRITE_ICONS, SPRITE_STOP_ICON_NAME, SPRITE_STATION_ICON_NAME, getMapStyleURL, getIconUrlsForTheme, USE_CLUSTERING } from "./config.js";
-import { fetchStopDetails, fetchStopDeparturesForDate, fetchStationAggregated } from "./api.js";
-import { regionSelect } from "./ui.js";
+/**
+ * map.js – Encapsulation de MapLibre.
+ * Rôle : afficher les couches et relayer les interactions vers main.js.
+ * Sélection d’un arrêt :
+ *   - l’utilisateur clique un marker → `handleSymbolClick`
+ *   - map.js appelle le callback `mapCallbacks.onStopClick` fourni par main.js avec les métadonnées
+ *   - aucun appel API ni manipulation de UI ici.
+ */
+import {
+  DEFAULT_MAP_VIEW,
+  MAP_STYLE_URL,
+  ZOOM_STATIONS_POINTS_MIN,
+  ZOOM_STOPS_MIN,
+  DISABLE_POI_LAYERS,
+  ICON_STOP_URL,
+  ICON_STATION_URL,
+  USE_SPRITE_ICONS,
+  SPRITE_STOP_ICON_NAME,
+  SPRITE_STATION_ICON_NAME,
+  getMapStyleURL,
+  getIconUrlsForTheme,
+  USE_CLUSTERING
+} from "./config.js";
 
 const STOPS_SOURCE_ID = "stops";
 const STATIONS_SOURCE_ID = "stations";
@@ -8,13 +28,269 @@ const STOPS_SYMBOL_LAYER_ID = "stops-symbol";
 const STATIONS_SYMBOL_LAYER_ID = "stations-symbol";
 const STOPS_BG_LAYER_ID = "stops-bg";
 const STATIONS_BG_LAYER_ID = "stations-bg";
+const STOPS_CLUSTERS_LAYER_ID = "stops-clusters";
+const STOPS_CLUSTER_COUNT_LAYER_ID = "stops-cluster-count";
+const STOPS_UNCLUSTERED_BG_LAYER_ID = "stops-unclustered-bg";
+const STOPS_UNCLUSTERED_SYMBOL_LAYER_ID = "stops-unclustered-symbol";
+const STATIONS_CLUSTERS_LAYER_ID = "stations-clusters";
+const STATIONS_CLUSTER_COUNT_LAYER_ID = "stations-cluster-count";
+const STATIONS_UNCLUSTERED_BG_LAYER_ID = "stations-unclustered-bg";
+const STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID = "stations-unclustered-symbol";
+
+const POINT_LAYER_IDS = [
+  STOPS_BG_LAYER_ID,
+  STOPS_SYMBOL_LAYER_ID,
+  STATIONS_BG_LAYER_ID,
+  STATIONS_SYMBOL_LAYER_ID
+];
+
+const CLUSTER_LAYER_IDS = [
+  STATIONS_CLUSTERS_LAYER_ID,
+  STATIONS_CLUSTER_COUNT_LAYER_ID,
+  STATIONS_UNCLUSTERED_BG_LAYER_ID,
+  STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID,
+  STOPS_CLUSTERS_LAYER_ID,
+  STOPS_CLUSTER_COUNT_LAYER_ID,
+  STOPS_UNCLUSTERED_BG_LAYER_ID,
+  STOPS_UNCLUSTERED_SYMBOL_LAYER_ID
+];
 
 let mapInstance;
 let stopsSourceReady = false;
 let stationsSourceReady = false;
 let userMarker = null;
 let activePopup = null;
-const stopInfoCache = new Map();
+let interactionsBound = false;
+let styleReloadPending = false;
+let poiVisibilityWatcherAttached = false;
+let latestMapData = null;
+let pendingMapApply = false;
+const mapCallbacks = {
+  fetchStopInfo: null,
+  fetchStationInfo: null,
+  onStopClick: null,
+  onStyleChange: null,
+  onNearbyMarkerDrag: null
+};
+
+let nearbyMarker = null;
+let nearbyMarkerActive = false;
+
+async function addSvgIcon(name, svgUrl, pngFallbackUrl) {
+  if (!mapInstance) {
+    return false;
+  }
+  return new Promise(resolve => {
+    const applyImage = image => {
+      if (!image) {
+        resolve(false);
+        return;
+      }
+      if (mapInstance.hasImage && mapInstance.hasImage(name)) {
+        mapInstance.removeImage(name);
+      }
+      if (mapInstance.addImage) {
+        mapInstance.addImage(name, image);
+      }
+      resolve(true);
+    };
+
+    fetch(svgUrl, { mode: "cors" })
+      .then(res => (res.ok ? res.text() : Promise.reject(new Error("svg http " + res.status))))
+      .then(svgText => {
+        const blob = new Blob([svgText], { type: "image/svg+xml" });
+        const url = URL.createObjectURL(blob);
+        mapInstance.loadImage(url, (err, image) => {
+          URL.revokeObjectURL(url);
+          if (!err && image) {
+            applyImage(image);
+            return;
+          }
+          mapInstance.loadImage(pngFallbackUrl, (fallbackErr, fallbackImage) => {
+            if (!fallbackErr && fallbackImage) {
+              applyImage(fallbackImage);
+              return;
+            }
+            resolve(false);
+          });
+        });
+      })
+      .catch(() => {
+        mapInstance.loadImage(pngFallbackUrl, (fallbackErr, fallbackImage) => {
+          if (!fallbackErr && fallbackImage) {
+            applyImage(fallbackImage);
+            return;
+          }
+          resolve(false);
+        });
+      });
+  });
+}
+
+async function preloadMarkerIcons() {
+  if (USE_SPRITE_ICONS || !mapInstance) {
+    return;
+  }
+  const theme = document.documentElement.getAttribute("data-theme") || "dark";
+  const urls = getIconUrlsForTheme(theme);
+  await Promise.all([
+    addSvgIcon("hail-icon", urls.stopSvg, ICON_STOP_URL),
+    addSvgIcon("station-icon", urls.stationSvg, ICON_STATION_URL)
+  ]);
+}
+
+function hideBuiltInPoiLayers() {
+  if (!mapInstance || !DISABLE_POI_LAYERS) {
+    return;
+  }
+  try {
+    const style = mapInstance.getStyle();
+    (style?.layers || []).forEach(layer => {
+      const id = layer?.id || "";
+      const type = layer?.type || "";
+      const sourceLayer = layer?.["source-layer"] || "";
+      if (
+        type === "symbol" &&
+        (id.includes("poi") || id.includes("amenity") || sourceLayer.includes("poi") || sourceLayer.includes("amenity"))
+      ) {
+        if (mapInstance.getLayer(id)) {
+          mapInstance.setLayoutProperty(id, "visibility", "none");
+        }
+      }
+    });
+  } catch (err) {
+    console.warn("Désactivation des POI impossible:", err);
+  }
+}
+
+function ensurePoiVisibilityControl() {
+  if (!DISABLE_POI_LAYERS || !mapInstance) {
+    return;
+  }
+  hideBuiltInPoiLayers();
+  if (!poiVisibilityWatcherAttached) {
+    poiVisibilityWatcherAttached = true;
+    mapInstance.on("styledata", hideBuiltInPoiLayers);
+  }
+}
+
+function removeLayerIfExists(layerId) {
+  if (!mapInstance || !layerId) {
+    return;
+  }
+  if (mapInstance.getLayer(layerId)) {
+    mapInstance.removeLayer(layerId);
+  }
+}
+
+function removeSourceIfExists(sourceId) {
+  if (!mapInstance || !sourceId) {
+    return;
+  }
+  if (mapInstance.getSource(sourceId)) {
+    mapInstance.removeSource(sourceId);
+  }
+}
+
+function removeVistaLayers() {
+  [...POINT_LAYER_IDS, ...CLUSTER_LAYER_IDS].forEach(removeLayerIfExists);
+}
+
+function applyMapData(payload = {}) {
+  if (!mapInstance) {
+    return;
+  }
+  const maplibre = ensureMaplibre();
+  if (!maplibre) {
+    return;
+  }
+  const stops = Array.isArray(payload.stops) ? payload.stops : [];
+  const stations = Array.isArray(payload.stations) ? payload.stations : [];
+  const area = payload.area || null;
+  const userLocation = payload.userLocation || null;
+
+  const stopFeatures = stops
+    .filter(stop => typeof stop.lat === "number" && typeof stop.lon === "number")
+    .map(stop => ({
+      type: "Feature",
+      properties: {
+        id: stop.id,
+        name: stop.name || "Arrêt sans nom",
+        parentStationId: stop.parentStationId || (stop.parentStation && stop.parentStation.id) || null
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [stop.lon, stop.lat]
+      }
+    }));
+
+  const stationFeatures = stations
+    .filter(st => typeof st.lat === "number" && typeof st.lon === "number")
+    .map(st => ({
+      type: "Feature",
+      properties: {
+        id: st.id,
+        name: st.name || "Station"
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [st.lon, st.lat]
+      }
+    }));
+
+  setStopsGeojson(stopFeatures);
+  setStationsGeojson(stationFeatures);
+  ensureUserMarker(maplibre, userLocation);
+
+  // Use network bbox if available (more accurate for network coverage)
+  const networkBbox = area?.bbox;
+  if (networkBbox && 
+      typeof networkBbox.minLat === "number" && 
+      typeof networkBbox.maxLat === "number" &&
+      typeof networkBbox.minLon === "number" && 
+      typeof networkBbox.maxLon === "number") {
+    const bounds = new maplibre.LngLatBounds(
+      [networkBbox.minLon, networkBbox.minLat],
+      [networkBbox.maxLon, networkBbox.maxLat]
+    );
+    mapInstance.fitBounds(bounds, { padding: 40, maxZoom: 16 });
+    return;
+  }
+
+  // Fallback: calculate bounds from stops/stations
+  const bounds = new maplibre.LngLatBounds();
+  let hasBounds = false;
+  stopFeatures.forEach(feature => {
+    bounds.extend(feature.geometry.coordinates);
+    hasBounds = true;
+  });
+  stationFeatures.forEach(feature => {
+    bounds.extend(feature.geometry.coordinates);
+    hasBounds = true;
+  });
+  if (userLocation) {
+    bounds.extend([userLocation.lon, userLocation.lat]);
+    hasBounds = true;
+  }
+
+  if (hasBounds && typeof bounds.isValid === "function" && bounds.isValid()) {
+    mapInstance.fitBounds(bounds, { padding: 50, maxZoom: 15 });
+  } else if (area && typeof area.lat === "number" && typeof area.lon === "number") {
+    mapInstance.setCenter([area.lon, area.lat]);
+    mapInstance.setZoom(12);
+  }
+}
+
+function flushPendingMapData() {
+  if (!pendingMapApply || !latestMapData) {
+    return;
+  }
+  if (!stopsSourceReady || !stationsSourceReady) {
+    return;
+  }
+  pendingMapApply = false;
+  applyMapData(latestMapData);
+}
 
 function htmlEscape(str) {
   if (str == null) return '';
@@ -190,22 +466,6 @@ function normalizeStopId(rawId) {
   return String(rawId);
 }
 
-async function getStopInfo(regionCode, stopId) {
-  const key = `${regionCode || ''}|${stopId}`;
-  const now = Date.now();
-  const cached = stopInfoCache.get(key);
-  if (cached && (now - cached.t) < 60000) { // 60s cache
-    return cached.v;
-  }
-  const info = await fetchStopDetails(regionCode, stopId, { numberOfDepartures: 5, timeRange: 3600 });
-  stopInfoCache.put?.(key, { t: now, v: info });
-  if (!stopInfoCache.has(key)) {
-    // for environments without .put, fallback to set
-    stopInfoCache.set(key, { t: now, v: info });
-  }
-  return info;
-}
-
 async function openStopInfoPopup(e, opts = {}) {
   try {
     const feature = (e && e.features && e.features[0]) ? e.features[0] : null;
@@ -230,59 +490,24 @@ async function openStopInfoPopup(e, opts = {}) {
       } catch (e) {}
     }
 
-    const regionEl = (typeof document !== 'undefined' && document.getElementById) ? document.getElementById('region-select') : null;
-    const regionCode = regionEl && regionEl.value ? regionEl.value : ((typeof regionSelect !== 'undefined' && regionSelect && regionSelect.value) ? regionSelect.value : null);
-    try {
-      const isStationLayer = !!(opts && opts.layerId && String(opts.layerId).includes("station"));
-      let info = isStationLayer ? await fetchStationAggregated(regionCode, stopId, { numberOfDepartures: 8 }) : await getStopInfo(regionCode, stopId);
-      if (!info.departures || info.departures.length === 0) {
-        const now = new Date();
-        for (let d = 1; d <= 7 && (!info.departures || info.departures.length === 0); d++) {
-          const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + d);
-          const yyyy = String(next.getFullYear());
-          const mm = String(next.getMonth() + 1).padStart(2, '0');
-          const dd = String(next.getDate()).padStart(2, '0');
-          try {
-            const extra = isStationLayer
-              ? await fetchStationDeparturesForDate(regionCode, stopId, `${yyyy}${mm}${dd}`, 8)
-              : await fetchStopDeparturesForDate(regionCode, stopId, `${yyyy}${mm}${dd}`, 5);
-            if (extra && Array.isArray(extra.departures) && extra.departures.length) {
-              info = {
-                name: info.name || extra.name,
-                routes: info.routes && info.routes.length ? info.routes : [],
-                departures: extra.departures.map(dep => ({ ...dep, _dayOffset: d }))
-              };
-            }
-          } catch (_) {}
-        }
-        // Final fallback for stops: try parent station aggregation if available
-        if (!isStationLayer && (!info.departures || info.departures.length === 0)) {
-          const parentId = feature.properties && feature.properties.parentStationId;
-          if (parentId) {
-            try {
-              const stInfo = await fetchStationAggregated(regionCode, parentId, { numberOfDepartures: 8 });
-              if (stInfo && Array.isArray(stInfo.departures)) {
-                // Filter to only departures that originate from this stop when available
-                const onlyThisStop = stInfo.departures.filter(d => {
-                  const oid = (d && d.originStopId) ? String(d.originStopId) : null;
-                  return oid && (oid === stopId);
-                });
-                const pickedDeps = onlyThisStop.length ? onlyThisStop : stInfo.departures;
-                info = {
-                  name: name,
-                  routes: stInfo.routes,
-                  departures: pickedDeps
-                };
-              }
-            } catch (_) {}
-          }
-        }
+    const isStationLayer =
+      typeof opts.isStation === "boolean"
+        ? opts.isStation
+        : !!(opts && opts.layerId && String(opts.layerId).includes("station"));
+    const infoFetcher = isStationLayer ? mapCallbacks.fetchStationInfo : mapCallbacks.fetchStopInfo;
+    let info = null;
+    if (typeof infoFetcher === "function") {
+      try {
+        info = await infoFetcher(stopId, {
+          name,
+          feature: feature?.properties || {},
+          coordinates: coords
+        });
+      } catch (err) {
+        console && console.warn && console.warn("Stop info callback failed:", err);
       }
-      popup.setHTML(buildStopPopupHTML(name, info, isStationLayer));
-    } catch (err) {
-      console && console.warn && console.warn("Stop details fetch failed:", err);
-      popup.setHTML(` <strong>${htmlEscape(name)}</strong><div><small>Horaires indisponibles</small></div>`);
     }
+    popup.setHTML(buildStopPopupHTML(name, info || {}, isStationLayer));
 
     if (opts && opts.transient && opts.layerId) {
       let hideTimer = null;
@@ -303,7 +528,48 @@ async function openStopInfoPopup(e, opts = {}) {
         }
       } catch (_) {}
     }
+    return {
+      stopId,
+      name,
+      coordinates: coords,
+      properties: feature?.properties || {},
+      isStation: isStationLayer
+    };
   } catch (_e) {}
+}
+
+function notifyStopSelection(meta) {
+  if (meta && typeof mapCallbacks.onStopClick === "function") {
+    mapCallbacks.onStopClick(meta);
+  }
+}
+
+function extractStopMeta(e, options = {}) {
+  const feature = (e && e.features && e.features[0]) ? e.features[0] : null;
+  if (!feature) return null;
+  const coords = (feature.geometry && feature.geometry.coordinates) ? feature.geometry.coordinates.slice() : (e.lngLat ? [e.lngLat.lng, e.lngLat.lat] : null);
+  if (!coords) return null;
+  const name = (feature.properties && (feature.properties.name || feature.properties.stopName)) || '';
+  const stopIdRaw = feature.properties && (feature.properties.id || feature.properties.stopId);
+  const stopId = normalizeStopId(stopIdRaw);
+  const isStationLayer =
+    typeof options.isStation === "boolean"
+      ? options.isStation
+      : !!(options && options.layerId && String(options.layerId).includes("station"));
+  return {
+    stopId,
+    name,
+    coordinates: coords,
+    properties: feature?.properties || {},
+    isStation: isStationLayer
+  };
+}
+
+function handleSymbolClick(e, options = {}) {
+  const meta = extractStopMeta(e, options);
+  if (meta) {
+    notifyStopSelection(meta);
+  }
 }
 
 function ensureMaplibre() {
@@ -316,34 +582,25 @@ function ensureMaplibre() {
 
 // Clustered mode implementation (feature-flagged)
 function initClusterModeLayers(maplibre) {
-  if (!mapInstance.getSource(STOPS_SOURCE_ID)) {
-    mapInstance.addSource(STOPS_SOURCE_ID, {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: [] },
-      cluster: true,
-      clusterMaxZoom: 14,
-      clusterRadius: 50
-    });
-  }
-  if (!mapInstance.getSource(STATIONS_SOURCE_ID)) {
-    mapInstance.addSource(STATIONS_SOURCE_ID, {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: [] },
-      cluster: true,
-      clusterMaxZoom: ZOOM_STATIONS_POINTS_MIN,
-      clusterRadius: 60
-    });
-  }
+  removeVistaLayers();
+  removeSourceIfExists(STOPS_SOURCE_ID);
+  removeSourceIfExists(STATIONS_SOURCE_ID);
 
-  const STOPS_CLUSTERS_LAYER_ID = "stops-clusters";
-  const STOPS_CLUSTER_COUNT_LAYER_ID = "stops-cluster-count";
-  const STOPS_UNCLUSTERED_BG_LAYER_ID = "stops-unclustered-bg";
-  const STOPS_UNCLUSTERED_SYMBOL_LAYER_ID = "stops-unclustered-symbol";
+  mapInstance.addSource(STOPS_SOURCE_ID, {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] },
+    cluster: true,
+    clusterMaxZoom: 14,
+    clusterRadius: 50
+  });
 
-  const STATIONS_CLUSTERS_LAYER_ID = "stations-clusters";
-  const STATIONS_CLUSTER_COUNT_LAYER_ID = "stations-cluster-count";
-  const STATIONS_UNCLUSTERED_BG_LAYER_ID = "stations-unclustered-bg";
-  const STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID = "stations-unclustered-symbol";
+  mapInstance.addSource(STATIONS_SOURCE_ID, {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] },
+    cluster: true,
+    clusterMaxZoom: ZOOM_STATIONS_POINTS_MIN,
+    clusterRadius: 60
+  });
 
   // Stations: clusters at low zoom
   mapInstance.addLayer({
@@ -481,38 +738,41 @@ function initClusterModeLayers(maplibre) {
     }
   });
 
-  // Cluster interactions
-  mapInstance.on("click", STATIONS_CLUSTERS_LAYER_ID, e => {
-    const features = mapInstance.queryRenderedFeatures(e.point, { layers: [STATIONS_CLUSTERS_LAYER_ID] });
-    const clusterId = features[0]?.properties?.cluster_id;
-    const source = mapInstance.getSource(STATIONS_SOURCE_ID);
-    if (!source || clusterId === undefined) return;
-    source.getClusterExpansionZoom(clusterId, (err, zoom) => {
-      if (err) return;
-      mapInstance.easeTo({ center: features[0].geometry.coordinates, zoom });
+  if (!interactionsBound) {
+    interactionsBound = true;
+    mapInstance.on("click", STATIONS_CLUSTERS_LAYER_ID, e => {
+      const features = mapInstance.queryRenderedFeatures(e.point, { layers: [STATIONS_CLUSTERS_LAYER_ID] });
+      const clusterId = features[0]?.properties?.cluster_id;
+      const source = mapInstance.getSource(STATIONS_SOURCE_ID);
+      if (!source || clusterId === undefined) return;
+      source.getClusterExpansionZoom(clusterId, (err, zoom) => {
+        if (err) return;
+        mapInstance.easeTo({ center: features[0].geometry.coordinates, zoom });
+      });
     });
-  });
-  mapInstance.on("click", STOPS_CLUSTERS_LAYER_ID, e => {
-    const features = mapInstance.queryRenderedFeatures(e.point, { layers: [STOPS_CLUSTERS_LAYER_ID] });
-    const clusterId = features[0]?.properties?.cluster_id;
-    const source = mapInstance.getSource(STOPS_SOURCE_ID);
-    if (!source || clusterId === undefined) return;
-    source.getClusterExpansionZoom(clusterId, (err, zoom) => {
-      if (err) return;
-      mapInstance.easeTo({ center: features[0].geometry.coordinates, zoom });
+    mapInstance.on("click", STOPS_CLUSTERS_LAYER_ID, e => {
+      const features = mapInstance.queryRenderedFeatures(e.point, { layers: [STOPS_CLUSTERS_LAYER_ID] });
+      const clusterId = features[0]?.properties?.cluster_id;
+      const source = mapInstance.getSource(STOPS_SOURCE_ID);
+      if (!source || clusterId === undefined) return;
+      source.getClusterExpansionZoom(clusterId, (err, zoom) => {
+        if (err) return;
+        mapInstance.easeTo({ center: features[0].geometry.coordinates, zoom });
+      });
     });
-  });
 
-  mapInstance.on("mouseenter", STATIONS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = "pointer"; });
-  mapInstance.on("mouseleave", STATIONS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = ""; });
-  mapInstance.on("mouseenter", STOPS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = "pointer"; });
-  mapInstance.on("mouseleave", STOPS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = ""; });
+    mapInstance.on("mouseenter", STATIONS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = "pointer"; });
+    mapInstance.on("mouseleave", STATIONS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = ""; });
+    mapInstance.on("mouseenter", STOPS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = "pointer"; });
+    mapInstance.on("mouseleave", STOPS_CLUSTERS_LAYER_ID, () => { mapInstance.getCanvas().style.cursor = ""; });
 
-  // Popup on unclustered symbols
-  mapInstance.on("click", STOPS_UNCLUSTERED_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STOPS_UNCLUSTERED_SYMBOL_LAYER_ID, transient: false }); });
-  mapInstance.on("mouseenter", STOPS_UNCLUSTERED_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STOPS_UNCLUSTERED_SYMBOL_LAYER_ID, transient: true }); });
-  mapInstance.on("click", STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID, transient: false }); });
-  mapInstance.on("mouseenter", STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID, transient: true }); });
+    mapInstance.on("click", STOPS_UNCLUSTERED_SYMBOL_LAYER_ID, e => {
+      handleSymbolClick(e, { layerId: STOPS_UNCLUSTERED_SYMBOL_LAYER_ID, isStation: false });
+    });
+    mapInstance.on("click", STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID, e => {
+      handleSymbolClick(e, { layerId: STATIONS_UNCLUSTERED_SYMBOL_LAYER_ID, isStation: true });
+    });
+  }
 
   stopsSourceReady = true;
   stationsSourceReady = true;
@@ -520,18 +780,18 @@ function initClusterModeLayers(maplibre) {
 
 
 function initPointLayers(maplibre) {
-  if (!mapInstance.getSource(STOPS_SOURCE_ID)) {
-    mapInstance.addSource(STOPS_SOURCE_ID, {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: [] }
-    });
-  }
-  if (!mapInstance.getSource(STATIONS_SOURCE_ID)) {
-    mapInstance.addSource(STATIONS_SOURCE_ID, {
-      type: "geojson",
-      data: { type: "FeatureCollection", features: [] }
-    });
-  }
+  removeVistaLayers();
+  removeSourceIfExists(STOPS_SOURCE_ID);
+  removeSourceIfExists(STATIONS_SOURCE_ID);
+
+  mapInstance.addSource(STOPS_SOURCE_ID, {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
+  mapInstance.addSource(STATIONS_SOURCE_ID, {
+    type: "geojson",
+    data: { type: "FeatureCollection", features: [] }
+  });
 
   // Background circles for markers
   mapInstance.addLayer({
@@ -615,32 +875,82 @@ function initPointLayers(maplibre) {
     }
   });
 
-  mapInstance.on("click", STOPS_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STOPS_SYMBOL_LAYER_ID, transient: false }); });
-  mapInstance.on("mouseenter", STOPS_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STOPS_SYMBOL_LAYER_ID, transient: true }); });
-  mapInstance.on("click", STATIONS_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STATIONS_SYMBOL_LAYER_ID, transient: false }); });
-  mapInstance.on("mouseenter", STATIONS_SYMBOL_LAYER_ID, e => { openStopInfoPopup(e, { layerId: STATIONS_SYMBOL_LAYER_ID, transient: true }); });
-
-  mapInstance.on("mouseenter", STOPS_SYMBOL_LAYER_ID, () => {
-    mapInstance.getCanvas().style.cursor = "pointer";
-  });
-  mapInstance.on("mouseleave", STOPS_SYMBOL_LAYER_ID, () => {
-    mapInstance.getCanvas().style.cursor = "";
-  });
-  mapInstance.on("mouseenter", STATIONS_SYMBOL_LAYER_ID, () => {
-    mapInstance.getCanvas().style.cursor = "pointer";
-  });
-  mapInstance.on("mouseleave", STATIONS_SYMBOL_LAYER_ID, () => {
-    mapInstance.getCanvas().style.cursor = "";
-  });
+  if (!interactionsBound) {
+    interactionsBound = true;
+    mapInstance.on("click", STOPS_SYMBOL_LAYER_ID, e => {
+      handleSymbolClick(e, { layerId: STOPS_SYMBOL_LAYER_ID, isStation: false });
+    });
+    mapInstance.on("click", STATIONS_SYMBOL_LAYER_ID, e => {
+      handleSymbolClick(e, { layerId: STATIONS_SYMBOL_LAYER_ID, isStation: true });
+    });
+    mapInstance.on("mouseenter", STOPS_SYMBOL_LAYER_ID, () => {
+      mapInstance.getCanvas().style.cursor = "pointer";
+    });
+    mapInstance.on("mouseleave", STOPS_SYMBOL_LAYER_ID, () => {
+      mapInstance.getCanvas().style.cursor = "";
+    });
+    mapInstance.on("mouseenter", STATIONS_SYMBOL_LAYER_ID, () => {
+      mapInstance.getCanvas().style.cursor = "pointer";
+    });
+    mapInstance.on("mouseleave", STATIONS_SYMBOL_LAYER_ID, () => {
+      mapInstance.getCanvas().style.cursor = "";
+    });
+  }
 
   stopsSourceReady = true;
   stationsSourceReady = true;
 }
 
-export function initMap() {
+async function configureMapLayers() {
+  if (!mapInstance) {
+    return;
+  }
+  const maplibre = ensureMaplibre();
+  if (!maplibre) {
+    return;
+  }
+  stopsSourceReady = false;
+  stationsSourceReady = false;
+
+  if (!USE_SPRITE_ICONS) {
+    try {
+      await preloadMarkerIcons();
+    } catch (err) {
+      console.warn("Préchargement des icônes impossible :", err);
+    }
+  }
+
+  if (USE_CLUSTERING) {
+    try {
+      initClusterModeLayers(maplibre);
+    } catch (err) {
+      console.warn("Clustering init failed, fallback to point layers:", err);
+      initPointLayers(maplibre);
+    }
+  } else {
+    initPointLayers(maplibre);
+  }
+
+  ensurePoiVisibilityControl();
+  if (typeof mapCallbacks.onStyleChange === "function") {
+    try {
+      mapCallbacks.onStyleChange();
+    } catch (err) {
+      console.warn("Callback onStyleChange a échoué :", err);
+    }
+  }
+  flushPendingMapData();
+}
+
+export function initMap(options = {}) {
   if (mapInstance) {
     return mapInstance;
   }
+
+  mapCallbacks.fetchStopInfo = options.fetchStopInfo || null;
+  mapCallbacks.fetchStationInfo = options.fetchStationInfo || null;
+  mapCallbacks.onStopClick = options.onStopClick || null;
+  mapCallbacks.onStyleChange = options.onStyleChange || null;
 
   const maplibre = ensureMaplibre();
   if (!maplibre) {
@@ -656,41 +966,6 @@ export function initMap() {
 
   // If relying on style sprite, do not add images; otherwise ensure custom icons exist
   if (!USE_SPRITE_ICONS) {
-    // Provide missing images on demand (with SVG-first strategy)
-    async function addSvgIcon(name, svgUrl, pngFallbackUrl) {
-      try {
-        const res = await fetch(svgUrl, { mode: "cors" });
-        if (!res.ok) throw new Error("SVG fetch failed " + res.status);
-        const svgText = await res.text();
-        const blob = new Blob([svgText], { type: "image/svg+xml" });
-        const url = URL.createObjectURL(blob);
-        mapInstance.loadImage(url, (err, image) => {
-          URL.revokeObjectURL(url);
-          if (err || !image) {
-            mapInstance.loadImage(pngFallbackUrl, (err2, image2) => {
-              if (err2 || !image2) return;
-              if (mapInstance.hasImage && mapInstance.hasImage(name)) {
-                mapInstance.removeImage(name);
-              }
-              if (mapInstance.addImage) mapInstance.addImage(name, image2);
-            });
-            return;
-          }
-          if (mapInstance.hasImage && mapInstance.hasImage(name)) {
-            mapInstance.removeImage(name);
-          }
-          if (mapInstance.addImage) mapInstance.addImage(name, image);
-        });
-      } catch (_e) {
-        mapInstance.loadImage(pngFallbackUrl, (err2, image2) => {
-          if (err2 || !image2) return;
-          if (mapInstance.hasImage && mapInstance.hasImage(name)) {
-            mapInstance.removeImage(name);
-          }
-          if (mapInstance.addImage) mapInstance.addImage(name, image2);
-        });
-      }
-    }
     mapInstance.on("styleimagemissing", e => {
       if (!e || !e.id) return;
       const theme = document.documentElement.getAttribute("data-theme") || "dark";
@@ -709,88 +984,24 @@ export function initMap() {
   }
 
   mapInstance.on("load", async () => {
-    // Précharger les icônes locales avant d'ajouter les couches pour éviter
-    // les warnings "Image ... could not be loaded"
-    if (!USE_SPRITE_ICONS) {
-      // utilitaire local async
-      const loadIconPromise = (name, svgUrl, pngFallbackUrl) => {
-        return new Promise(resolve => {
-          const addImageFromSvg = () => {
-            fetch(svgUrl, { mode: "cors" })
-              .then(res => (res.ok ? res.text() : Promise.reject(new Error("svg http " + res.status))))
-              .then(svgText => {
-                const blob = new Blob([svgText], { type: "image/svg+xml" });
-                const url = URL.createObjectURL(blob);
-                mapInstance.loadImage(url, (err, image) => {
-                  URL.revokeObjectURL(url);
-                  if (!err && image) {
-                    if (mapInstance.hasImage && mapInstance.hasImage(name)) {
-                      mapInstance.removeImage(name);
-                    }
-                    if (mapInstance.addImage) mapInstance.addImage(name, image);
-                    resolve(true);
-                    return;
-                  }
-                  // fallback PNG
-                  mapInstance.loadImage(pngFallbackUrl, (err2, image2) => {
-                    if (!err2 && image2) {
-                      if (mapInstance.hasImage && mapInstance.hasImage(name)) {
-                        mapInstance.removeImage(name);
-                      }
-                      if (mapInstance.addImage) mapInstance.addImage(name, image2);
-                    }
-                    resolve(mapInstance.hasImage(name));
-                  });
-                });
-              })
-              .catch(() => {
-                mapInstance.loadImage(pngFallbackUrl, (err2, image2) => {
-                  if (!err2 && image2) {
-                    if (mapInstance.hasImage && mapInstance.hasImage(name)) {
-                      mapInstance.removeImage(name);
-                    }
-                    if (mapInstance.addImage) mapInstance.addImage(name, image2);
-                  }
-                  resolve(mapInstance.hasImage(name));
-                });
-              });
-          };
-          addImageFromSvg();
-        });
-      };
-      const themeNow = document.documentElement.getAttribute("data-theme") || "dark";
-      const urls = getIconUrlsForTheme(themeNow);
-      await Promise.all([
-        loadIconPromise("hail-icon", urls.stopSvg, ICON_STOP_URL),
-        loadIconPromise("station-icon", urls.stationSvg, ICON_STATION_URL)
-      ]);
-    }
+    await configureMapLayers();
+  });
 
-    if (USE_CLUSTERING) { try { initClusterModeLayers(maplibre); } catch (e) { console.warn("Clustering init failed, falling back to non-cluster mode:", e); initPointLayers(maplibre); } } else { initPointLayers(maplibre); }
-    if (DISABLE_POI_LAYERS) {
-      const disable = () => {
-        try {
-          const style = mapInstance.getStyle();
-          (style?.layers || []).forEach(layer => {
-            const id = layer?.id || "";
-            const type = layer?.type || "";
-            const sourceLayer = layer?.["source-layer"] || "";
-            if (
-              type === "symbol" &&
-              (id.includes("poi") || id.includes("amenity") || sourceLayer.includes("poi") || sourceLayer.includes("amenity"))
-            ) {
-              if (mapInstance.getLayer(id)) {
-                mapInstance.setLayoutProperty(id, "visibility", "none");
-              }
-            }
-          });
-        } catch (e) {
-          console.warn("Désactivation des POI impossible:", e);
-        }
-      };
-      disable();
-      mapInstance.on("styledata", disable);
+  // Handle style changes (theme switch)
+  // Use both styledata and idle events for reliability
+  mapInstance.on("styledata", () => {
+    if (!styleReloadPending) {
+      return;
     }
+    // Wait for the map to be idle (fully loaded and rendered) before configuring layers
+    // This is more reliable than isStyleLoaded() alone
+    mapInstance.once("idle", async () => {
+      if (!styleReloadPending) {
+        return;
+      }
+      styleReloadPending = false;
+      await configureMapLayers();
+    });
   });
 
   // Log zoom level in console (on zoom end to avoid noise)
@@ -809,13 +1020,48 @@ export function initMap() {
 
 export function setMapTheme(theme) {
   if (!mapInstance) return;
+  styleReloadPending = true;
+  stopsSourceReady = false;
+  stationsSourceReady = false;
+  // Mark data as pending so it gets re-applied after style loads
+  if (latestMapData) {
+    pendingMapApply = true;
+  }
   const nextStyle = getMapStyleURL(theme);
   try {
     mapInstance.setStyle(nextStyle);
     // Après changement de style, les images sont réinitialisées — elles seront
     // redemandées via styleimagemissing et rechargées avec la variante du thème.
   } catch (e) {
+    styleReloadPending = false;
     console.warn("Impossible de changer le style de carte:", e);
+  }
+}
+
+export function focusStop(target, options = {}) {
+  if (!mapInstance || !target) {
+    return;
+  }
+  const lat =
+    typeof target.lat === "number" ? target.lat : target.position?.lat;
+  const lon =
+    typeof target.lon === "number" ? target.lon : target.position?.lon;
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+    return;
+  }
+  const zoom =
+    typeof options.zoom === "number"
+      ? options.zoom
+      : Math.max(typeof mapInstance.getZoom === "function" ? mapInstance.getZoom() : 0, 15);
+  try {
+    mapInstance.easeTo({
+      center: [lon, lat],
+      zoom,
+      duration: 1000,
+      essential: true
+    });
+  } catch (err) {
+    console.warn("Impossible de recentrer sur l'arrêt :", err);
   }
 }
 function setStopsGeojson(features) {
@@ -874,71 +1120,128 @@ export function updateMap(stops, area, userLocation, stations = []) {
     return;
   }
 
+  latestMapData = { stops, stations, area, userLocation };
+  if (!stopsSourceReady || !stationsSourceReady) {
+    pendingMapApply = true;
+    return;
+  }
+  applyMapData(latestMapData);
+}
+
+// ═══════════════════════════════════════════════════════════
+// Nearby Marker (draggable)
+// ═══════════════════════════════════════════════════════════
+
+function createNearbyMarkerElement() {
+  const el = document.createElement("div");
+  el.className = "nearby-marker";
+  el.innerHTML = `
+    <div class="nearby-marker-pulse"></div>
+    <div class="nearby-marker-icon"></div>
+  `;
+  return el;
+}
+
+export function setNearbyMarkerCallback(callback) {
+  mapCallbacks.onNearbyMarkerDrag = typeof callback === "function" ? callback : null;
+}
+
+export function showNearbyMarker(initialLocation = null) {
+  if (!mapInstance) {
+    return null;
+  }
   const maplibre = ensureMaplibre();
   if (!maplibre) {
-    return;
+    return null;
   }
 
-  const applyUpdate = () => {
-    const stopFeatures = (stops || [])
-      .filter(stop => typeof stop.lat === "number" && typeof stop.lon === "number")
-      .map(stop => ({
-        type: "Feature",
-        properties: {
-          id: stop.id,
-          name: stop.name || "Arrêt sans nom",
-          parentStationId: stop.parentStationId || (stop.parentStation && stop.parentStation.id) || null
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [stop.lon, stop.lat]
-        }
-      }));
-    const stationFeatures = (stations || [])
-      .filter(st => typeof st.lat === "number" && typeof st.lon === "number")
-      .map(st => ({
-        type: "Feature",
-        properties: {
-          id: st.id,
-          name: st.name || "Station"
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [st.lon, st.lat]
-        }
-      }));
-
-    setStopsGeojson(stopFeatures);
-    setStationsGeojson(stationFeatures);
-    ensureUserMarker(maplibre, userLocation);
-
-    const bounds = new maplibre.LngLatBounds();
-    let hasBounds = false;
-    stopFeatures.forEach(feature => {
-      bounds.extend(feature.geometry.coordinates);
-      hasBounds = true;
-    });
-    stationFeatures.forEach(feature => {
-      bounds.extend(feature.geometry.coordinates);
-      hasBounds = true;
-    });
-    if (userLocation) {
-      bounds.extend([userLocation.lon, userLocation.lat]);
-      hasBounds = true;
-    }
-
-    if (hasBounds && typeof bounds.isValid === "function" && bounds.isValid()) {
-      mapInstance.fitBounds(bounds, { padding: 50, maxZoom: 15 });
-    } else if (area && typeof area.lat === "number" && typeof area.lon === "number") {
-      mapInstance.setCenter([area.lon, area.lat]);
-      mapInstance.setZoom(12);
-    }
-  };
-
-  if (!stopsSourceReady || !stationsSourceReady) {
-    mapInstance.once("load", applyUpdate);
-    return;
+  // Remove existing marker if any
+  if (nearbyMarker) {
+    nearbyMarker.remove();
+    nearbyMarker = null;
   }
 
-  applyUpdate();
+  // Default to map center if no initial location
+  let startPos;
+  if (initialLocation && typeof initialLocation.lat === "number" && typeof initialLocation.lon === "number") {
+    startPos = [initialLocation.lon, initialLocation.lat];
+  } else {
+    const center = mapInstance.getCenter();
+    startPos = [center.lng, center.lat];
+  }
+
+  const el = createNearbyMarkerElement();
+  
+  nearbyMarker = new maplibre.Marker({
+    element: el,
+    draggable: true,
+    anchor: "bottom"
+  })
+    .setLngLat(startPos)
+    .addTo(mapInstance);
+
+  nearbyMarkerActive = true;
+
+  // Handle drag events
+  nearbyMarker.on("dragstart", () => {
+    el.classList.add("dragging");
+  });
+
+  nearbyMarker.on("drag", () => {
+    // Optional: real-time updates during drag
+  });
+
+  nearbyMarker.on("dragend", () => {
+    el.classList.remove("dragging");
+    const lngLat = nearbyMarker.getLngLat();
+    if (typeof mapCallbacks.onNearbyMarkerDrag === "function") {
+      mapCallbacks.onNearbyMarkerDrag({
+        lat: lngLat.lat,
+        lon: lngLat.lng
+      });
+    }
+  });
+
+  // Trigger initial callback
+  if (typeof mapCallbacks.onNearbyMarkerDrag === "function") {
+    mapCallbacks.onNearbyMarkerDrag({
+      lat: startPos[1],
+      lon: startPos[0]
+    });
+  }
+
+  return { lat: startPos[1], lon: startPos[0] };
+}
+
+export function hideNearbyMarker() {
+  if (nearbyMarker) {
+    nearbyMarker.remove();
+    nearbyMarker = null;
+  }
+  nearbyMarkerActive = false;
+}
+
+export function isNearbyMarkerActive() {
+  return nearbyMarkerActive;
+}
+
+export function getNearbyMarkerPosition() {
+  if (!nearbyMarker) {
+    return null;
+  }
+  const lngLat = nearbyMarker.getLngLat();
+  return { lat: lngLat.lat, lon: lngLat.lng };
+}
+
+export function moveNearbyMarkerTo(location) {
+  if (!nearbyMarker || !location) {
+    return;
+  }
+  if (typeof location.lat === "number" && typeof location.lon === "number") {
+    nearbyMarker.setLngLat([location.lon, location.lat]);
+    // Trigger callback after programmatic move
+    if (typeof mapCallbacks.onNearbyMarkerDrag === "function") {
+      mapCallbacks.onNearbyMarkerDrag(location);
+    }
+  }
 }

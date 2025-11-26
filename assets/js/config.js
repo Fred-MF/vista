@@ -1,8 +1,14 @@
 // Configuration et constantes partagées
-export const MAPTILES_KEY = "yBXDgvRsu1MaB6pUqbrO";
+export const MAPTILES_KEY = "qDh7iktwydGLl7iZILsj";
 export const MAP_STYLE_URL_LIGHT = `https://api.maptiler.com/maps/streets/style.json?key=${MAPTILES_KEY}`;
 export const MAP_STYLE_URL_DARK = `https://api.maptiler.com/maps/dataviz-dark/style.json?key=${MAPTILES_KEY}`;
 export const MAP_STYLE_URL = MAP_STYLE_URL_DARK;
+
+// Liste optionnelle des réseaux disposant d'un flux temps réel (agencyId ou id)
+export const REALTIME_NETWORK_IDS = new Set([
+  // "idf:ratp",
+  // "ara:lyon:tcl"
+]);
 
 export const OTP_ENDPOINTS = {
   ara: "https://otp-ara.maasify.io/otp/routers/default/index/graphql",
@@ -22,6 +28,26 @@ export const OTP_ENDPOINTS = {
   paca: "https://otp-paca.maasify.io/otp/routers/default/index/graphql",
   pdl: "https://otp-pdl.maasify.io/otp/routers/default/index/graphql",
   re: "https://otp-re.maasify.io/otp/routers/default/index/graphql"
+};
+
+export const REGION_NAMES = {
+  ara: "Auvergne-Rhône-Alpes",
+  bfc: "Bourgogne-Franche-Comté",
+  bre: "Bretagne",
+  caraibe: "Guyane",
+  cor: "Corse",
+  cvl: "Centre-Val de Loire",
+  ges: "Grand Est",
+  gf: "Guadeloupe",
+  hdf: "Hauts-de-France",
+  idf: "Île-de-France",
+  mar: "Martinique",
+  naq: "Nouvelle-Aquitaine",
+  nor: "Normandie",
+  occ: "Occitanie",
+  paca: "Provence-Alpes-Côte d'Azur",
+  pdl: "Pays de la Loire",
+  re: "La Réunion"
 };
 
 export const REGION_DEFAULT_COORDS = {

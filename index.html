@@ -10,84 +10,162 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="header">
-    <h1 class="logo">Vista</h1>
-    <div class="controls">
-      <label for="region-select">Région :</label>
-      <select id="region-select">
-        <option value="">– choisir –</option>
-        <option value="ara">Auvergne-Rhône-Alpes</option>
-        <option value="bfc">Bourgogne-Franche-Comté</option>
-        <option value="bre">Bretagne</option>
-        <option value="caraibe">Guyane</option>
-        <option value="cor">Corse</option>
-        <option value="cvl">Centre-Val de Loire</option>
-        <option value="ges">Grand Est</option>
-        <option value="gf">Guadeloupe</option>
-        <option value="hdf">Hauts-de-France</option>
-        <option value="idf">Île-de-France</option>
-        <option value="mar">Martinique</option>
-        <option value="naq">Nouvelle-Aquitaine</option>
-        <option value="nor">Normandie</option>
-        <option value="occ">Occitanie</option>
-        <option value="paca">Provence-Alpes-Côte d’Azur</option>
-        <option value="pdl">Pays de la Loire</option>
-        <option value="re">Réunion</option>
-      </select>
-
-      <label for="network-select">Réseau :</label>
-      <select id="network-select" disabled>
-        <option value="">– sélection automatique –</option>
-      </select>
-
-      <button id="load-btn">Charger des arrêts</button>
-    </div>
-    <div class="location-status" id="location-status">
-      Géolocalisation en attente…
-    </div>
-  </header>
-
-  <main class="main">
-    <section class="panel map-panel">
-      <h2>Carte des observations</h2>
-      <div id="map" role="img" aria-label="Carte des arrêts recherchés"></div>
-    </section>
-
-    <section class="panel legend-panel">
-      <h2>Légende</h2>
-      <div class="legend">
-        <div class="legend-item">
-          <span class="legend-bg legend-stop"><img id="legend-stop-img" alt="Arrêt" /></span>
-          <span class="legend-label">Arrêt</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-bg legend-station"><img id="legend-station-img" alt="Station" /></span>
-          <span class="legend-label">Station</span>
+  <div id="vista-app">
+    <header id="vista-topbar" class="vista-topbar">
+      <div class="topbar-left">
+        <button id="burger-toggle" class="burger-btn" type="button" aria-expanded="false" aria-controls="burger-menu" aria-label="Menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+        <div class="brand-block">
+          <span class="logo">Vista</span>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section class="panel collapsible" id="panel-stops" data-collapsed="true">
-      <h2 class="collapsible-header" id="panel-stops-header" aria-controls="panel-stops-body" aria-expanded="false">Arrêts trouvés</h2>
-      <div id="panel-stops-body" class="collapsible-body">
-        <ul id="stops-list" class="stops-list">
-          <li>Sélectionne une région puis clique sur « Charger des arrêts ».</li>
-        </ul>
+    <div id="burger-menu" class="burger-menu" data-state="closed">
+      <div class="burger-menu-content">
+        <div class="burger-menu-header">
+          <h2 class="burger-menu-title">Configuration</h2>
+          <button id="burger-close" class="btn btn-icon burger-close" type="button" aria-label="Fermer le menu">&times;</button>
+        </div>
+        <div class="burger-menu-section">
+          <label class="input-label" for="region-select">Région</label>
+          <select id="region-select">
+            <option value="">– choisir –</option>
+            <option value="ara">Auvergne-Rhône-Alpes</option>
+            <option value="bfc">Bourgogne-Franche-Comté</option>
+            <option value="bre">Bretagne</option>
+            <option value="caraibe">Guyane</option>
+            <option value="cor">Corse</option>
+            <option value="cvl">Centre-Val de Loire</option>
+            <option value="ges">Grand Est</option>
+            <option value="gf">Guadeloupe</option>
+            <option value="hdf">Hauts-de-France</option>
+            <option value="idf">Île-de-France</option>
+            <option value="mar">Martinique</option>
+            <option value="naq">Nouvelle-Aquitaine</option>
+            <option value="nor">Normandie</option>
+            <option value="occ">Occitanie</option>
+            <option value="paca">Provence-Alpes-Côte d'Azur</option>
+            <option value="pdl">Pays de la Loire</option>
+            <option value="re">Réunion</option>
+          </select>
+        </div>
+        <div class="burger-menu-section">
+          <label class="input-label">Réseau</label>
+          <div class="custom-select" id="network-select-wrapper" data-disabled="true">
+            <button type="button" class="custom-select-trigger" id="network-select-trigger" disabled>
+              <span class="custom-select-value">– sélection automatique –</span>
+              <svg class="custom-select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="custom-select-dropdown" id="network-select-dropdown"></div>
+            <input type="hidden" id="network-select" value="">
+          </div>
+        </div>
+        <div class="burger-menu-section">
+          <button id="load-btn" class="btn btn-primary btn-block" type="button">Charger le réseau</button>
+        </div>
       </div>
-    </section>
+    </div>
+    <div id="burger-overlay" class="burger-overlay"></div>
 
-    <section class="panel collapsible" id="panel-debug" data-collapsed="true">
-      <h2 class="collapsible-header" id="panel-debug-header" aria-controls="panel-debug-body" aria-expanded="false">Résultat brut (debug)</h2>
-      <div id="panel-debug-body" class="collapsible-body">
-        <pre id="debug">Réponse JSON brute (utile pour les tests API).</pre>
+    <main id="vista-shell">
+      <aside id="sidebar-left" class="sidebar panel overlay" data-panel="left" data-state="open">
+        <header class="sidebar-header">
+          <div>
+            <p class="sidebar-label">Liste</p>
+            <h2 class="sidebar-title">Arrêts disponibles</h2>
+          </div>
+          <button class="btn btn-icon" type="button" data-panel-close="left" aria-label="Masquer la liste d’arrêts">&times;</button>
+        </header>
+        <section class="sidebar-section legend">
+          <div class="legend-item">
+            <span class="legend-icon"><img id="legend-stop-img" alt="Arrêt" /></span>
+            <span>Arrêt</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon"><img id="legend-station-img" alt="Station" /></span>
+            <span>Station</span>
+          </div>
+        </section>
+        <div class="sidebar-content" id="stop-list-panel">
+          <ul id="stops-list" class="stops-list">
+            <li>Sélectionne une région puis clique sur « OK ».</li>
+          </ul>
+        </div>
+      </aside>
+
+      <div id="map-wrapper">
+        <div id="map-overlay-top">
+          <div id="kpi-chips" class="chip-row" aria-live="polite"></div>
+        </div>
+        <div id="map-container">
+          <div id="map" role="img" aria-label="Carte Vista"></div>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <small>Prototype Vista – HTML/CSS/JS vanilla</small>
-    <button id="theme-toggle" title="Basculer clair/sombre">Mode sombre</button>
-  </footer>
+      <!-- Panneau "À proximité" - positionné au niveau du shell pour coordination avec sidebar-right -->
+      <div id="nearby-panel" class="nearby-panel" data-state="hidden">
+        <div class="nearby-header">
+          <div class="nearby-header-left">
+            <svg class="nearby-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+            <span class="nearby-title">À proximité</span>
+            <span class="nearby-count" id="nearby-count"></span>
+          </div>
+          <button type="button" class="nearby-close" id="nearby-close" aria-label="Fermer">&times;</button>
+        </div>
+        <div class="nearby-track" id="nearby-track">
+          <!-- Cards générées dynamiquement -->
+        </div>
+        <div class="nearby-dots" id="nearby-dots"></div>
+        <div class="nearby-hint" id="nearby-hint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Déplacez le marqueur sur la carte pour explorer</span>
+        </div>
+        <div class="nearby-refresh-bar" id="nearby-refresh-progress">
+          <div class="nearby-refresh-bar-fill" id="nearby-refresh-progress-fill"></div>
+        </div>
+      </div>
+
+      <aside id="sidebar-right" class="sidebar panel overlay" data-panel="right" data-state="closed">
+        <header class="sidebar-header">
+          <div>
+            <p class="sidebar-label">Fiche arrêt</p>
+            <h2 class="sidebar-title" id="stop-details-title">Aucun arrêt sélectionné</h2>
+          </div>
+          <button class="btn btn-icon" type="button" data-panel-close="right" aria-label="Masquer la fiche arrêt">&times;</button>
+        </header>
+        <div class="sidebar-content" id="stop-details">
+          <p class="empty-state">Clique un arrêt sur la carte ou dans la liste.</p>
+        </div>
+        <div class="sidebar-refresh-bar" id="refresh-progress">
+          <div class="sidebar-refresh-bar-fill" id="refresh-progress-fill"></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer id="vista-footer" class="vista-footer">
+      <div class="footer-status" id="footer-status" aria-live="polite"></div>
+      <div class="footer-actions">
+        <button type="button" id="nearby-toggle" class="nearby-toggle-btn" aria-pressed="false" title="Explorer à proximité">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+          <span>À proximité</span>
+        </button>
+        <div class="theme-switch" role="group" aria-label="Thème">
+          <button type="button" id="theme-light" class="theme-switch-btn" data-theme="light" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <span>Clair</span>
+          </button>
+          <button type="button" id="theme-dark" class="theme-switch-btn" data-theme="dark" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <span>Sombre</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script src="https://unpkg.com/maplibre-gl@3.0.0/dist/maplibre-gl.js"></script>
   <script type="module" src="assets/js/main.js"></script>

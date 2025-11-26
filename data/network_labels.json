@@ -1,0 +1,3225 @@
+{
+    "updatedAt": "2025-11-26T14:46:13+00:00",
+    "labels": {
+        "le-puy-en-velay:11215498": {
+            "zone": "Le Puy-en-Velay",
+            "reseau": "Mobilité en Velay",
+            "name_otp": "LE-PUY-EN-VELAY – Mobilité en Velay"
+        },
+        "aubenas:44": {
+            "zone": "Aubenas",
+            "reseau": "Tout'enbus",
+            "name_otp": "AUBENAS - Tout'enbus"
+        },
+        "issoire:API": {
+            "zone": "Issoire",
+            "reseau": "Agglo Pays d'Issoire",
+            "name_otp": "Agglo Pays d'Issoire"
+        },
+        "bourg-en-bresse:RUBIS:Network:1:LOC": {
+            "zone": "Bourg-en-Bresse",
+            "reseau": "Rubis",
+            "name_otp": "BOURG-EN-BRESSE - Rubis"
+        },
+        "albertville:ARLYSERE:Network:1:LOC": {
+            "name_otp": "ALBERTVILLE - TRA Mobilité",
+            "zone": "Albertville",
+            "reseau": "TRA Mobilité"
+        },
+        "amberieu-en-bugey:TAM:Network:1:LOC": {
+            "name_otp": "AMBERIEU-EN-BUGEY - Tam",
+            "zone": "Amberieu-en-Bugey",
+            "reseau": "Tam"
+        },
+        "bourgoin-jallieu:AGRUVF": {
+            "name_otp": "Agence Ruban",
+            "zone": "Bourgoin-Jallieu",
+            "reseau": "Agence Ruban (1)"
+        },
+        "bourgoin-jallieu:54": {
+            "name_otp": "Agence Ruban",
+            "zone": "Bourgoin-Jallieu",
+            "reseau": "Agence Ruban (2)"
+        },
+        "interurbain-ara:10": {
+            "name_otp": "Cars Région Isère",
+            "zone": "Interurbain-Ara",
+            "reseau": "Cars Région Isère"
+        },
+        "chamonix-mont-blanc:agency": {
+            "name_otp": "Chamonix Mobilite",
+            "zone": "Chamonix-Mont-Blanc",
+            "reseau": "Chamonix Mobilite"
+        },
+        "annonay:1": {
+            "name_otp": "CoqueliGO",
+            "zone": "Annonay",
+            "reseau": "CoqueliGO"
+        },
+        "evian:EVAD": {
+            "name_otp": "EVAD",
+            "zone": "Evian",
+            "reseau": "EVAD"
+        },
+        "rumilly:JYBUS": {
+            "name_otp": "JYBUS",
+            "zone": "Rumilly",
+            "reseau": "JYBUS"
+        },
+        "lyon:KBLMB": {
+            "name_otp": "KEOLIS BUS LYON",
+            "zone": "Lyon",
+            "reseau": "KEOLIS BUS LYON"
+        },
+        "lyon:KAP3": {
+            "name_otp": "KEOLIS PLANCHE DSP 3",
+            "zone": "Lyon",
+            "reseau": "KEOLIS PLANCHE DSP 3"
+        },
+        "samoens:1": {
+            "name_otp": "LES NAVETTES DU GIFFRE",
+            "zone": "Samoens",
+            "reseau": "LES NAVETTES DU GIFFRE"
+        },
+        "villefranche-sur-saone:LIBELLULE": {
+            "name_otp": "LIBELLULE",
+            "zone": "Villefranche-sur-Saone",
+            "reseau": "LIBELLULE"
+        },
+        "vienne:5": {
+            "name_otp": "Lignes de Vienne et Agglomération",
+            "zone": "Vienne",
+            "reseau": "Lignes de Vienne et Agglomération"
+        },
+        "gresivaudan:GSV": {
+            "name_otp": "M Réso - Grésivaudan",
+            "zone": "Gresivaudan",
+            "reseau": "Grésivaudan"
+        },
+        "grenoble:SEM": {
+            "name_otp": "M Réso - Métropole Grenobloise",
+            "zone": "Grenoble",
+            "reseau": "Métropole Grenobloise"
+        },
+        "voiron:TPV": {
+            "name_otp": "M Réso - Pays Voironnais",
+            "zone": "Voiron",
+            "reseau": "Pays Voironnais"
+        },
+        "lyon:AMV4": {
+            "name_otp": "MAISONNEUVE DSP 4",
+            "zone": "Lyon",
+            "reseau": "MAISONNEUVE DSP 4"
+        },
+        "miribel:COLIBRI:Network:1:LOC": {
+            "name_otp": "MIRIBEL - Colibri",
+            "zone": "Miribel",
+            "reseau": "Colibri"
+        },
+        "montelimar:27": {
+            "name_otp": "MONTELIBUS",
+            "zone": "Montelimar",
+            "reseau": "MONTELIBUS"
+        },
+        "montluel:MONTLUEL:Network:1:LOC": {
+            "name_otp": "MONTLUEL - TICO 3CM",
+            "zone": "Montluel",
+            "reseau": "TICO 3CM"
+        },
+        "moulins:MOULINS:Network:1:LOC": {
+            "name_otp": "MOULINS - Aléo",
+            "zone": "Moulins",
+            "reseau": "Aléo"
+        },
+        "montlucon:112": {
+            "name_otp": "Maelis",
+            "zone": "Montlucon",
+            "reseau": "Maelis"
+        },
+        "vichy:Mobivie": {
+            "name_otp": "Mobivie",
+            "zone": "Vichy",
+            "reseau": "Mobivie"
+        },
+        "nyons:11215498": {
+            "name_otp": "Nyonbus",
+            "zone": "Nyons",
+            "reseau": "Nyonbus"
+        },
+        "oyonnax:OYONNAX:Network:1:LOC": {
+            "name_otp": "OYONNAX - DUOBUS",
+            "zone": "Oyonnax",
+            "reseau": "DUOBUS"
+        },
+        "lac-du-bourget:5": {
+            "name_otp": "Ondéa Grand Lac",
+            "zone": "Lac-du-Bourget",
+            "reseau": "Ondéa Grand Lac"
+        },
+        "bonneville:1": {
+            "name_otp": "Proximiti",
+            "zone": "Bonneville",
+            "reseau": "Proximiti"
+        },
+        "lyon:RATPML": {
+            "name_otp": "RATPDEV ML LYON",
+            "zone": "Lyon",
+            "reseau": "RATPDEV ML LYON"
+        },
+        "lyon:RATPDEVNFL": {
+            "name_otp": "RATPDEV NFL",
+            "zone": "Lyon",
+            "reseau": "RATPDEV NFL"
+        },
+        "interurbain-ara:45": {
+            "name_otp": "REGION - cars Région Ain",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Ain"
+        },
+        "interurbain-ara:CARSxREGIONxAIN:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Ain",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Ain"
+        },
+        "interurbain-ara:ALLIER:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Allier",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Allier"
+        },
+        "interurbain-ara:ARDECHE:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Ardèche",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Ardèche"
+        },
+        "interurbain-ara:CARxREGIONxCANTAL:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Cantal",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Cantal"
+        },
+        "interurbain-ara:DROME:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Drôme",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Drôme"
+        },
+        "interurbain-ara:CARSxREGIONxEXPRESS:Network:68C98CEBxE665x4AEExB3BCx075984C5278E:LOC": {
+            "name_otp": "REGION - cars Région Express",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Express"
+        },
+        "interurbain-ara:70": {
+            "name_otp": "REGION - cars Région Express",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Express"
+        },
+        "interurbain-ara:HAUTExLOIRE:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Haute-Loire",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Haute-Loire"
+        },
+        "interurbain-ara:HAUTExSAVOIE:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Haute-Savoie",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Haute-Savoie"
+        },
+        "interurbain-ara:152": {
+            "name_otp": "REGION - cars Région Loire",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Loire"
+        },
+        "interurbain-ara:CARSxREGIONxLOIRE:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Loire",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Loire"
+        },
+        "interurbain-ara:PUYxDExDOME:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Puy-de-Dôme",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Puy-de-Dôme"
+        },
+        "interurbain-ara:SAVOIE:Network:1:LOC": {
+            "name_otp": "REGION - cars Région Savoie",
+            "zone": "Interurbain-Ara",
+            "reseau": "cars Région Savoie"
+        },
+        "riom:RIOM:Network:1:LOC": {
+            "name_otp": "RIOM - RLV Mobilités",
+            "zone": "Riom",
+            "reseau": "RLV Mobilités"
+        },
+        "riom:RLV": {
+            "name_otp": "RLV",
+            "zone": "Riom",
+            "reseau": "RLV"
+        },
+        "roanne:STAR:Network:1:LOC": {
+            "name_otp": "ROANNE - Star",
+            "zone": "Roanne",
+            "reseau": "Star"
+        },
+        "thonon-les-bains:1": {
+            "name_otp": "Reseau STAR T",
+            "zone": "Thonon-les-Bains",
+            "reseau": "Reseau STAR T"
+        },
+        "saint-etienne:1": {
+            "name_otp": "SAINT-ETIENNE – STAS",
+            "zone": "Saint-Etienne",
+            "reseau": "SAINT-ETIENNE – STAS"
+        },
+        "annecy:SIBRA": {
+            "name_otp": "SIBRA",
+            "zone": "Annecy",
+            "reseau": "SIBRA"
+        },
+        "aurillac:1": {
+            "name_otp": "STABUS",
+            "zone": "Aurillac",
+            "reseau": "STABUS"
+        },
+        "saint-flour:11215498": {
+            "name_otp": "Saint-Flour",
+            "zone": "Saint-Flour",
+            "reseau": "Saint-Flour"
+        },
+        "chambery:SYNCHRO": {
+            "name_otp": "Synchro Bus",
+            "zone": "Chambery",
+            "reseau": "Synchro Bus"
+        },
+        "privas:T-CAP": {
+            "name_otp": "T-CAP",
+            "zone": "Privas",
+            "reseau": "T-CAP"
+        },
+        "clermont-ferrand:6192453782601729": {
+            "name_otp": "T2C",
+            "zone": "Clermont-Ferrand",
+            "reseau": "T2C"
+        },
+        "annemasse:1": {
+            "name_otp": "TAC Mobilités",
+            "zone": "Annemasse",
+            "reseau": "TAC Mobilités"
+        },
+        "privas:scolaire": {
+            "name_otp": "TCAP Scolaire",
+            "zone": "Privas",
+            "reseau": "TCAP Scolaire"
+        },
+        "thiers:THIERS:Network:1:LOC": {
+            "name_otp": "THIERS - SMTUT",
+            "zone": "Thiers",
+            "reseau": "SMTUT"
+        },
+        "thonon-les-bains:THONON:Network:1:LOC": {
+            "name_otp": "THONON-LES-BAINS - STAR'T",
+            "zone": "Thonon-les-Bains",
+            "reseau": "STAR'T"
+        },
+        "interurbain-ara:410": {
+            "name_otp": "TRANSAL",
+            "zone": "Interurbain-Ara",
+            "reseau": "TRANSAL"
+        },
+        "lyon:TD1": {
+            "name_otp": "TRANSDEV DSP 1",
+            "zone": "Lyon",
+            "reseau": "TRANSDEV DSP 1"
+        },
+        "lyon:TD2": {
+            "name_otp": "TRANSDEV DSP 2",
+            "zone": "Lyon",
+            "reseau": "TRANSDEV DSP 2"
+        },
+        "lyon:TDVSS": {
+            "name_otp": "TRANSDEV Villefranche",
+            "zone": "Lyon",
+            "reseau": "TRANSDEV Villefranche"
+        },
+        "trevoux:SAONIBUS:Network:1:LOC": {
+            "name_otp": "TREVOUX - Saônibus",
+            "zone": "Trevoux",
+            "reseau": "Saônibus"
+        },
+        "cluses:TMBB": {
+            "name_otp": "Transdev Mont Blanc Bus",
+            "zone": "Cluses",
+            "reseau": "Transdev Mont Blanc Bus"
+        },
+        "saint-rambert:AT42": {
+            "name_otp": "Transports Scolaires de la Loire",
+            "zone": "Saint-Rambert",
+            "reseau": "Transports Scolaires de la Loire"
+        },
+        "montbrison:AT42": {
+            "name_otp": "Transports Scolaires de la Loire",
+            "zone": "Montbrison",
+            "reseau": "Transports Scolaires de la Loire"
+        },
+        "valserhone:MOBIVALS:Network:1:LOC": {
+            "name_otp": "VALSERHÔNE - Mobi'Vals",
+            "zone": "Valserhone",
+            "reseau": "Mobi'Vals"
+        },
+        "valence:CITEA": {
+            "name_otp": "Valence Romans Mobilités",
+            "zone": "Valence",
+            "reseau": "Valence Romans Mobilités"
+        },
+        "valence:CITEA LIGHT": {
+            "name_otp": "Valence Romans Mobilités",
+            "zone": "Valence",
+            "reseau": "Valence Romans Mobilités"
+        },
+        "joigny:11215498": {
+            "name_otp": "Ametis - Keolis Amiens",
+            "zone": "Joigny",
+            "reseau": "Keolis Amiens"
+        },
+        "auxerre:leo": {
+            "name_otp": "AuxR_M le bus",
+            "zone": "Auxerre",
+            "reseau": "AuxR_M le bus"
+        },
+        "creusot-montceau:CMT": {
+            "name_otp": "CUCM",
+            "zone": "Creusot-Montceau",
+            "reseau": "CUCM"
+        },
+        "lons-le-saunier:374": {
+            "name_otp": "ECLA LONS AGGLO MOBILITÉS",
+            "zone": "Lons-le-Saunier",
+            "reseau": "ECLA LONS AGGLO MOBILITÉS"
+        },
+        "beaune:COTEETBUS": {
+            "name_otp": "Espace Coteetbus",
+            "zone": "Beaune",
+            "reseau": "Espace Coteetbus"
+        },
+        "besancon:2427153": {
+            "name_otp": "Ginko",
+            "zone": "Besancon",
+            "reseau": "Ginko"
+        },
+        "sens:INTERCOM": {
+            "name_otp": "INTERCOM",
+            "zone": "Sens",
+            "reseau": "INTERCOM"
+        },
+        "nevers:KEOLIS": {
+            "name_otp": "KEOLIS",
+            "zone": "Nevers",
+            "reseau": "KEOLIS"
+        },
+        "dijon:KD": {
+            "name_otp": "KEOLIS DIJON",
+            "zone": "Dijon",
+            "reseau": "KEOLIS DIJON"
+        },
+        "belfort:OPTYMO_SUB": {
+            "name_otp": "OPTYMO suburbain",
+            "zone": "Belfort",
+            "reseau": "OPTYMO suburbain"
+        },
+        "belfort:OPTYMO_URB": {
+            "name_otp": "OPTYMO urbain",
+            "zone": "Belfort",
+            "reseau": "OPTYMO urbain"
+        },
+        "paray-le-monial:11215498": {
+            "name_otp": "Paray Le Monial",
+            "zone": "Paray-le-Monial",
+            "reseau": "Paray Le Monial"
+        },
+        "pontarlier:11215498": {
+            "name_otp": "Pontarlier",
+            "zone": "Pontarlier",
+            "reseau": "Pontarlier"
+        },
+        "interurbain-bfc:41": {
+            "name_otp": "RESEAU 21",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 21"
+        },
+        "interurbain-bfc:43": {
+            "name_otp": "RESEAU 25",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 25"
+        },
+        "interurbain-bfc:34": {
+            "name_otp": "RESEAU 39",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 39"
+        },
+        "interurbain-bfc:42": {
+            "name_otp": "RESEAU 58",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 58"
+        },
+        "interurbain-bfc:36": {
+            "name_otp": "RESEAU 70",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 70"
+        },
+        "interurbain-bfc:35": {
+            "name_otp": "RESEAU 71",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 71"
+        },
+        "interurbain-bfc:38": {
+            "name_otp": "RESEAU 89",
+            "zone": "Interurbain-Bfc",
+            "reseau": "RESEAU 89"
+        },
+        "autun:4830": {
+            "name_otp": "SBTM",
+            "zone": "Autun",
+            "reseau": "SBTM"
+        },
+        "saint-claude:11215498": {
+            "name_otp": "Saint-Claude",
+            "zone": "Saint-Claude",
+            "reseau": "Saint-Claude"
+        },
+        "chalon-sur-saone:STAC": {
+            "name_otp": "Société de Transport de l'Agglomération Chalonnais",
+            "zone": "Chalon-sur-Saone",
+            "reseau": "Société de Transport de l'Agglomération Chalonnais"
+        },
+        "macon:TREMA": {
+            "name_otp": "TREMA",
+            "zone": "Macon",
+            "reseau": "TREMA"
+        },
+        "montbeliard:9": {
+            "name_otp": "evolitY",
+            "zone": "Montbeliard",
+            "reseau": "evolitY"
+        },
+        "luxeuil-les-bains:11215498": {
+            "name_otp": "luxeuil les bains",
+            "zone": "Luxeuil-les-Bains",
+            "reseau": "luxeuil les bains"
+        },
+        "vesoul:mv": {
+            "name_otp": "moova",
+            "zone": "Vesoul",
+            "reseau": "moova"
+        },
+        "landerneau:14": {
+            "name_otp": "Ar Bus (Communauté de Communes du Pays de Landerneau-Daoulas)",
+            "zone": "Landerneau",
+            "reseau": "Ar Bus (Communauté de Communes du Pays de Landerneau-Daoulas)"
+        },
+        "auray:AURAYBUS": {
+            "name_otp": "Auray Bus (Auray)",
+            "zone": "Auray",
+            "reseau": "Auray Bus (Auray)"
+        },
+        "brest:1": {
+            "name_otp": "Bibus",
+            "zone": "Brest",
+            "reseau": "Bibus"
+        },
+        "interurbain-bre:24": {
+            "name_otp": "BreizhGo Ligne Nord-Sud",
+            "zone": "Interurbain-Bre",
+            "reseau": "BreizhGo Ligne Nord-Sud"
+        },
+        "interurbain-bre:343": {
+            "name_otp": "BreizhGo Lignes Ouest-Nord",
+            "zone": "Interurbain-Bre",
+            "reseau": "BreizhGo Lignes Ouest-Nord"
+        },
+        "interurbain-bre:11": {
+            "name_otp": "BreizhGo en Côtes d'Armor",
+            "zone": "Interurbain-Bre",
+            "reseau": "BreizhGo en Côtes d'Armor"
+        },
+        "interurbain-bre:6": {
+            "name_otp": "BreizhGo en Finistère",
+            "zone": "Interurbain-Bre",
+            "reseau": "BreizhGo en Finistère"
+        },
+        "interurbain-bre:3": {
+            "name_otp": "BreizhGo en Ille-et-Vilaine",
+            "zone": "Interurbain-Bre",
+            "reseau": "BreizhGo en Ille-et-Vilaine"
+        },
+        "interurbain-bre:357": {
+            "name_otp": "BreizhGo en Morbihan",
+            "zone": "Interurbain-Bre",
+            "reseau": "BreizhGo en Morbihan"
+        },
+        "chateaubourg:11215498": {
+            "name_otp": "Châteaubourg",
+            "zone": "Chateaubourg",
+            "reseau": "Châteaubourg"
+        },
+        "dinan:DINAMO": {
+            "name_otp": "Dinamo!",
+            "zone": "Dinan",
+            "reseau": "Dinamo!"
+        },
+        "lamballe:DISTRIBUS": {
+            "name_otp": "Distribus",
+            "zone": "Lamballe",
+            "reseau": "Distribus"
+        },
+        "auray:GLAZGO": {
+            "name_otp": "GLAZGO",
+            "zone": "Auray",
+            "reseau": "GLAZGO"
+        },
+        "guingamp:GPMOBI": {
+            "name_otp": "Guingamp-Paimpol Mobilité",
+            "zone": "Guingamp",
+            "reseau": "Guingamp-Paimpol Mobilité"
+        },
+        "lorient:2": {
+            "name_otp": "IZILO",
+            "zone": "Lorient",
+            "reseau": "IZILO"
+        },
+        "vannes:Kicéo": {
+            "name_otp": "Kicéo",
+            "zone": "Vannes",
+            "reseau": "Kicéo"
+        },
+        "interurbain-bre:31": {
+            "name_otp": "Liaison maritime Arz",
+            "zone": "Interurbain-Bre",
+            "reseau": "Liaison maritime Arz"
+        },
+        "interurbain-bre:51": {
+            "name_otp": "Liaison maritime Bréhat",
+            "zone": "Interurbain-Bre",
+            "reseau": "Liaison maritime Bréhat"
+        },
+        "interurbain-bre:43": {
+            "name_otp": "Liaisons maritimes Finistère",
+            "zone": "Interurbain-Bre",
+            "reseau": "Liaisons maritimes Finistère"
+        },
+        "interurbain-bre:29": {
+            "name_otp": "Liaisons maritimes Morbihan",
+            "zone": "Interurbain-Bre",
+            "reseau": "Liaisons maritimes Morbihan"
+        },
+        "morlaix:LINEOTIMPERI": {
+            "name_otp": "Linéotim (Morlaix périurbain)",
+            "zone": "Morlaix",
+            "reseau": "Linéotim (Morlaix périurbain)"
+        },
+        "morlaix:LINEOTIM": {
+            "name_otp": "Linéotim (Morlaix urbain)",
+            "zone": "Morlaix",
+            "reseau": "Linéotim (Morlaix urbain)"
+        },
+        "morlaix:LINEOTIML30": {
+            "name_otp": "LinéotimL30 (Morlaix)",
+            "zone": "Morlaix",
+            "reseau": "LinéotimL30 (Morlaix)"
+        },
+        "saint-malo:MAT": {
+            "name_otp": "MAT",
+            "zone": "Saint-Malo",
+            "reseau": "MAT"
+        },
+        "pontivy:PONDIBUS": {
+            "name_otp": "Pondibus",
+            "zone": "Pontivy",
+            "reseau": "Pondibus"
+        },
+        "quimper:1": {
+            "name_otp": "QUB",
+            "zone": "Quimper",
+            "reseau": "QUB"
+        },
+        "quimper:RATP DEV": {
+            "name_otp": "RATP DEV",
+            "zone": "Quimper",
+            "reseau": "RATP DEV"
+        },
+        "quimperle:RATP DEV": {
+            "name_otp": "RATP DEV",
+            "zone": "Quimperle",
+            "reseau": "RATP DEV"
+        },
+        "ploermel:RIV": {
+            "name_otp": "RIV (Ploërmel)",
+            "zone": "Ploermel",
+            "reseau": "RIV (Ploërmel)"
+        },
+        "concarneau:16": {
+            "name_otp": "Réseau Coralie (Concarneau Cornouaille Agglomération)",
+            "zone": "Concarneau",
+            "reseau": "Réseau Coralie (Concarneau Cornouaille Agglomération)"
+        },
+        "rennes:1": {
+            "name_otp": "STAR",
+            "zone": "Rennes",
+            "reseau": "STAR"
+        },
+        "fougeres:SURF": {
+            "name_otp": "SURF",
+            "zone": "Fougeres",
+            "reseau": "SURF"
+        },
+        "brest:2": {
+            "name_otp": "TAD Bibus",
+            "zone": "Brest",
+            "reseau": "TAD Bibus"
+        },
+        "lannion-tregor:22": {
+            "name_otp": "TILT (Lannion)",
+            "zone": "Lannion-Tregor",
+            "reseau": "TILT (Lannion)"
+        },
+        "saint-brieuc:1": {
+            "name_otp": "TUB",
+            "zone": "Saint-Brieuc",
+            "reseau": "TUB"
+        },
+        "douarnenez:17": {
+            "name_otp": "Tud'Bus (Douarnenez Communauté)",
+            "zone": "Douarnenez",
+            "reseau": "Tud'Bus (Douarnenez Communauté)"
+        },
+        "vitre:Vitré Urbain": {
+            "name_otp": "URBAIN VITRE",
+            "zone": "Vitre",
+            "reseau": "URBAIN VITRE"
+        },
+        "pointe-a-pitre:008": {
+            "name_otp": "SMT",
+            "zone": "Pointe-A-Pitre",
+            "reseau": "SMT"
+        },
+        "pointe-a-pitre:001": {
+            "name_otp": "STAC KARULIS",
+            "zone": "Pointe-A-Pitre",
+            "reseau": "STAC KARULIS"
+        },
+        "morne-a-l-eau:URBAIN-CANGT": {
+            "name_otp": "Urbain CANGT",
+            "zone": "Morne-A-L-Eau",
+            "reseau": "Urbain CANGT"
+        },
+        "porto-vecchio:A-BERLINA": {
+            "name_otp": "A Berlina",
+            "zone": "Porto-Vecchio",
+            "reseau": "A Berlina"
+        },
+        "interurbain-cor:LIGNES-PRIVEES-CORSE": {
+            "name_otp": "Lignes privées Corse",
+            "zone": "Interurbain-Cor",
+            "reseau": "Lignes privées Corse"
+        },
+        "vico:11215498": {
+            "name_otp": "Spelunca Liamone",
+            "zone": "Vico",
+            "reseau": "Spelunca Liamone"
+        },
+        "porto-vecchio:1": {
+            "name_otp": "Transports Urbains Porto Vecchiais\tEurope\/Paris\thttp:\/\/acitadina.porto-vecchio.corsica\/",
+            "zone": "Porto-Vecchio",
+            "reseau": "Transports Urbains Porto Vecchiais\tEurope\/Paris\thttp:\/\/acitadina.porto-vecchio.corsica\/"
+        },
+        "bastia:VIABASTIA": {
+            "name_otp": "VIABASTIA",
+            "zone": "Bastia",
+            "reseau": "VIABASTIA"
+        },
+        "interurbain-cor:TRANSPORT-REGULIER-CORSE-DU-SUD": {
+            "name_otp": "Via Strada",
+            "zone": "Interurbain-Cor",
+            "reseau": "Via Strada"
+        },
+        "ajaccio:1": {
+            "name_otp": "muvitarra",
+            "zone": "Ajaccio",
+            "reseau": "muvitarra"
+        },
+        "bourges:5": {
+            "name_otp": "Agglobus (Bourges)",
+            "zone": "Bourges",
+            "reseau": "Agglobus (Bourges)"
+        },
+        "montargis:Amelys (Montargis)": {
+            "name_otp": "Amelys (Montargis)",
+            "zone": "Montargis",
+            "reseau": "Amelys (Montargis)"
+        },
+        "blois:AZALYS": {
+            "name_otp": "Azalys (Blois)",
+            "zone": "Blois",
+            "reseau": "Azalys (Blois)"
+        },
+        "tours:TTR:1": {
+            "name_otp": "Fil Bleu (Tours)",
+            "zone": "Tours",
+            "reseau": "Fil Bleu (Tours)"
+        },
+        "chartres:agency": {
+            "name_otp": "Filibus (Chartres)",
+            "zone": "Chartres",
+            "reseau": "Filibus (Chartres)"
+        },
+        "chateauroux:KEOLIS": {
+            "name_otp": "KEOLIS",
+            "zone": "Chateauroux",
+            "reseau": "KEOLIS"
+        },
+        "amboise:lebus": {
+            "name_otp": "Le Bus (Amboise)",
+            "zone": "Amboise",
+            "reseau": "Le Bus (Amboise)"
+        },
+        "vierzon:LEVIB": {
+            "name_otp": "Le VIB (Vierzon)",
+            "zone": "Vierzon",
+            "reseau": "Le VIB (Vierzon)"
+        },
+        "dreux:1": {
+            "name_otp": "Linéad (Dreux)",
+            "zone": "Dreux",
+            "reseau": "Linéad (Dreux)"
+        },
+        "vendome:MOVE": {
+            "name_otp": "Move (Territoires Vendômois)",
+            "zone": "Vendome",
+            "reseau": "Move (Territoires Vendômois)"
+        },
+        "nogent-le-rotrou:NOSBUS": {
+            "name_otp": "Nosbus (Nogent-le-Rotrou)",
+            "zone": "Nogent-le-Rotrou",
+            "reseau": "Nosbus (Nogent-le-Rotrou)"
+        },
+        "interurbain-cvl:REMI_18:Operator:R_mi18": {
+            "name_otp": "Rémi 18",
+            "zone": "Interurbain-Cvl",
+            "reseau": "Rémi 18"
+        },
+        "interurbain-cvl:REMI28:Operator:REMI28": {
+            "name_otp": "Rémi 28",
+            "zone": "Interurbain-Cvl",
+            "reseau": "Rémi 28"
+        },
+        "interurbain-cvl:REMI36:Operator:R_mi36": {
+            "name_otp": "Rémi 36",
+            "zone": "Interurbain-Cvl",
+            "reseau": "Rémi 36"
+        },
+        "interurbain-cvl:REMI37:Operator:REMI37": {
+            "name_otp": "Rémi 37",
+            "zone": "Interurbain-Cvl",
+            "reseau": "Rémi 37"
+        },
+        "interurbain-cvl:REMI41:Operator:REMI41": {
+            "name_otp": "Rémi 41",
+            "zone": "Interurbain-Cvl",
+            "reseau": "Rémi 41"
+        },
+        "interurbain-cvl:REMI45:Operator:REMI45": {
+            "name_otp": "Rémi 45",
+            "zone": "Interurbain-Cvl",
+            "reseau": "Rémi 45"
+        },
+        "orleans:agency": {
+            "name_otp": "TAO (Orléans)",
+            "zone": "Orleans",
+            "reseau": "TAO (Orléans)"
+        },
+        "issoudun:ISS": {
+            "name_otp": "TIG+R (Issoudun)",
+            "zone": "Issoudun",
+            "reseau": "TIG+R (Issoudun)"
+        },
+        "langres:78": {
+            "name_otp": "Autobus Langrois Prêt à Partir",
+            "zone": "Langres",
+            "reseau": "Autobus Langrois Prêt à Partir"
+        },
+        "sarreguemines:40": {
+            "name_otp": "CABUS",
+            "zone": "Sarreguemines",
+            "reseau": "CABUS"
+        },
+        "sel-et-vermois:CC Sel et Vermois": {
+            "name_otp": "CC Sel et Vermois",
+            "zone": "Sel-et-Vermois",
+            "reseau": "CC Sel et Vermois"
+        },
+        "chaumont:76": {
+            "name_otp": "CMONBUS",
+            "zone": "Chaumont",
+            "reseau": "CMONBUS"
+        },
+        "strasbourg:CTS": {
+            "name_otp": "CTS",
+            "zone": "Strasbourg",
+            "reseau": "CTS"
+        },
+        "chalons-en-champagne:74": {
+            "name_otp": "Châlons-en-Champagne",
+            "zone": "Chalons-en-Champagne",
+            "reseau": "Châlons-en-Champagne"
+        },
+        "covoit-reims:2": {
+            "name_otp": "Covoit'ici",
+            "zone": "Covoit-Reims",
+            "reseau": "Covoit'ici"
+        },
+        "louis:52": {
+            "name_otp": "DISTRIBUS",
+            "zone": "Louis",
+            "reseau": "DISTRIBUS"
+        },
+        "selestat:60": {
+            "name_otp": "ELSA",
+            "zone": "Selestat",
+            "reseau": "ELSA"
+        },
+        "interurbain-ges:451": {
+            "name_otp": "Fluo Grand Est 08",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 08"
+        },
+        "aube:288": {
+            "name_otp": "Fluo Grand Est 10",
+            "zone": "Aube",
+            "reseau": "Fluo Grand Est 10"
+        },
+        "interurbain-ges:85": {
+            "name_otp": "Fluo Grand Est 51",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 51"
+        },
+        "interurbain-ges:618": {
+            "name_otp": "Fluo Grand Est 52",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 52"
+        },
+        "interurbain-ges:39": {
+            "name_otp": "Fluo Grand Est 54",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 54"
+        },
+        "interurbain-ges:34": {
+            "name_otp": "Fluo Grand Est 55",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 55"
+        },
+        "interurbain-ges:619": {
+            "name_otp": "Fluo Grand Est 57",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 57"
+        },
+        "interurbain-ges:450": {
+            "name_otp": "Fluo Grand Est 67",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 67"
+        },
+        "interurbain-ges:48": {
+            "name_otp": "Fluo Grand Est 68",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 68"
+        },
+        "interurbain-ges:31": {
+            "name_otp": "Fluo Grand Est 88",
+            "zone": "Interurbain-Ges",
+            "reseau": "Fluo Grand Est 88"
+        },
+        "forbach:42": {
+            "name_otp": "Forbus",
+            "zone": "Forbach",
+            "reseau": "Forbus"
+        },
+        "covoit-reims:1": {
+            "name_otp": "Grand Reims Mobilités Covoit",
+            "zone": "Covoit-Reims",
+            "reseau": "Grand Reims Mobilités Covoit"
+        },
+        "epinal:24": {
+            "name_otp": "IMAGINE",
+            "zone": "Epinal",
+            "reseau": "IMAGINE"
+        },
+        "sarrebourg:27": {
+            "name_otp": "ISIBUS",
+            "zone": "Sarrebourg",
+            "reseau": "ISIBUS"
+        },
+        "haguenau:agency": {
+            "name_otp": "Keolis Secteur Alsace",
+            "zone": "Haguenau",
+            "reseau": "Keolis Secteur Alsace"
+        },
+        "metz:TAMM": {
+            "name_otp": "LE MET'",
+            "zone": "Metz",
+            "reseau": "LE MET'"
+        },
+        "nancy:30": {
+            "name_otp": "LE SIT",
+            "zone": "Nancy",
+            "reseau": "LE SIT"
+        },
+        "pont-a-mousson:11215498": {
+            "name_otp": "LEBUS",
+            "zone": "Pont-A-Mousson",
+            "reseau": "LEBUS"
+        },
+        "pays-du-lunevillois:LUNEO": {
+            "name_otp": "LUNEO",
+            "zone": "Pays-du-Lunevillois",
+            "reseau": "LUNEO"
+        },
+        "troyes:MASQUE": {
+            "name_otp": "MASQUE",
+            "zone": "Troyes",
+            "reseau": "MASQUE"
+        },
+        "epernay:77": {
+            "name_otp": "Mouvéo",
+            "zone": "Epernay",
+            "reseau": "Mouvéo"
+        },
+        "obernai:62": {
+            "name_otp": "PASS'O",
+            "zone": "Obernai",
+            "reseau": "PASS'O"
+        },
+        "charleville-mezieres:75": {
+            "name_otp": "RD Ardennes Métropole",
+            "zone": "Charleville-Mezieres",
+            "reseau": "RD Ardennes Métropole"
+        },
+        "saint-dizier:672": {
+            "name_otp": "RESEAU URBAIN TICEA",
+            "zone": "Saint-Dizier",
+            "reseau": "RESEAU URBAIN TICEA"
+        },
+        "verdun:43": {
+            "name_otp": "REZO",
+            "zone": "Verdun",
+            "reseau": "REZO"
+        },
+        "neufchateau:SADAPNFC-NEOBUS": {
+            "name_otp": "Reseau NEOBUS",
+            "zone": "Neufchateau",
+            "reseau": "Reseau NEOBUS"
+        },
+        "mulhouse:237": {
+            "name_otp": "SOLEA",
+            "zone": "Mulhouse",
+            "reseau": "SOLEA"
+        },
+        "nancy:11215498": {
+            "name_otp": "STAN",
+            "zone": "Nancy",
+            "reseau": "STAN"
+        },
+        "nancy:32": {
+            "name_otp": "SUB",
+            "zone": "Nancy",
+            "reseau": "SUB"
+        },
+        "saint-die-des-vosges:26": {
+            "name_otp": "SYLVIA",
+            "zone": "Saint-Die-des-Vosges",
+            "reseau": "SYLVIA"
+        },
+        "troyes:TCAT": {
+            "name_otp": "TCAT",
+            "zone": "Troyes",
+            "reseau": "TCAT"
+        },
+        "bassin-de-briey:53": {
+            "name_otp": "TGE MEUSE MOSELLE",
+            "zone": "Bassin-de-Briey",
+            "reseau": "TGE MEUSE MOSELLE"
+        },
+        "longwy:TGL": {
+            "name_otp": "TGL",
+            "zone": "Longwy",
+            "reseau": "TGL"
+        },
+        "moselle-et-madon:36": {
+            "name_otp": "TMM",
+            "zone": "Moselle-et-Madon",
+            "reseau": "TMM"
+        },
+        "colmar:434": {
+            "name_otp": "TRACE",
+            "zone": "Colmar",
+            "reseau": "TRACE"
+        },
+        "bar-le-duc:67": {
+            "name_otp": "TUB",
+            "zone": "Bar-le-Duc",
+            "reseau": "TUB"
+        },
+        "sainte-menehould:82": {
+            "name_otp": "TUM - Transport Urbain Ménéhildien",
+            "zone": "Sainte-Menehould",
+            "reseau": "Transport Urbain Ménéhildien"
+        },
+        "toul:38": {
+            "name_otp": "Terres Touloises Mobilité",
+            "zone": "Toul",
+            "reseau": "Terres Touloises Mobilité"
+        },
+        "thionville:25": {
+            "name_otp": "Trans Fensch",
+            "zone": "Thionville",
+            "reseau": "Trans Fensch"
+        },
+        "saint-avold-synergie:35": {
+            "name_otp": "Transavold",
+            "zone": "Saint-Avold-Synergie",
+            "reseau": "Transavold"
+        },
+        "reims:84": {
+            "name_otp": "Transdev Reims",
+            "zone": "Reims",
+            "reseau": "Transdev Reims"
+        },
+        "cayenne:11215498": {
+            "name_otp": "AGGLOBUS PERI URBAIN",
+            "zone": "Cayenne",
+            "reseau": "AGGLOBUS PERI URBAIN"
+        },
+        "creil:AXO": {
+            "name_otp": "AXO - Agglo Creil Sud Oise",
+            "zone": "Creil",
+            "reseau": "Agglo Creil Sud Oise"
+        },
+        "chantilly:AIREMOB": {
+            "name_otp": "Aire'MOB - C.C. de l'Aire Cantilienne",
+            "zone": "Chantilly",
+            "reseau": "C.C. de l'Aire Cantilienne"
+        },
+        "valenciennes:4": {
+            "name_otp": "Arc-en-Ciel 4",
+            "zone": "Valenciennes",
+            "reseau": "Arc-en-Ciel 4"
+        },
+        "arras:9": {
+            "name_otp": "Artis",
+            "zone": "Arras",
+            "reseau": "Artis"
+        },
+        "interurbain-hdf:TRIO1": {
+            "name_otp": "Autocars Oise - Hauts-de-France mobilités - Lot 1",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Hauts-de-France mobilités - Lot 1"
+        },
+        "interurbain-hdf:KO2": {
+            "name_otp": "Autocars Oise - Hauts-de-France mobilités - Lot 2",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Hauts-de-France mobilités - Lot 2"
+        },
+        "interurbain-hdf:TRIO3": {
+            "name_otp": "Autocars Oise - Hauts-de-France mobilités - Lot 3",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Hauts-de-France mobilités - Lot 3"
+        },
+        "interurbain-hdf:RIO4": {
+            "name_otp": "Autocars Oise - Hauts-de-France mobilités - Lot 4",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Hauts-de-France mobilités - Lot 4"
+        },
+        "cambrai:59_013": {
+            "name_otp": "CAC",
+            "zone": "Cambrai",
+            "reseau": "CAC"
+        },
+        "interurbain-hdf:235": {
+            "name_otp": "CAP",
+            "zone": "Interurbain-Hdf",
+            "reseau": "CAP"
+        },
+        "interurbain-hdf:232": {
+            "name_otp": "Cars Perdigeon",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Cars Perdigeon"
+        },
+        "beauvais:TOC": {
+            "name_otp": "Corolis C.A. du Beauvaisis - Interurbain",
+            "zone": "Beauvais",
+            "reseau": "Interurbain"
+        },
+        "beauvais:01-COROBVS": {
+            "name_otp": "Corolis C.A. du Beauvaisis - Urbain",
+            "zone": "Beauvais",
+            "reseau": "Urbain"
+        },
+        "dunkerque:DKBUS": {
+            "name_otp": "DKBUS",
+            "zone": "Dunkerque",
+            "reseau": "DKBUS"
+        },
+        "douai:1": {
+            "name_otp": "EVEOLE",
+            "zone": "Douai",
+            "reseau": "EVEOLE"
+        },
+        "estrees-saint-denis:HOPLA": {
+            "name_otp": "HOPLÀ - C.C. de la Plaine d'Estrées",
+            "zone": "Estrees-Saint-Denis",
+            "reseau": "C.C. de la Plaine d'Estrées"
+        },
+        "lille:ILE": {
+            "name_otp": "ILEVIA",
+            "zone": "Lille",
+            "reseau": "ILEVIA"
+        },
+        "interurbain-hdf:216": {
+            "name_otp": "KEOLIS",
+            "zone": "Interurbain-Hdf",
+            "reseau": "KEOLIS"
+        },
+        "amiens:KEOL": {
+            "name_otp": "KEOLIS AMIENS",
+            "zone": "Amiens",
+            "reseau": "KEOLIS AMIENS"
+        },
+        "amiens:ametis": {
+            "name_otp": "Keolis Amiens",
+            "zone": "Amiens",
+            "reseau": "Keolis Amiens"
+        },
+        "chateau-thierry:Fablio": {
+            "name_otp": "Keolis chateau-thierry",
+            "zone": "Chateau-Thierry",
+            "reseau": "Keolis chateau-thierry"
+        },
+        "lamorlaye:LAM": {
+            "name_otp": "La Navette - C.C. de l'Aire Cantilienne",
+            "zone": "Lamorlaye",
+            "reseau": "C.C. de l'Aire Cantilienne"
+        },
+        "clermont:CLT_LB": {
+            "name_otp": "Le Bus - C.C. du Clermontois",
+            "zone": "Clermont",
+            "reseau": "C.C. du Clermontois"
+        },
+        "noyon:CAP": {
+            "name_otp": "Lib'Bus - C.C. du Pays Noyonnais",
+            "zone": "Noyon",
+            "reseau": "C.C. du Pays Noyonnais"
+        },
+        "boulogne-sur-mer:2": {
+            "name_otp": "Marineo",
+            "zone": "Boulogne-sur-Mer",
+            "reseau": "Marineo"
+        },
+        "interurbain-hdf:C-O": {
+            "name_otp": "Mixte CAP & Oiseau Bleu",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Mixte CAP & Oiseau Bleu"
+        },
+        "crepy-en-valois:MOBI": {
+            "name_otp": "Mobi - C.C. du Pays de Valois",
+            "zone": "Crepy-en-Valois",
+            "reseau": "C.C. du Pays de Valois"
+        },
+        "saint-omer:CAPSO": {
+            "name_otp": "Mouvéo Commercial",
+            "zone": "Saint-Omer",
+            "reseau": "Mouvéo Commercial"
+        },
+        "interurbain-hdf:211": {
+            "name_otp": "Oiseau bleu",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Oiseau bleu"
+        },
+        "interurbain-hdf:02": {
+            "name_otp": "RHDF-02-COM",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-02-COM"
+        },
+        "interurbain-hdf:02SCO": {
+            "name_otp": "RHDF-02-SCO",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-02-SCO"
+        },
+        "interurbain-hdf:59_019": {
+            "name_otp": "RHDF-59-P1",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-59-P1"
+        },
+        "interurbain-hdf:59_020": {
+            "name_otp": "RHDF-59-P2",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-59-P2"
+        },
+        "interurbain-hdf:59_021": {
+            "name_otp": "RHDF-59-P3A",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-59-P3A"
+        },
+        "interurbain-hdf:59_035": {
+            "name_otp": "RHDF-59-P3B",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-59-P3B"
+        },
+        "interurbain-hdf:59_022": {
+            "name_otp": "RHDF-59-P4",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-59-P4"
+        },
+        "interurbain-hdf:62": {
+            "name_otp": "RHDF-62-COM",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-62-COM"
+        },
+        "interurbain-hdf:62SCO": {
+            "name_otp": "RHDF-62-SCO",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-62-SCO"
+        },
+        "interurbain-hdf:80SCO": {
+            "name_otp": "RHDF-80-SCO",
+            "zone": "Interurbain-Hdf",
+            "reseau": "RHDF-80-SCO"
+        },
+        "calais:1": {
+            "name_otp": "STCE",
+            "zone": "Calais",
+            "reseau": "STCE"
+        },
+        "villeneuve-les-sablons:SABLONSBUS": {
+            "name_otp": "Sablons Bus - C.C. des Sablons",
+            "zone": "Villeneuve-les-Sablons",
+            "reseau": "C.C. des Sablons"
+        },
+        "lens:agency": {
+            "name_otp": "TADAO",
+            "zone": "Lens",
+            "reseau": "TADAO"
+        },
+        "interurbain-hdf:215": {
+            "name_otp": "TAQUET (RATPDev)",
+            "zone": "Interurbain-Hdf",
+            "reseau": "TAQUET (RATPDev)"
+        },
+        "compiegne:38": {
+            "name_otp": "TIC - AlloTIC- AR de Compiègne",
+            "zone": "Compiegne",
+            "reseau": "AlloTIC- AR de Compiègne"
+        },
+        "compiegne:60OM": {
+            "name_otp": "TIC Interurbain - AR de Compiègne",
+            "zone": "Compiegne",
+            "reseau": "AR de Compiègne"
+        },
+        "compiegne:a-60OM": {
+            "name_otp": "TIC Urbain - AR de Compiègne",
+            "zone": "Compiegne",
+            "reseau": "AR de Compiègne"
+        },
+        "laon:4": {
+            "name_otp": "TUL",
+            "zone": "Laon",
+            "reseau": "TUL"
+        },
+        "pont-sainte-maxence:TOHM": {
+            "name_otp": "Tohm - C.C. des pays d'Oise et d'Halatte",
+            "zone": "Pont-Sainte-Maxence",
+            "reseau": "C.C. des pays d'Oise et d'Halatte"
+        },
+        "valenciennes:7": {
+            "name_otp": "Transvilles",
+            "zone": "Valenciennes",
+            "reseau": "Transvilles"
+        },
+        "villers-cotterets:VILLEO": {
+            "name_otp": "VILLEO-RETZEO",
+            "zone": "Villers-Cotterets",
+            "reseau": "VILLEO-RETZEO"
+        },
+        "interurbain-hdf:230": {
+            "name_otp": "Voyages DUMONT",
+            "zone": "Interurbain-Hdf",
+            "reseau": "Voyages DUMONT"
+        },
+        "maubeuge:maubeuge": {
+            "name_otp": "stibus",
+            "zone": "Maubeuge",
+            "reseau": "stibus"
+        },
+        "chelles:IDFM:6": {
+            "name_otp": "Apolo 7",
+            "zone": "Chelles",
+            "reseau": "Apolo 7"
+        },
+        "montesson:IDFM:1054": {
+            "name_otp": "Argenteuil - Boucles de Seine",
+            "zone": "Montesson",
+            "reseau": "Boucles de Seine"
+        },
+        "antony:IDFM:1063": {
+            "name_otp": "Bièvre",
+            "zone": "Antony",
+            "reseau": "Bièvre"
+        },
+        "crecy-la-chapelle:IDFM:1056": {
+            "name_otp": "Brie et 2 Morin",
+            "zone": "Crecy-la-Chapelle",
+            "reseau": "Brie et 2 Morin"
+        },
+        "la-ferte-sous-jouarre:IDFM:1056": {
+            "name_otp": "Brie et 2 Morin",
+            "zone": "La-Ferte-sous-Jouarre",
+            "reseau": "Brie et 2 Morin"
+        },
+        "trappes:IDFM:1081": {
+            "name_otp": "Centre et Sud Yvelines",
+            "zone": "Trappes",
+            "reseau": "Centre et Sud Yvelines"
+        },
+        "cergy-pontoise:IDFM:1081": {
+            "name_otp": "Centre et Sud Yvelines",
+            "zone": "Cergy-Pontoise",
+            "reseau": "Centre et Sud Yvelines"
+        },
+        "les-clayes-sous-bois:IDFM:1081": {
+            "name_otp": "Centre et Sud Yvelines",
+            "zone": "Les-Clayes-sous-Bois",
+            "reseau": "Centre et Sud Yvelines"
+        },
+        "houdan:IDFM:1081": {
+            "name_otp": "Centre et Sud Yvelines",
+            "zone": "Houdan",
+            "reseau": "Centre et Sud Yvelines"
+        },
+        "rambouillet:IDFM:1081": {
+            "name_otp": "Centre et Sud Yvelines",
+            "zone": "Rambouillet",
+            "reseau": "Centre et Sud Yvelines"
+        },
+        "poissy:IDFM:1081": {
+            "name_otp": "Centre et Sud Yvelines",
+            "zone": "Poissy",
+            "reseau": "Centre et Sud Yvelines"
+        },
+        "conflans-sainte-honorine:IDFM:1082": {
+            "name_otp": "Cergy-Pontoise Confluence",
+            "zone": "Conflans-Sainte-Honorine",
+            "reseau": "Cergy-Pontoise Confluence"
+        },
+        "chaville:IDFM:663": {
+            "name_otp": "Chavilbus",
+            "zone": "Chaville",
+            "reseau": "Chavilbus"
+        },
+        "marolles-en-hurepoix:IDFM:1076": {
+            "name_otp": "Cœur d’Essonne",
+            "zone": "Marolles-en-Hurepoix",
+            "reseau": "Cœur d’Essonne"
+        },
+        "sainte-genevieve-des-bois:IDFM:1076": {
+            "name_otp": "Cœur d’Essonne",
+            "zone": "Sainte-Genevieve-des-Bois",
+            "reseau": "Cœur d’Essonne"
+        },
+        "brie-comte-robert:IDFM:1058": {
+            "name_otp": "Essonne Sud Est",
+            "zone": "Brie-Comte-Robert",
+            "reseau": "Essonne Sud Est"
+        },
+        "milly-la-foret:IDFM:1058": {
+            "name_otp": "Essonne Sud Est",
+            "zone": "Milly-la-Foret",
+            "reseau": "Essonne Sud Est"
+        },
+        "bretigny-sur-orge:IDFM:1058": {
+            "name_otp": "Essonne Sud Est",
+            "zone": "Bretigny-sur-Orge",
+            "reseau": "Essonne Sud Est"
+        },
+        "orsay:IDFM:1059": {
+            "name_otp": "Essonne Sud Ouest",
+            "zone": "Orsay",
+            "reseau": "Essonne Sud Ouest"
+        },
+        "lardy:IDFM:1059": {
+            "name_otp": "Essonne Sud Ouest",
+            "zone": "Lardy",
+            "reseau": "Essonne Sud Ouest"
+        },
+        "etampes:IDFM:1059": {
+            "name_otp": "Essonne Sud Ouest",
+            "zone": "Etampes",
+            "reseau": "Essonne Sud Ouest"
+        },
+        "corbeil-essonnes:IDFM:1080": {
+            "name_otp": "Evry Centre Essonne",
+            "zone": "Corbeil-Essonnes",
+            "reseau": "Evry Centre Essonne"
+        },
+        "evry:IDFM:1080": {
+            "name_otp": "Evry Centre Essonne",
+            "zone": "Evry",
+            "reseau": "Evry Centre Essonne"
+        },
+        "avon:IDFM:1074": {
+            "name_otp": "Fontainebleau - Moret",
+            "zone": "Avon",
+            "reseau": "Moret"
+        },
+        "epinay-sur-orge:IDFM:1074": {
+            "name_otp": "Fontainebleau - Moret",
+            "zone": "Epinay-sur-Orge",
+            "reseau": "Moret"
+        },
+        "samois-sur-seine:IDFM:1074": {
+            "name_otp": "Fontainebleau - Moret",
+            "zone": "Samois-sur-Seine",
+            "reseau": "Moret"
+        },
+        "fontainebleau:IDFM:1074": {
+            "name_otp": "Fontainebleau - Moret",
+            "zone": "Fontainebleau",
+            "reseau": "Moret"
+        },
+        "montereau-fault-yonne:IDFM:1074": {
+            "name_otp": "Fontainebleau - Moret",
+            "zone": "Montereau-Fault-Yonne",
+            "reseau": "Moret"
+        },
+        "melun:IDFM:1050": {
+            "name_otp": "Grand Melun",
+            "zone": "Melun",
+            "reseau": "Grand Melun"
+        },
+        "saint-cyr-l-ecole:IDFM:1077": {
+            "name_otp": "Grand Versailles",
+            "zone": "Saint-Cyr-L-Ecole",
+            "reseau": "Grand Versailles"
+        },
+        "fontenay-le-fleury:IDFM:1077": {
+            "name_otp": "Grand Versailles",
+            "zone": "Fontenay-le-Fleury",
+            "reseau": "Grand Versailles"
+        },
+        "la-celle-saint-cloud:IDFM:1077": {
+            "name_otp": "Grand Versailles",
+            "zone": "La-Celle-Saint-Cloud",
+            "reseau": "Grand Versailles"
+        },
+        "versailles:IDFM:1077": {
+            "name_otp": "Grand Versailles",
+            "zone": "Versailles",
+            "reseau": "Grand Versailles"
+        },
+        "beaumont-sur-oise:IDFM:1083": {
+            "name_otp": "Haut Val d'Oise",
+            "zone": "Beaumont-sur-Oise",
+            "reseau": "Haut Val d'Oise"
+        },
+        "villepinte:IDFM:Operator_116": {
+            "name_otp": "Keolis Mobilité Roissy",
+            "zone": "Villepinte",
+            "reseau": "Keolis Mobilité Roissy"
+        },
+        "arnouville:IDFM:Operator_1028": {
+            "name_otp": "Keolis Roissy Pays de France Ouest",
+            "zone": "Arnouville",
+            "reseau": "Keolis Roissy Pays de France Ouest"
+        },
+        "montlhery:IDFM:1079": {
+            "name_otp": "Lignes Île-de-France Ouest",
+            "zone": "Montlhery",
+            "reseau": "Lignes Île-de-France Ouest"
+        },
+        "vernouillet:IDFM:1079": {
+            "name_otp": "Lignes Île-de-France Ouest",
+            "zone": "Vernouillet",
+            "reseau": "Lignes Île-de-France Ouest"
+        },
+        "bonnieres-sur-seine:IDFM:1052": {
+            "name_otp": "Mantois",
+            "zone": "Bonnieres-sur-Seine",
+            "reseau": "Mantois"
+        },
+        "mantes-la-jolie:IDFM:1052": {
+            "name_otp": "Mantois",
+            "zone": "Mantes-la-Jolie",
+            "reseau": "Mantois"
+        },
+        "aulnay-sous-bois:IDFM:1087": {
+            "name_otp": "Marne et Brie",
+            "zone": "Aulnay-sous-Bois",
+            "reseau": "Marne et Brie"
+        },
+        "villecresnes:IDFM:1065": {
+            "name_otp": "Marne et Seine",
+            "zone": "Villecresnes",
+            "reseau": "Marne et Seine"
+        },
+        "sucy-en-brie:IDFM:1065": {
+            "name_otp": "Marne et Seine",
+            "zone": "Sucy-en-Brie",
+            "reseau": "Marne et Seine"
+        },
+        "lagny-sur-marne:IDFM:64": {
+            "name_otp": "Marne-la-Vallée",
+            "zone": "Lagny-sur-Marne",
+            "reseau": "Marne-la-Vallée"
+        },
+        "marne-la-vallee:IDFM:64": {
+            "name_otp": "Marne-la-Vallée",
+            "zone": "Marne-la-Vallee",
+            "reseau": "Marne-la-Vallée"
+        },
+        "pays-de-meaux:IDFM:1055": {
+            "name_otp": "Meaux et Ourcq",
+            "zone": "Pays-de-Meaux",
+            "reseau": "Meaux et Ourcq"
+        },
+        "pays-de-l-ourcq:IDFM:1055": {
+            "name_otp": "Meaux et Ourcq",
+            "zone": "Pays-de-L-Ourcq",
+            "reseau": "Meaux et Ourcq"
+        },
+        "les-ulis:IDFM:885": {
+            "name_otp": "Paris-Saclay Mobilités",
+            "zone": "Les-Ulis",
+            "reseau": "Paris-Saclay Mobilités"
+        },
+        "val-briard:IDFM:1070": {
+            "name_otp": "Pays Briard",
+            "zone": "Val-Briard",
+            "reseau": "Pays Briard"
+        },
+        "coulommiers:IDFM:1070": {
+            "name_otp": "Pays Briard",
+            "zone": "Coulommiers",
+            "reseau": "Pays Briard"
+        },
+        "pringy:IDFM:1070": {
+            "name_otp": "Pays Briard",
+            "zone": "Pringy",
+            "reseau": "Pays Briard"
+        },
+        "pontault-combault:IDFM:1070": {
+            "name_otp": "Pays Briard",
+            "zone": "Pontault-Combault",
+            "reseau": "Pays Briard"
+        },
+        "vernouillet:IDFM:1051": {
+            "name_otp": "Poissy - Les Mureaux",
+            "zone": "Vernouillet",
+            "reseau": "Les Mureaux"
+        },
+        "les-yvelines-lignes-express-les-mureaux:IDFM:1051": {
+            "name_otp": "Poissy - Les Mureaux",
+            "zone": "Les-Yvelines-Lignes-Express-les-Mureaux",
+            "reseau": "Les Mureaux"
+        },
+        "chatenay-malabry:IDFM:1078": {
+            "name_otp": "Provinois - Brie et Seine",
+            "zone": "Chatenay-Malabry",
+            "reseau": "Brie et Seine"
+        },
+        "bray-sur-seine:IDFM:1078": {
+            "name_otp": "Provinois - Brie et Seine",
+            "zone": "Bray-sur-Seine",
+            "reseau": "Brie et Seine"
+        },
+        "provins:IDFM:1078": {
+            "name_otp": "Provinois - Brie et Seine",
+            "zone": "Provins",
+            "reseau": "Brie et Seine"
+        },
+        "arcueil:IDFM:Operator_100": {
+            "name_otp": "RATP",
+            "zone": "Arcueil",
+            "reseau": "RATP"
+        },
+        "roissy-en-france:IDFM:Operator_100": {
+            "name_otp": "RATP",
+            "zone": "Roissy-en-France",
+            "reseau": "RATP"
+        },
+        "paris:IDFM:Operator_100": {
+            "name_otp": "RATP",
+            "zone": "Paris",
+            "reseau": "RATP"
+        },
+        "interurbain-idf:IDFM:71": {
+            "name_otp": "RER",
+            "zone": "Interurbain-Idf",
+            "reseau": "RER"
+        },
+        "dammartin-en-goele:IDFM:1072": {
+            "name_otp": "Roissy Est",
+            "zone": "Dammartin-en-Goele",
+            "reseau": "Roissy Est"
+        },
+        "marly-le-roi:IDFM:1062": {
+            "name_otp": "Saint Germain Boucles de Seine",
+            "zone": "Marly-le-Roi",
+            "reseau": "Saint Germain Boucles de Seine"
+        },
+        "saint-germain-en-laye:IDFM:1062": {
+            "name_otp": "Saint Germain Boucles de Seine",
+            "zone": "Saint-Germain-en-Laye",
+            "reseau": "Saint Germain Boucles de Seine"
+        },
+        "roissy-en-brie:IDFM:81": {
+            "name_otp": "Sit'bus",
+            "zone": "Roissy-en-Brie",
+            "reseau": "Sit'bus"
+        },
+        "saint-germain-les-corbeil:IDFM:78": {
+            "name_otp": "Sénart",
+            "zone": "Saint-Germain-les-Corbeil",
+            "reseau": "Sénart"
+        },
+        "lieusaint:IDFM:78": {
+            "name_otp": "Sénart",
+            "zone": "Lieusaint",
+            "reseau": "Sénart"
+        },
+        "ermont:IDFM:1086": {
+            "name_otp": "Val Parisis",
+            "zone": "Ermont",
+            "reseau": "Val Parisis"
+        },
+        "herblay-sur-seine:IDFM:1086": {
+            "name_otp": "Val Parisis",
+            "zone": "Herblay-sur-Seine",
+            "reseau": "Val Parisis"
+        },
+        "franconville:IDFM:1086": {
+            "name_otp": "Val Parisis",
+            "zone": "Franconville",
+            "reseau": "Val Parisis"
+        },
+        "sannois:IDFM:1086": {
+            "name_otp": "Val Parisis",
+            "zone": "Sannois",
+            "reseau": "Val Parisis"
+        },
+        "villeneuve-le-roi:IDFM:1057": {
+            "name_otp": "Val d'Yerres Val de Seine",
+            "zone": "Villeneuve-le-Roi",
+            "reseau": "Val d'Yerres Val de Seine"
+        },
+        "yerres:IDFM:1057": {
+            "name_otp": "Val d'Yerres Val de Seine",
+            "zone": "Yerres",
+            "reseau": "Val d'Yerres Val de Seine"
+        },
+        "vigneux-sur-seine:IDFM:1057": {
+            "name_otp": "Val d'Yerres Val de Seine",
+            "zone": "Vigneux-sur-Seine",
+            "reseau": "Val d'Yerres Val de Seine"
+        },
+        "montmorency:IDFM:1049": {
+            "name_otp": "Vallée de Montmorency",
+            "zone": "Montmorency",
+            "reseau": "Vallée de Montmorency"
+        },
+        "eaubonne:IDFM:1049": {
+            "name_otp": "Vallée de Montmorency",
+            "zone": "Eaubonne",
+            "reseau": "Vallée de Montmorency"
+        },
+        "nemours:IDFM:1075": {
+            "name_otp": "Vallée du Loing - Nemours",
+            "zone": "Nemours",
+            "reseau": "Nemours"
+        },
+        "magny-en-vexin:IDFM:1048": {
+            "name_otp": "Vexin",
+            "zone": "Magny-en-Vexin",
+            "reseau": "Vexin"
+        },
+        "marines:IDFM:1048": {
+            "name_otp": "Vexin",
+            "zone": "Marines",
+            "reseau": "Vexin"
+        },
+        "velizy-villacoublay:IDFM:1061": {
+            "name_otp": "Vélizy Vallées",
+            "zone": "Velizy-Villacoublay",
+            "reseau": "Vélizy Vallées"
+        },
+        "rosny-sous-bois:agency": {
+            "name_otp": "ville de Rosny-sous-Bois",
+            "zone": "Rosny-sous-Bois",
+            "reseau": "ville de Rosny-sous-Bois"
+        },
+        "sainte-marie:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Sainte-Marie",
+            "reseau": "Réseau Centre"
+        },
+        "le-lorrain:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Le-Lorrain",
+            "reseau": "Réseau Centre"
+        },
+        "le-robert:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Le-Robert",
+            "reseau": "Réseau Centre"
+        },
+        "saint-joseph-martinique:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Saint-Joseph-Martinique",
+            "reseau": "Réseau Centre"
+        },
+        "gros-morne:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Gros-Morne",
+            "reseau": "Réseau Centre"
+        },
+        "le-lamentin:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Le-Lamentin",
+            "reseau": "Réseau Centre"
+        },
+        "schoelcher:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Schoelcher",
+            "reseau": "Réseau Centre"
+        },
+        "la-trinite:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "La-Trinite",
+            "reseau": "Réseau Centre"
+        },
+        "le-marigot:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Le-Marigot",
+            "reseau": "Réseau Centre"
+        },
+        "fort-de-france:1": {
+            "name_otp": "Réseau Centre",
+            "zone": "Fort-de-France",
+            "reseau": "Réseau Centre"
+        },
+        "le-francois:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Le-Francois",
+            "reseau": "mobilite_sud"
+        },
+        "saint-esprit:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Saint-Esprit",
+            "reseau": "mobilite_sud"
+        },
+        "sainte-luce:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Sainte-Luce",
+            "reseau": "mobilite_sud"
+        },
+        "ducos:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Ducos",
+            "reseau": "mobilite_sud"
+        },
+        "riviere-salee:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Riviere-Salee",
+            "reseau": "mobilite_sud"
+        },
+        "le-vauclin:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Le-Vauclin",
+            "reseau": "mobilite_sud"
+        },
+        "le-marin:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Le-Marin",
+            "reseau": "mobilite_sud"
+        },
+        "riviere-pilote:1": {
+            "name_otp": "mobilite_sud",
+            "zone": "Riviere-Pilote",
+            "reseau": "mobilite_sud"
+        },
+        "brive-la-gaillarde:COBAN:Operator:ALEGO": {
+            "name_otp": "ALEGO (Nord Bassin)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "ALEGO (Nord Bassin)"
+        },
+        "gueret:AggloBus": {
+            "name_otp": "Agglo'Bus",
+            "zone": "Gueret",
+            "reseau": "Agglo'Bus"
+        },
+        "brive-la-gaillarde:CA_GRAND_GUERET:Operator:AggloBus": {
+            "name_otp": "Agglo'Bus (Grand Guéret)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Agglo'Bus (Grand Guéret)"
+        },
+        "bassin-d-arcachon:COBAS:Operator:BAIA": {
+            "name_otp": "BAIA (Arcachon)",
+            "zone": "Bassin-D-Arcachon",
+            "reseau": "BAIA (Arcachon)"
+        },
+        "brive-la-gaillarde:COBAS:Operator:BAIA": {
+            "name_otp": "BAIA (Arcachon)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "BAIA (Arcachon)"
+        },
+        "brive-la-gaillarde:CA_SAINTES:Operator:RDSAINTES": {
+            "name_otp": "BUSS (Saintes)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "BUSS (Saintes)"
+        },
+        "dax:1": {
+            "name_otp": "COURALIN - Grand DAX  (RRTL)",
+            "zone": "Dax",
+            "reseau": "Grand DAX  (RRTL)"
+        },
+        "brive-la-gaillarde:CA_GRAND_DAX:Operator:1": {
+            "name_otp": "COURALIN - Grand DAX  (RRTL)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Grand DAX  (RRTL)"
+        },
+        "libourne:CA_DU_LIBOURNAIS:Operator:Calibus (Libourne)": {
+            "name_otp": "Calibus (Libourne)",
+            "zone": "Libourne",
+            "reseau": "Calibus (Libourne)"
+        },
+        "brive-la-gaillarde:CA_DU_LIBOURNAIS:Operator:Calibus (Libourne)": {
+            "name_otp": "Calibus (Libourne)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Calibus (Libourne)"
+        },
+        "royan:CA_ROYAN_ATLANTIQUE:Operator:TDRA": {
+            "name_otp": "Carabus (Royan Atlantique)",
+            "zone": "Royan",
+            "reseau": "Carabus (Royan Atlantique)"
+        },
+        "brive-la-gaillarde:CA_ROYAN_ATLANTIQUE:Operator:TDRA": {
+            "name_otp": "Carabus (Royan Atlantique)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Carabus (Royan Atlantique)"
+        },
+        "brive-la-gaillarde:CHARENTE:Operator:16": {
+            "name_otp": "Cars Régionaux 16 - Charente",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Charente"
+        },
+        "interurbain-naq:CHARENTE:Operator:16": {
+            "name_otp": "Cars Régionaux 16 - Charente",
+            "zone": "Interurbain-Naq",
+            "reseau": "Charente"
+        },
+        "brive-la-gaillarde:CHARENTE_MARITIME:Operator:17": {
+            "name_otp": "Cars Régionaux 17 - Charente Maritime",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Charente Maritime"
+        },
+        "interurbain-naq:CHARENTE_MARITIME:Operator:17": {
+            "name_otp": "Cars Régionaux 17 - Charente Maritime",
+            "zone": "Interurbain-Naq",
+            "reseau": "Charente Maritime"
+        },
+        "brive-la-gaillarde:CORREZE:Operator:19": {
+            "name_otp": "Cars Régionaux 19 - Correze",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Correze"
+        },
+        "interurbain-naq:CORREZE:Operator:19": {
+            "name_otp": "Cars Régionaux 19 - Correze",
+            "zone": "Interurbain-Naq",
+            "reseau": "Correze"
+        },
+        "brive-la-gaillarde:CREUSE:Operator:23": {
+            "name_otp": "Cars Régionaux 23 - Creuse",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Creuse"
+        },
+        "brive-la-gaillarde:GIRONDE:Operator:33": {
+            "name_otp": "Cars Régionaux 33 - Gironde",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Gironde"
+        },
+        "interurbain-naq:GIRONDE:Operator:33": {
+            "name_otp": "Cars Régionaux 33 - Gironde",
+            "zone": "Interurbain-Naq",
+            "reseau": "Gironde"
+        },
+        "brive-la-gaillarde:LOT_ET_GARONNE:Operator:47": {
+            "name_otp": "Cars Régionaux 47 - Lot et Garonne",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Lot et Garonne"
+        },
+        "interurbain-naq:LOT_ET_GARONNE:Operator:47": {
+            "name_otp": "Cars Régionaux 47 - Lot et Garonne",
+            "zone": "Interurbain-Naq",
+            "reseau": "Lot et Garonne"
+        },
+        "brive-la-gaillarde:PYRENEES_ATLANTIQUES:Operator:64": {
+            "name_otp": "Cars Régionaux 64 - Pyrénées Atlantiques",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Pyrénées Atlantiques"
+        },
+        "interurbain-naq:PYRENEES_ATLANTIQUES:Operator:64": {
+            "name_otp": "Cars Régionaux 64 - Pyrénées Atlantiques",
+            "zone": "Interurbain-Naq",
+            "reseau": "Pyrénées Atlantiques"
+        },
+        "brive-la-gaillarde:VIENNE:Operator:86": {
+            "name_otp": "Cars Régionaux 86 - Vienne",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Vienne"
+        },
+        "interurbain-naq:VIENNE:Operator:86": {
+            "name_otp": "Cars Régionaux 86 - Vienne",
+            "zone": "Interurbain-Naq",
+            "reseau": "Vienne"
+        },
+        "brive-la-gaillarde:HAUTE_VIENNE:Operator:87": {
+            "name_otp": "Cars Régionaux 87 - Haute Vienne",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Haute Vienne"
+        },
+        "interurbain-naq:HAUTE_VIENNE:Operator:87": {
+            "name_otp": "Cars Régionaux 87 - Haute Vienne",
+            "zone": "Interurbain-Naq",
+            "reseau": "Haute Vienne"
+        },
+        "brive-la-gaillarde:DORDOGNE:Operator:24": {
+            "name_otp": "Cars régionaux 24 - Dordogne",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Dordogne"
+        },
+        "interurbain-naq:DORDOGNE:Operator:24": {
+            "name_otp": "Cars régionaux 24 - Dordogne",
+            "zone": "Interurbain-Naq",
+            "reseau": "Dordogne"
+        },
+        "brive-la-gaillarde:LANDES:Operator:8": {
+            "name_otp": "Cars régionaux 40 - Landes",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Landes"
+        },
+        "brive-la-gaillarde:DEUX_SEVRES:Operator:79": {
+            "name_otp": "Cars régionaux 79 - Deux Sèvres",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Deux Sèvres"
+        },
+        "brive-la-gaillarde:CA_VAL_DE_GARONNE:Operator:0b96fef0-c401-4916-9ede-b12287f522d0": {
+            "name_otp": "Evalys (Val de Garonne)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Evalys (Val de Garonne)"
+        },
+        "marmande:CA_VAL_DE_GARONNE:Operator:0b96fef0-c401-4916-9ede-b12287f522d0": {
+            "name_otp": "Evalys (Val de Garonne)",
+            "zone": "Marmande",
+            "reseau": "Evalys (Val de Garonne)"
+        },
+        "poitiers:2": {
+            "name_otp": "FLEX'E-BUS (Grand Poitiers)",
+            "zone": "Poitiers",
+            "reseau": "FLEX'E-BUS (Grand Poitiers)"
+        },
+        "brive-la-gaillarde:CA_PAU_BEARN_PYRENEES:Operator:IDE_PlEsp1": {
+            "name_otp": "IDELIS (Pau)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "IDELIS (Pau)"
+        },
+        "pau:IDE_PlEsp1": {
+            "name_otp": "IDELIS (Pau)",
+            "zone": "Pau",
+            "reseau": "IDELIS (Pau)"
+        },
+        "brive-la-gaillarde:BAC_GIRONDE:Operator:1": {
+            "name_otp": "Liaisons maritimes Gironde",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Liaisons maritimes Gironde"
+        },
+        "interurbain-naq:BAC_GIRONDE:Operator:1": {
+            "name_otp": "Liaisons maritimes Gironde",
+            "zone": "Interurbain-Naq",
+            "reseau": "Liaisons maritimes Gironde"
+        },
+        "brive-la-gaillarde:CA_BASSIN_DE_BRIVE:Operator:1": {
+            "name_otp": "Libeo (Brive)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Libeo (Brive)"
+        },
+        "brive-la-gaillarde:MONTESQUIEU:Operator:MONTESQUIEU": {
+            "name_otp": "M'bus (Montesquieu)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "M'bus (Montesquieu)"
+        },
+        "brive-la-gaillarde:CA_GRAND_ANGOULEME:Operator:1": {
+            "name_otp": "Mobius (Grand Angoulême)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Mobius (Grand Angoulême)"
+        },
+        "angouleme:1": {
+            "name_otp": "Mobius (Grand Angoulême)",
+            "zone": "Angouleme",
+            "reseau": "Mobius (Grand Angoulême)"
+        },
+        "brive-la-gaillarde:CA_HAUT_BEARN:Operator:TPO": {
+            "name_otp": "Navette Urbaine - Oloron Sainte-Marie ( CC du Haut-Béarn)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Oloron Sainte-Marie ( CC du Haut-Béarn)"
+        },
+        "brive-la-gaillarde:JALLE_EAU_BOURDE:Operator:jalle_eau_bourde": {
+            "name_otp": "Proxbus (Jalle Eau Bourde)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Proxbus (Jalle Eau Bourde)"
+        },
+        "cestas:JALLE_EAU_BOURDE:Operator:jalle_eau_bourde": {
+            "name_otp": "Proxbus (Jalle Eau Bourde)",
+            "zone": "Cestas",
+            "reseau": "Proxbus (Jalle Eau Bourde)"
+        },
+        "perigueux:CA_GRAND_PERIGUEUX:Operator:1": {
+            "name_otp": "Périmouv (Grand Perigueux)",
+            "zone": "Perigueux",
+            "reseau": "Périmouv (Grand Perigueux)"
+        },
+        "brive-la-gaillarde:CA_ROCHEFORT_OCEAN:Operator:RBUS": {
+            "name_otp": "R'bus (Rochefort Océan)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "R'bus (Rochefort Océan)"
+        },
+        "rochefort:CA_ROCHEFORT_OCEAN:Operator:RBUS": {
+            "name_otp": "R'bus (Rochefort Océan)",
+            "zone": "Rochefort",
+            "reseau": "R'bus (Rochefort Océan)"
+        },
+        "saintes:agency": {
+            "name_otp": "RD SAINTES",
+            "zone": "Saintes",
+            "reseau": "RD SAINTES"
+        },
+        "ile-de-re:agency": {
+            "name_otp": "RespiRé",
+            "zone": "Ile-de-Re",
+            "reseau": "RespiRé"
+        },
+        "brive-la-gaillarde:CA_LIMOGES_METROPOLE:Operator:STCLM": {
+            "name_otp": "STCLM (Limoges Métropole)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "STCLM (Limoges Métropole)"
+        },
+        "limoges:CA_LIMOGES_METROPOLE:Operator:STCLM": {
+            "name_otp": "STCLM (Limoges Métropole)",
+            "zone": "Limoges",
+            "reseau": "STCLM (Limoges Métropole)"
+        },
+        "agen:Scolaire": {
+            "name_otp": "Scolaire",
+            "zone": "Agen",
+            "reseau": "Scolaire"
+        },
+        "pau:SCOLARIS": {
+            "name_otp": "Scolaris",
+            "zone": "Pau",
+            "reseau": "Scolaris"
+        },
+        "brive-la-gaillarde:CC_DU_THOUARSAIS:Operator:1": {
+            "name_otp": "T'BUS (CC du Thouarsais)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "T'BUS (CC du Thouarsais)"
+        },
+        "brive-la-gaillarde:CA_GRAND_CHATELLERAULT:Operator:001": {
+            "name_otp": "TAC",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "TAC"
+        },
+        "chatellerault:001": {
+            "name_otp": "TAC",
+            "zone": "Chatellerault",
+            "reseau": "TAC"
+        },
+        "agen:TAD": {
+            "name_otp": "TAD",
+            "zone": "Agen",
+            "reseau": "TAD"
+        },
+        "bordeaux:1": {
+            "name_otp": "TBM",
+            "zone": "Bordeaux",
+            "reseau": "TBM"
+        },
+        "brive-la-gaillarde:BORDEAUX_METROPOLE:Operator:TBM": {
+            "name_otp": "TBM (Bordeaux Métropole)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "TBM (Bordeaux Métropole)"
+        },
+        "brive-la-gaillarde:CA_DU_MARSAN:Operator:M2M": {
+            "name_otp": "TMA (Mont de Marsan)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "TMA (Mont de Marsan)"
+        },
+        "oloron-sainte-marie:agency": {
+            "name_otp": "TPO",
+            "zone": "Oloron-Sainte-Marie",
+            "reseau": "TPO"
+        },
+        "brive-la-gaillarde:CA_LA_ROCHELLE:Operator:3": {
+            "name_otp": "TRANSDEV Maritime",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "TRANSDEV Maritime"
+        },
+        "la-rochelle:CA_LA_ROCHELLE:Operator:3": {
+            "name_otp": "TRANSDEV Maritime",
+            "zone": "La-Rochelle",
+            "reseau": "TRANSDEV Maritime"
+        },
+        "bergerac:CA_BERGERACOISE:Operator:COMMUNAUTE D'AGGLOMERATION BERGERACOISE": {
+            "name_otp": "TUB (Bergerac)",
+            "zone": "Bergerac",
+            "reseau": "TUB (Bergerac)"
+        },
+        "brive-la-gaillarde:CA_BERGERACOISE:Operator:COMMUNAUTE D'AGGLOMERATION BERGERACOISE": {
+            "name_otp": "TUB (Bergerac)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "TUB (Bergerac)"
+        },
+        "pays-basque:TXIKTXAK": {
+            "name_otp": "TXIK TXAK",
+            "zone": "Pays-Basque",
+            "reseau": "TXIK TXAK"
+        },
+        "brive-la-gaillarde:CA_PAYS_BASQUE:Operator:TXIKTXAK": {
+            "name_otp": "TXIK TXAK (Pays Basque)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "TXIK TXAK (Pays Basque)"
+        },
+        "brive-la-gaillarde:CA_DU_NIORTAIS:Operator:TAN": {
+            "name_otp": "Tanlib (Niort)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Tanlib (Niort)"
+        },
+        "niort:CA_DU_NIORTAIS:Operator:TAN": {
+            "name_otp": "Tanlib (Niort)",
+            "zone": "Niort",
+            "reseau": "Tanlib (Niort)"
+        },
+        "cognac:CA_GRAND_COGNAC:Operator:1": {
+            "name_otp": "Transcom (Grand Cognac)",
+            "zone": "Cognac",
+            "reseau": "Transcom (Grand Cognac)"
+        },
+        "brive-la-gaillarde:CA_GRAND_COGNAC_SCOLAIRE:Operator:100": {
+            "name_otp": "Transport Scolaire (Grand Cognac)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Transport Scolaire (Grand Cognac)"
+        },
+        "mont-de-marsan:M2M": {
+            "name_otp": "Transports Marsan Agglomération",
+            "zone": "Mont-de-Marsan",
+            "reseau": "Transports Marsan Agglomération"
+        },
+        "brive-la-gaillarde:CA_BOCAGE_BRESSUIRAIS:Operator:TREMA": {
+            "name_otp": "Trema (Agglo2B)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "Trema (Agglo2B)"
+        },
+        "bressuire:CA_BOCAGE_BRESSUIRAIS:Operator:TREMA": {
+            "name_otp": "Trema (Agglo2B)",
+            "zone": "Bressuire",
+            "reseau": "Trema (Agglo2B)"
+        },
+        "tulle:CA_TULLE:Operator:TUT": {
+            "name_otp": "TuT agglo (Tulle agglo)",
+            "zone": "Tulle",
+            "reseau": "TuT agglo (Tulle agglo)"
+        },
+        "agen:Urbain": {
+            "name_otp": "Urbain",
+            "zone": "Agen",
+            "reseau": "Urbain"
+        },
+        "brive-la-gaillarde:GRAND_POITIERS:Operator:1": {
+            "name_otp": "VITALIS (Grand Poitiers)",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "VITALIS (Grand Poitiers)"
+        },
+        "poitiers:1": {
+            "name_otp": "VITALIS (Grand Poitiers)",
+            "zone": "Poitiers",
+            "reseau": "VITALIS (Grand Poitiers)"
+        },
+        "villeneuve-sur-lot:VSL": {
+            "name_otp": "Villeneuve-sur-Lot",
+            "zone": "Villeneuve-sur-Lot",
+            "reseau": "Villeneuve-sur-Lot"
+        },
+        "maremne-adour:9": {
+            "name_otp": "YEGO",
+            "zone": "Maremne-Adour",
+            "reseau": "YEGO"
+        },
+        "brive-la-gaillarde:MACS:Operator:9": {
+            "name_otp": "YEGO",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "YEGO"
+        },
+        "la-rochelle:CA_LA_ROCHELLE:Operator:YELO": {
+            "name_otp": "YELO",
+            "zone": "La-Rochelle",
+            "reseau": "YELO"
+        },
+        "brive-la-gaillarde:CHARENTE_MARITIME:Operator:1": {
+            "name_otp": "keolis_Fouras_Aix",
+            "zone": "Brive-la-Gaillarde",
+            "reseau": "keolis_Fouras_Aix"
+        },
+        "interurbain-naq:CHARENTE_MARITIME:Operator:1": {
+            "name_otp": "keolis_Fouras_Aix",
+            "zone": "Interurbain-Naq",
+            "reseau": "keolis_Fouras_Aix"
+        },
+        "alencon:ATOUMOD037:Network:037:LOC": {
+            "name_otp": "Altobus (Communauté Urbaine d'Alençon)",
+            "zone": "Alencon",
+            "reseau": "Altobus (Communauté Urbaine d'Alençon)"
+        },
+        "vire:ATOUMOD101:Network:101:LOC": {
+            "name_otp": "Amibus (Intercom de la Vire au Noireau)",
+            "zone": "Vire",
+            "reseau": "Amibus (Intercom de la Vire au Noireau)"
+        },
+        "argentan:ATOUMOD027:Network:027:LOC": {
+            "name_otp": "ArgentanBus (Argentan Intercom)",
+            "zone": "Argentan",
+            "reseau": "ArgentanBus (Argentan Intercom)"
+        },
+        "lisieux:ATOUMOD036:Network:036:LOC": {
+            "name_otp": "Astrobus (Lisieux Normandie)",
+            "zone": "Lisieux",
+            "reseau": "Astrobus (Lisieux Normandie)"
+        },
+        "lisieux:a-ATOUMOD036:Network:036:LOC": {
+            "name_otp": "Astrobus (Lisieux Normandie)",
+            "zone": "Lisieux",
+            "reseau": "Astrobus (Lisieux Normandie)"
+        },
+        "rouen:TCAR": {
+            "name_otp": "Astuce",
+            "zone": "Rouen",
+            "reseau": "Astuce"
+        },
+        "rouen:ATOUMOD001:Network:001:LOC": {
+            "name_otp": "Astuce (Métropole Rouen Normandie)",
+            "zone": "Rouen",
+            "reseau": "Astuce (Métropole Rouen Normandie)"
+        },
+        "rouen:TNI": {
+            "name_otp": "Astuce (interurbain)",
+            "zone": "Rouen",
+            "reseau": "Astuce (interurbain)"
+        },
+        "bagnoles-de-l-orne:a-ATOUMOD102:Network:102:LOC": {
+            "name_otp": "Bagnoles de l'Orne",
+            "zone": "Bagnoles-de-L-Orne",
+            "reseau": "Bagnoles de l'Orne"
+        },
+        "bagnoles-de-l-orne:ATOUMOD102:Network:102:LOC": {
+            "name_otp": "Bagnoles de l'Orne",
+            "zone": "Bagnoles-de-L-Orne",
+            "reseau": "Bagnoles de l'Orne"
+        },
+        "bayeux:ATOUMOD051:Network:051:LOC": {
+            "name_otp": "Bybus (Bayeux Intercom)",
+            "zone": "Bayeux",
+            "reseau": "Bybus (Bayeux Intercom)"
+        },
+        "bayeux:a-ATOUMOD051:Network:051:LOC": {
+            "name_otp": "Bybus (Bayeux Intercom)",
+            "zone": "Bayeux",
+            "reseau": "Bybus (Bayeux Intercom)"
+        },
+        "cherbourg:35": {
+            "name_otp": "Cap Cotentin",
+            "zone": "Cherbourg",
+            "reseau": "Cap Cotentin"
+        },
+        "cherbourg:ATOUMOD035:Network:035:LOC": {
+            "name_otp": "Cap Cotentin (Cherbourg, Agglo. du Cotentin)",
+            "zone": "Cherbourg",
+            "reseau": "Cap Cotentin (Cherbourg, Agglo. du Cotentin)"
+        },
+        "coutances:ATOUMOD018:Network:018:LOC": {
+            "name_otp": "Cosibus (Coutances Mer et Bocage)",
+            "zone": "Coutances",
+            "reseau": "Cosibus (Coutances Mer et Bocage)"
+        },
+        "dieppe:a-ATOUMOD005:Network:005:LOC": {
+            "name_otp": "Deep Mob (Dieppe-Maritime)",
+            "zone": "Dieppe",
+            "reseau": "Deep Mob (Dieppe-Maritime)"
+        },
+        "dieppe:ATOUMOD005:Network:005:LOC": {
+            "name_otp": "DeepMob (Dieppe-Maritime)",
+            "zone": "Dieppe",
+            "reseau": "DeepMob (Dieppe-Maritime)"
+        },
+        "rouen:TAE": {
+            "name_otp": "Elbeuf",
+            "zone": "Rouen",
+            "reseau": "Elbeuf"
+        },
+        "fecamp:ATOUMOD008:Network:008:LOC": {
+            "name_otp": "Ficibus (Fécamp Caux Littoral)",
+            "zone": "Fecamp",
+            "reseau": "Ficibus (Fécamp Caux Littoral)"
+        },
+        "flers:FA": {
+            "name_otp": "FlersAgglo",
+            "zone": "Flers",
+            "reseau": "FlersAgglo"
+        },
+        "honfleur:Hobus": {
+            "name_otp": "Hobus",
+            "zone": "Honfleur",
+            "reseau": "Hobus"
+        },
+        "honfleur:ATOUMOD021:Network:021:LOC": {
+            "name_otp": "Hobus (Honfleur)",
+            "zone": "Honfleur",
+            "reseau": "Hobus (Honfleur)"
+        },
+        "honfleur:b-ATOUMOD021:Network:021:LOC": {
+            "name_otp": "Hobus (Honfleur)",
+            "zone": "Honfleur",
+            "reseau": "Hobus (Honfleur)"
+        },
+        "bernay:ATOUMOD014:Network:014:LOC": {
+            "name_otp": "I'BUS (Intercom Bernay Terres de Normandie)",
+            "zone": "Bernay",
+            "reseau": "I'BUS (Intercom Bernay Terres de Normandie)"
+        },
+        "pont-audemer:ATOUMOD013:Network:013:LOC": {
+            "name_otp": "Le Bus (Pont-Audemer\/Val de Risle)",
+            "zone": "Pont-Audemer",
+            "reseau": "Le Bus (Pont-Audemer\/Val de Risle)"
+        },
+        "le-havre:Transdev Le Havre": {
+            "name_otp": "LiA (Le Havre Seine Métropole)",
+            "zone": "Le-Havre",
+            "reseau": "LiA (Le Havre Seine Métropole)"
+        },
+        "flers:104": {
+            "name_otp": "NEMUS",
+            "zone": "Flers",
+            "reseau": "NEMUS"
+        },
+        "pontorson-mon-saint-michel:ATOUMOD103:Network:103:LOC": {
+            "name_otp": "Navette Pontorson - Le Mont St Michel",
+            "zone": "Pontorson-Mon-Saint-Michel",
+            "reseau": "Le Mont St Michel"
+        },
+        "interurbain-nor:ATOUMOD011:Network:011:LOC": {
+            "name_otp": "Nomad Car (Lignes express Région Normandie)",
+            "zone": "Interurbain-Nor",
+            "reseau": "Nomad Car (Lignes express Région Normandie)"
+        },
+        "interurbain-nor:ATOUMOD040:Network:040:LOC": {
+            "name_otp": "Nomad Car (Région Normandie)",
+            "zone": "Interurbain-Nor",
+            "reseau": "Nomad Car (Région Normandie)"
+        },
+        "interurbain-nor:ATOUMOD002:Network:002:LOC": {
+            "name_otp": "Nomad Train (SNCF, Région Normandie)",
+            "zone": "Interurbain-Nor",
+            "reseau": "Nomad Train (SNCF, Région Normandie)"
+        },
+        "flers:ATOUMOD104:Network:104:LOC": {
+            "name_otp": "Némus (Flers Agglo)",
+            "zone": "Flers",
+            "reseau": "Némus (Flers Agglo)"
+        },
+        "granville:ATOUMOD105:Network:105:LOC": {
+            "name_otp": "Néva (Granville Terre et Mer)",
+            "zone": "Granville",
+            "reseau": "Néva (Granville Terre et Mer)"
+        },
+        "bolbec:ATOUMOD019:Network:019:LOC": {
+            "name_otp": "Rézo'Bus (Bolbec, Lillebonne, Port-Jérôme, Caux Seine Agglo)",
+            "zone": "Bolbec",
+            "reseau": "Rézo'Bus (Bolbec, Lillebonne, Port-Jérôme, Caux Seine Agglo)"
+        },
+        "bolbec:SEMOP": {
+            "name_otp": "SEMOP",
+            "zone": "Bolbec",
+            "reseau": "SEMOP"
+        },
+        "saint-lo:ATOUMOD039:Network:039:LOC": {
+            "name_otp": "SLAM (Saint-Lô Agglo)",
+            "zone": "Saint-Lo",
+            "reseau": "SLAM (Saint-Lô Agglo)"
+        },
+        "vernon-les-andelys:ATOUMOD007:Network:007:LOC": {
+            "name_otp": "SN'go! (Vernon, Les Andelys, Seine Normandie Agglo)",
+            "zone": "Vernon-les-Andelys",
+            "reseau": "SN'go! (Vernon, Les Andelys, Seine Normandie Agglo)"
+        },
+        "louviers:ATOUMOD006:Network:006:LOC": {
+            "name_otp": "Semo (Val-de-Reuil, Louviers, Seine Eure Agglo)",
+            "zone": "Louviers",
+            "reseau": "Semo (Val-de-Reuil, Louviers, Seine Eure Agglo)"
+        },
+        "louviers:a-ATOUMOD006:Network:006:LOC": {
+            "name_otp": "Semo (Val-de-Reuil, Louviers, Seine Eure Agglo)",
+            "zone": "Louviers",
+            "reseau": "Semo (Val-de-Reuil, Louviers, Seine Eure Agglo)"
+        },
+        "rouen:FLEXO": {
+            "name_otp": "Service TAD FLEXO",
+            "zone": "Rouen",
+            "reseau": "Service TAD FLEXO"
+        },
+        "evreux:ATOUMOD004:Network:004:LOC": {
+            "name_otp": "Transurbain (Evreux Portes de Normandie)",
+            "zone": "Evreux",
+            "reseau": "Transurbain (Evreux Portes de Normandie)"
+        },
+        "evreux:a-ATOUMOD004:Network:004:LOC": {
+            "name_otp": "Transurbain (Evreux Portes de Normandie)",
+            "zone": "Evreux",
+            "reseau": "Transurbain (Evreux Portes de Normandie)"
+        },
+        "caen:ATOUMOD029:Network:029:LOC": {
+            "name_otp": "Twisto (Caen la mer)",
+            "zone": "Caen",
+            "reseau": "Twisto (Caen la mer)"
+        },
+        "yvetot:a-ATOUMOD012:Network:012:LOC": {
+            "name_otp": "Vikibus (Yvetot Normandie)",
+            "zone": "Yvetot",
+            "reseau": "Vikibus (Yvetot Normandie)"
+        },
+        "yvetot:ATOUMOD012:Network:012:LOC": {
+            "name_otp": "Vikibus (Yvetot Normandie)",
+            "zone": "Yvetot",
+            "reseau": "Vikibus (Yvetot Normandie)"
+        },
+        "bernay:Zenbus": {
+            "name_otp": "Zenbus",
+            "zone": "Bernay",
+            "reseau": "Zenbus"
+        },
+        "interurbain-occ:109": {
+            "name_otp": ".liO 09",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 09"
+        },
+        "interurbain-occ:111": {
+            "name_otp": ".liO 11",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 11"
+        },
+        "interurbain-occ:112": {
+            "name_otp": ".liO 12",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 12"
+        },
+        "interurbain-occ:130": {
+            "name_otp": ".liO 30",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 30"
+        },
+        "interurbain-occ:131": {
+            "name_otp": ".liO 31",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 31"
+        },
+        "interurbain-occ:132": {
+            "name_otp": ".liO 32",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 32"
+        },
+        "interurbain-occ:146": {
+            "name_otp": ".liO 46",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 46"
+        },
+        "interurbain-occ:346": {
+            "name_otp": ".liO 46 (courses à la demande)",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 46 (courses à la demande)"
+        },
+        "interurbain-occ:148": {
+            "name_otp": ".liO 48",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 48"
+        },
+        "interurbain-occ:165": {
+            "name_otp": ".liO 65",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 65"
+        },
+        "interurbain-occ:365": {
+            "name_otp": ".liO 65 (courses à la demande)",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 65 (courses à la demande)"
+        },
+        "interurbain-occ:166": {
+            "name_otp": ".liO 66",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 66"
+        },
+        "interurbain-occ:181": {
+            "name_otp": ".liO 81",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 81"
+        },
+        "interurbain-occ:381": {
+            "name_otp": ".liO 81 (courses à la demande)",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 81 (courses à la demande)"
+        },
+        "interurbain-occ:182": {
+            "name_otp": ".liO 82",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO 82"
+        },
+        "interurbain-occ:500": {
+            "name_otp": ".liO TIL",
+            "zone": "Interurbain-Occ",
+            "reseau": ".liO TIL"
+        },
+        "pamiers:11215498": {
+            "name_otp": "A11215496",
+            "zone": "Pamiers",
+            "reseau": "A11215496"
+        },
+        "amelie-les-bains-palalda:11215498": {
+            "name_otp": "A11215496",
+            "zone": "Amelie-les-Bains-Palalda",
+            "reseau": "A11215496"
+        },
+        "ales:1": {
+            "name_otp": "ALES'Y(SMTBA)",
+            "zone": "Ales",
+            "reseau": "ALES'Y(SMTBA)"
+        },
+        "auch:agency": {
+            "name_otp": "Alliance",
+            "zone": "Auch",
+            "reseau": "Alliance"
+        },
+        "bagnols-sur-ceze:11215498": {
+            "name_otp": "CAGR",
+            "zone": "Bagnols-sur-Ceze",
+            "reseau": "CAGR"
+        },
+        "agde:agency": {
+            "name_otp": "Carpostal Agde",
+            "zone": "Agde",
+            "reseau": "Carpostal Agde"
+        },
+        "figeac:agency": {
+            "name_otp": "Cars Delbos",
+            "zone": "Figeac",
+            "reseau": "Cars Delbos"
+        },
+        "castelsarrasin:11215498": {
+            "name_otp": "Castlesarrassin",
+            "zone": "Castelsarrasin",
+            "reseau": "Castlesarrassin"
+        },
+        "narbonne:1": {
+            "name_otp": "Citibus",
+            "zone": "Narbonne",
+            "reseau": "Citibus"
+        },
+        "foix:FOIX URBAIN": {
+            "name_otp": "Foix Urbain",
+            "zone": "Foix",
+            "reseau": "Foix Urbain"
+        },
+        "interurbain-occ:134": {
+            "name_otp": "Herault Transport",
+            "zone": "Interurbain-Occ",
+            "reseau": "Herault Transport"
+        },
+        "narbonne:TAN": {
+            "name_otp": "Keolis NArbonne",
+            "zone": "Narbonne",
+            "reseau": "Keolis NArbonne"
+        },
+        "sete:0-1": {
+            "name_otp": "Keolis Sète",
+            "zone": "Sete",
+            "reseau": "Keolis Sète"
+        },
+        "gaillac:1": {
+            "name_otp": "LIO",
+            "zone": "Gaillac",
+            "reseau": "LIO"
+        },
+        "lisle-sur-tarn:1": {
+            "name_otp": "LIO",
+            "zone": "Lisle-sur-Tarn",
+            "reseau": "LIO"
+        },
+        "graulhet:1": {
+            "name_otp": "LIO",
+            "zone": "Graulhet",
+            "reseau": "LIO"
+        },
+        "lunel:11215498": {
+            "name_otp": "Lunel",
+            "zone": "Lunel",
+            "reseau": "Lunel"
+        },
+        "millau:MIL2018": {
+            "name_otp": "Millau",
+            "zone": "Millau",
+            "reseau": "Millau"
+        },
+        "beziers:RDBM": {
+            "name_otp": "RDBM",
+            "zone": "Beziers",
+            "reseau": "RDBM"
+        },
+        "carcassonne:1": {
+            "name_otp": "RTCA",
+            "zone": "Carcassonne",
+            "reseau": "RTCA"
+        },
+        "rodez:1": {
+            "name_otp": "SATAR",
+            "zone": "Rodez",
+            "reseau": "SATAR"
+        },
+        "montauban:agency": {
+            "name_otp": "SEMTM",
+            "zone": "Montauban",
+            "reseau": "SEMTM"
+        },
+        "saint-sulpice-la-pointe:11215498": {
+            "name_otp": "Saint-Sulpice-la-Pointe",
+            "zone": "Saint-Sulpice-la-Pointe",
+            "reseau": "Saint-Sulpice-la-Pointe"
+        },
+        "perpignan:Sankéo": {
+            "name_otp": "Sankéo",
+            "zone": "Perpignan",
+            "reseau": "Sankéo"
+        },
+        "perpignan:1": {
+            "name_otp": "Sankéo",
+            "zone": "Perpignan",
+            "reseau": "Sankéo"
+        },
+        "montpellier:TAM": {
+            "name_otp": "TAM",
+            "zone": "Montpellier",
+            "reseau": "TAM"
+        },
+        "nimes:agency": {
+            "name_otp": "TANGO",
+            "zone": "Nimes",
+            "reseau": "TANGO"
+        },
+        "lourdes:TLP Mobilités": {
+            "name_otp": "TLP Mobilités 2020-2028",
+            "zone": "Lourdes",
+            "reseau": "TLP Mobilités 2020-2028"
+        },
+        "mende:agency": {
+            "name_otp": "TUM",
+            "zone": "Mende",
+            "reseau": "TUM"
+        },
+        "toulouse:network:1": {
+            "name_otp": "Tisséo",
+            "zone": "Toulouse",
+            "reseau": "Tisséo"
+        },
+        "pays-de-l-or:TRANSPOR": {
+            "name_otp": "Transp'Or",
+            "zone": "Pays-de-L-Or",
+            "reseau": "Transp'Or"
+        },
+        "decazeville:TUB": {
+            "name_otp": "Transports Urbains du Bassin",
+            "zone": "Decazeville",
+            "reseau": "Transports Urbains du Bassin"
+        },
+        "castres:agency": {
+            "name_otp": "Transports publics Libellus",
+            "zone": "Castres",
+            "reseau": "Transports publics Libellus"
+        },
+        "albi:1": {
+            "name_otp": "libéA Mobilités",
+            "zone": "Albi",
+            "reseau": "libéA Mobilités"
+        },
+        "cahors:10189408": {
+            "name_otp": "Évidence Grand Cahors",
+            "zone": "Cahors",
+            "reseau": "Évidence Grand Cahors"
+        },
+        "aix-en-provence:AIX": {
+            "name_otp": "Aix en Bus",
+            "zone": "Aix-en-Provence",
+            "reseau": "Aix en Bus"
+        },
+        "briancon:1": {
+            "name_otp": "AltiGo",
+            "zone": "Briancon",
+            "reseau": "AltiGo"
+        },
+        "guillestre:1": {
+            "name_otp": "CCGQ",
+            "zone": "Guillestre",
+            "reseau": "CCGQ"
+        },
+        "saint-tropez:CCGST": {
+            "name_otp": "CCGST",
+            "zone": "Saint-Tropez",
+            "reseau": "CCGST"
+        },
+        "cavaillon:Cmonbus – LMV": {
+            "name_otp": "Cmonbus – LMV",
+            "zone": "Cavaillon",
+            "reseau": "Cmonbus – LMV"
+        },
+        "monaco:1": {
+            "name_otp": "Compagnie des Autobus de Monaco",
+            "zone": "Monaco",
+            "reseau": "Compagnie des Autobus de Monaco"
+        },
+        "arles:1": {
+            "name_otp": "ENVIA",
+            "zone": "Arles",
+            "reseau": "ENVIA"
+        },
+        "berre-l-etang:BDE": {
+            "name_otp": "Est Étang",
+            "zone": "Berre-L-Etang",
+            "reseau": "Est Étang"
+        },
+        "grasse:GRASSE_SILLAGES_SCOLAIRE": {
+            "name_otp": "Grasse Sillages Réseau scolaire",
+            "zone": "Grasse",
+            "reseau": "Grasse Sillages Réseau scolaire"
+        },
+        "gemenos:CIG": {
+            "name_otp": "Gémenos",
+            "zone": "Gemenos",
+            "reseau": "Gémenos"
+        },
+        "antibes:3": {
+            "name_otp": "KEOLIS SOPHIA ANTIPOLIS",
+            "zone": "Antibes",
+            "reseau": "KEOLIS SOPHIA ANTIPOLIS"
+        },
+        "gap:1": {
+            "name_otp": "L'Agglo en bus",
+            "zone": "Gap",
+            "reseau": "L'Agglo en bus"
+        },
+        "la-ciotat:CIO": {
+            "name_otp": "La Ciotat",
+            "zone": "La-Ciotat",
+            "reseau": "La Ciotat"
+        },
+        "saint-raphael:1": {
+            "name_otp": "Le Bus",
+            "zone": "Saint-Raphael",
+            "reseau": "Le Bus"
+        },
+        "interurbain-paca:C13": {
+            "name_otp": "Lecar \/ Cartreize",
+            "zone": "Interurbain-Paca",
+            "reseau": "Lecar \/ Cartreize"
+        },
+        "aubagne:AUB": {
+            "name_otp": "Les Lignes de l'Agglo",
+            "zone": "Aubagne",
+            "reseau": "Les Lignes de l'Agglo"
+        },
+        "carry-le-rouet:CTB": {
+            "name_otp": "Les bus de la Côte Bleue",
+            "zone": "Carry-le-Rouet",
+            "reseau": "Les bus de la Côte Bleue"
+        },
+        "cassis:MRC": {
+            "name_otp": "Les bus de la Marcouline",
+            "zone": "Cassis",
+            "reseau": "Les bus de la Marcouline"
+        },
+        "allauch:COL": {
+            "name_otp": "Les bus des Collines",
+            "zone": "Allauch",
+            "reseau": "Les bus des Collines"
+        },
+        "nice:lignes-d-azur": {
+            "name_otp": "Lignes d'Azur",
+            "zone": "Nice",
+            "reseau": "Lignes d'Azur"
+        },
+        "saint-maximin-la-sainte-baume:MOUVENBUS-2": {
+            "name_otp": "MOUVENBUS 2",
+            "zone": "Saint-Maximin-la-Sainte-Baume",
+            "reseau": "MOUVENBUS 2"
+        },
+        "marseille:RTM": {
+            "name_otp": "Marseille",
+            "zone": "Marseille",
+            "reseau": "Marseille"
+        },
+        "ramatuelle:Keolis Sodetrav": {
+            "name_otp": "Navette estivale Ramatuelle",
+            "zone": "Ramatuelle",
+            "reseau": "Navette estivale Ramatuelle"
+        },
+        "martigues:ULY": {
+            "name_otp": "Ouest Étang",
+            "zone": "Martigues",
+            "reseau": "Ouest Étang"
+        },
+        "cannes:pad": {
+            "name_otp": "Palm à la demande",
+            "zone": "Cannes",
+            "reseau": "Palm à la demande"
+        },
+        "cannes:busazur": {
+            "name_otp": "Palmbus",
+            "zone": "Cannes",
+            "reseau": "Palmbus"
+        },
+        "digne-les-bains:RTUD": {
+            "name_otp": "RTUD",
+            "zone": "Digne-les-Bains",
+            "reseau": "RTUD"
+        },
+        "toulon:1": {
+            "name_otp": "Réseau Mistral",
+            "zone": "Toulon",
+            "reseau": "Réseau Mistral"
+        },
+        "grasse:24000120": {
+            "name_otp": "Réseau urbain 2023",
+            "zone": "Grasse",
+            "reseau": "Réseau urbain 2023"
+        },
+        "sainte-maxime:11215611": {
+            "name_otp": "Sainte-Maxime",
+            "zone": "Sainte-Maxime",
+            "reseau": "Sainte-Maxime"
+        },
+        "salon-de-provence:LIB": {
+            "name_otp": "Salon",
+            "zone": "Salon-de-Provence",
+            "reseau": "Salon"
+        },
+        "sorgues:11215498": {
+            "name_otp": "Sorgues",
+            "zone": "Sorgues",
+            "reseau": "Sorgues"
+        },
+        "avignon:agency": {
+            "name_otp": "TECELYS SPL",
+            "zone": "Avignon",
+            "reseau": "TECELYS SPL"
+        },
+        "manosque:39": {
+            "name_otp": "TRANSAGGLO",
+            "zone": "Manosque",
+            "reseau": "TRANSAGGLO"
+        },
+        "carpentras:1": {
+            "name_otp": "TRANSCOVE",
+            "zone": "Carpentras",
+            "reseau": "TRANSCOVE"
+        },
+        "draguignan:01": {
+            "name_otp": "TedBus",
+            "zone": "Draguignan",
+            "reseau": "TedBus"
+        },
+        "orange:40": {
+            "name_otp": "Transdev Vaucluse",
+            "zone": "Orange",
+            "reseau": "Transdev Vaucluse"
+        },
+        "bollene:11215498": {
+            "name_otp": "Tub Bollène",
+            "zone": "Bollene",
+            "reseau": "Tub Bollène"
+        },
+        "toulon:2": {
+            "name_otp": "Téléphérique Faron",
+            "zone": "Toulon",
+            "reseau": "Téléphérique Faron"
+        },
+        "interurbain-paca:2": {
+            "name_otp": "ZOU ! Proximité",
+            "zone": "Interurbain-Paca",
+            "reseau": "ZOU ! Proximité"
+        },
+        "noirmoutier:74": {
+            "name_otp": "Alliance Atlantique",
+            "zone": "Noirmoutier",
+            "reseau": "Alliance Atlantique"
+        },
+        "interurbain-pdl:ALEOP_LER": {
+            "name_otp": "Aléop Lignes Express régionales",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop Lignes Express régionales"
+        },
+        "saint-nazaire:ALEOP_TER": {
+            "name_otp": "Aléop TER",
+            "zone": "Saint-Nazaire",
+            "reseau": "Aléop TER"
+        },
+        "interurbain-pdl:ALEOP_YEU": {
+            "name_otp": "Aléop Yeu-Continent",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop Yeu-Continent"
+        },
+        "saint-nazaire:ALEOP_44": {
+            "name_otp": "Aléop en Loire-Atlantique",
+            "zone": "Saint-Nazaire",
+            "reseau": "Aléop en Loire-Atlantique"
+        },
+        "interurbain-pdl:ALEOP_44": {
+            "name_otp": "Aléop en Loire-Atlantique",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop en Loire-Atlantique"
+        },
+        "interurbain-pdl:ALEOP_49": {
+            "name_otp": "Aléop en Maine-et-Loire",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop en Maine-et-Loire"
+        },
+        "interurbain-pdl:ALEOP_53": {
+            "name_otp": "Aléop en Mayenne",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop en Mayenne"
+        },
+        "interurbain-pdl:ALEOP_72": {
+            "name_otp": "Aléop en Sarthe",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop en Sarthe"
+        },
+        "interurbain-pdl:ALEOP_85": {
+            "name_otp": "Aléop en Vendée",
+            "zone": "Interurbain-Pdl",
+            "reseau": "Aléop en Vendée"
+        },
+        "saint-brevin-les-pins:Brévibus": {
+            "name_otp": "Brévibus",
+            "zone": "Saint-Brevin-les-Pins",
+            "reseau": "Brévibus"
+        },
+        "sncf-ter:1185": {
+            "name_otp": "CFF",
+            "zone": "Sncf-Ter",
+            "reseau": "CFF"
+        },
+        "challans:11215498": {
+            "name_otp": "Challans",
+            "zone": "Challans",
+            "reseau": "Challans"
+        },
+        "cholet:CHOLETBUS": {
+            "name_otp": "Choletbus",
+            "zone": "Cholet",
+            "reseau": "Choletbus"
+        },
+        "sncf-ter:FR:Authority::7A842934-E342-4D4F-AF8D-8B4C404FFBC4:": {
+            "name_otp": "Conseil Régional Auvergne - Rhône-Alpes",
+            "zone": "Sncf-Ter",
+            "reseau": "Rhône-Alpes"
+        },
+        "angers:IRIGO": {
+            "name_otp": "IRIGO",
+            "zone": "Angers",
+            "reseau": "IRIGO"
+        },
+        "la-roche-sur-yon:5": {
+            "name_otp": "Impulsyon",
+            "zone": "La-Roche-sur-Yon",
+            "reseau": "Impulsyon"
+        },
+        "saint-nazaire:LILAPI": {
+            "name_otp": "Lila Presqu'ile",
+            "zone": "Saint-Nazaire",
+            "reseau": "Lila Presqu'ile"
+        },
+        "guerande:LILAPI": {
+            "name_otp": "Lila Presqu'ile",
+            "zone": "Guerande",
+            "reseau": "Lila Presqu'ile"
+        },
+        "mayenne:agency": {
+            "name_otp": "May'bus",
+            "zone": "Mayenne",
+            "reseau": "May'bus"
+        },
+        "nantes:1": {
+            "name_otp": "Naolib",
+            "zone": "Nantes",
+            "reseau": "Naolib"
+        },
+        "saint-gilles-croix-de-vie:1": {
+            "name_otp": "Nombalais",
+            "zone": "Saint-Gilles-Croix-de-Vie",
+            "reseau": "Nombalais"
+        },
+        "sncf-intercite:OCEdefault": {
+            "name_otp": "OCEdefault",
+            "zone": "Sncf-Intercite",
+            "reseau": "OCEdefault"
+        },
+        "sncf-ter:OCEdefault": {
+            "name_otp": "OCEdefault",
+            "zone": "Sncf-Ter",
+            "reseau": "OCEdefault"
+        },
+        "sncf-tgv:OCEdefault": {
+            "name_otp": "OCEdefault",
+            "zone": "Sncf-Tgv",
+            "reseau": "OCEdefault"
+        },
+        "les-sables-d-olonne:1": {
+            "name_otp": "OLEANE",
+            "zone": "Les-Sables-D-Olonne",
+            "reseau": "OLEANE"
+        },
+        "sable-sur-sarthe:Réso": {
+            "name_otp": "Réso",
+            "zone": "Sable-sur-Sarthe",
+            "reseau": "Réso"
+        },
+        "le-mans:1": {
+            "name_otp": "SETRAM",
+            "zone": "Le-Mans",
+            "reseau": "SETRAM"
+        },
+        "sncf-intercite:1187": {
+            "name_otp": "SNCF VOYAGEURS",
+            "zone": "Sncf-Intercite",
+            "reseau": "SNCF VOYAGEURS"
+        },
+        "sncf-ter:1187": {
+            "name_otp": "SNCF VOYAGEURS",
+            "zone": "Sncf-Ter",
+            "reseau": "SNCF VOYAGEURS"
+        },
+        "sncf-tgv:1187": {
+            "name_otp": "SNCF VOYAGEURS",
+            "zone": "Sncf-Tgv",
+            "reseau": "SNCF VOYAGEURS"
+        },
+        "sncf-ter:5235": {
+            "name_otp": "SNCF Voyageurs EA",
+            "zone": "Sncf-Ter",
+            "reseau": "SNCF Voyageurs EA"
+        },
+        "sncf-ter:5270": {
+            "name_otp": "SNCF Voyageurs LO",
+            "zone": "Sncf-Ter",
+            "reseau": "SNCF Voyageurs LO"
+        },
+        "sncf-ter:5111": {
+            "name_otp": "SNCF Voyageurs SA",
+            "zone": "Sncf-Ter",
+            "reseau": "SNCF Voyageurs SA"
+        },
+        "saint-nazaire:STRAN": {
+            "name_otp": "Sté de Transport de l'Agglomération Nazairienne",
+            "zone": "Saint-Nazaire",
+            "reseau": "Sté de Transport de l'Agglomération Nazairienne"
+        },
+        "saint-nazaire:STRAN_SCO": {
+            "name_otp": "Sté de Transport de l'Agglomération Nazairienne",
+            "zone": "Saint-Nazaire",
+            "reseau": "Sté de Transport de l'Agglomération Nazairienne"
+        },
+        "laval:1": {
+            "name_otp": "TUL",
+            "zone": "Laval",
+            "reseau": "TUL"
+        },
+        "le-mans:illygo": {
+            "name_otp": "illygo",
+            "zone": "Le-Mans",
+            "reseau": "illygo"
+        },
+        "saumur:1": {
+            "name_otp": "saumuragglobus",
+            "zone": "Saumur",
+            "reseau": "saumuragglobus"
+        },
+        "saint-pierre-de-la-reunion:ALTERNEO": {
+            "name_otp": "ALTERNEO",
+            "zone": "Saint-Pierre-de-la-Reunion",
+            "reseau": "ALTERNEO"
+        },
+        "cilaos:ALTERNEO": {
+            "name_otp": "ALTERNEO",
+            "zone": "Cilaos",
+            "reseau": "ALTERNEO"
+        },
+        "petite-ile:ALTERNEO": {
+            "name_otp": "ALTERNEO",
+            "zone": "Petite-Ile",
+            "reseau": "ALTERNEO"
+        },
+        "l-etang-sale:ALTERNEO": {
+            "name_otp": "ALTERNEO",
+            "zone": "L-Etang-Sale",
+            "reseau": "ALTERNEO"
+        },
+        "les-avirons:ALTERNEO": {
+            "name_otp": "ALTERNEO",
+            "zone": "Les-Avirons",
+            "reseau": "ALTERNEO"
+        },
+        "saint-louis-de-la-reunion:ALTERNEO": {
+            "name_otp": "ALTERNEO",
+            "zone": "Saint-Louis-de-la-Reunion",
+            "reseau": "ALTERNEO"
+        },
+        "interurbain-reunion:CAR JAUNE": {
+            "name_otp": "CAR JAUNE",
+            "zone": "Interurbain-Reunion",
+            "reseau": "CAR JAUNE"
+        },
+        "le-port-possession:KAROUEST": {
+            "name_otp": "KAROUEST",
+            "zone": "Le-Port-Possession",
+            "reseau": "KAROUEST"
+        },
+        "saint-paul-de-la-reunion:KAROUEST": {
+            "name_otp": "KAROUEST",
+            "zone": "Saint-Paul-de-la-Reunion",
+            "reseau": "KAROUEST"
+        },
+        "saint-leu:KAROUEST": {
+            "name_otp": "KAROUEST",
+            "zone": "Saint-Leu",
+            "reseau": "KAROUEST"
+        },
+        "trois-bassins:KAROUEST": {
+            "name_otp": "KAROUEST",
+            "zone": "Trois-Bassins",
+            "reseau": "KAROUEST"
+        },
+        "saint-joseph:agency": {
+            "name_otp": "carSud",
+            "zone": "Saint-Joseph",
+            "reseau": "carSud"
+        }
+    }
+}

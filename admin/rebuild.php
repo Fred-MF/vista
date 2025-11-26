@@ -33,6 +33,23 @@ if (!is_writable($dataDir)) {
     ]);
     exit;
 }
+$regionsDir = $dataDir . "/networks";
+if (!is_dir($regionsDir)) {
+    @mkdir($regionsDir, 0775, true);
+}
+
+$existingData = loadExistingAggregated($dataDir);
+$existingGeneratedAt = null;
+if (isset($existingData["generatedAt"]) && is_string($existingData["generatedAt"])) {
+    $existingGeneratedAt = $existingData["generatedAt"];
+}
+$existingRegions = [];
+if (isset($existingData["regions"]) && is_array($existingData["regions"])) {
+    $existingRegions = $existingData["regions"];
+}
+if (empty($existingRegions)) {
+    $existingRegions = loadExistingRegionFiles($regionsDir);
+}
 
 $diag = isset($_GET["diag"]) ? (string)$_GET["diag"] : null;
 if ($diag === "1") {
@@ -145,6 +162,25 @@ query RouteStops($routeId: String!) {
 }
 GQL;
 
+$stopRealtimeProbeQuery = <<<'GQL'
+query StopRealtimeProbe($id: String!, $startTime: Long!, $timeRange: Int!, $numberOfDepartures: Int!) {
+  stop(id: $id) {
+    stoptimesWithoutPatterns(
+      startTime: $startTime,
+      timeRange: $timeRange,
+      numberOfDepartures: $numberOfDepartures,
+      omitNonPickups: false,
+      omitCanceled: false
+    ) {
+      realtime
+      realtimeDeparture
+      scheduledDeparture
+      realtimeState
+    }
+  }
+}
+GQL;
+
 $result = [
     "generatedAt" => gmdate(DATE_ATOM),
     "regions" => []
@@ -161,6 +197,7 @@ foreach ($regions as $regionCode => $endpoint) {
             $agencyListQuery,
             $agencyRoutesQuery,
             $routeStopsQuery,
+            $stopRealtimeProbeQuery,
             $logFile
         );
         $result["regions"][$regionCode] = $networks;
@@ -175,6 +212,18 @@ foreach ($regions as $regionCode => $endpoint) {
 }
 
 $result["errors"] = $errors;
+$processedRegionCodes = array_keys($result["regions"]);
+$successCount = count($processedRegionCodes);
+
+$mergedRegions = $existingRegions;
+foreach ($result["regions"] as $code => $networks) {
+    $mergedRegions[$code] = $networks;
+}
+$result["regions"] = $mergedRegions;
+
+if ($successCount === 0 && $existingGeneratedAt) {
+    $result["generatedAt"] = $existingGeneratedAt;
+}
 
 $outputPath = dirname(__DIR__) . "/data/networks.json";
 $encoded = json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -198,10 +247,6 @@ if (file_put_contents($outputPath, $encoded) === false) {
 }
 
 // Also write per-region files and a lightweight regions index for lazy loading
-$regionsDir = dirname(__DIR__) . "/data/networks";
-if (!is_dir($regionsDir)) {
-    @mkdir($regionsDir, 0775, true);
-}
 $regionCodes = array_keys($result["regions"]);
 foreach ($result["regions"] as $code => $networks) {
     $regionalPath = $regionsDir . "/" . $code . ".json";
@@ -219,7 +264,8 @@ echo json_encode([
     "status" => empty($errors) ? "ok" : "partial",
     "generatedAt" => $result["generatedAt"],
     "errors" => $errors,
-    "regionsProcessed" => count($result["regions"])
+    "regionsProcessed" => $successCount,
+    "regionsAvailable" => count($result["regions"])
 ]);
 $scriptCompleted = true;
 exit;
@@ -230,6 +276,7 @@ function rebuildRegionViaAgencies(
     string $listQuery,
     string $routesQuery,
     string $routeStopsQuery,
+    string $realtimeProbeQuery,
     string $logFile
 ): array
 {
@@ -256,6 +303,7 @@ function rebuildRegionViaAgencies(
 
         $stopMap = [];
         $routeNames = [];
+        $sampleStopIds = [];
         foreach ($routeList as $routeMeta) {
             $routeId = $routeMeta["gtfsId"] ?? null;
             if (!$routeId) {
@@ -290,6 +338,10 @@ function rebuildRegionViaAgencies(
                         "lat" => (float)$lat,
                         "lon" => (float)$lon
                     ];
+                    // Collect sample stop IDs for realtime detection (max 5)
+                    if (count($sampleStopIds) < 5 && !empty($stop["gtfsId"])) {
+                        $sampleStopIds[] = $stop["gtfsId"];
+                    }
                 }
             }
 
@@ -304,6 +356,12 @@ function rebuildRegionViaAgencies(
         }
 
         $stats = computeStats($stops);
+        $hasRealtime = detectRealtimeSupport(
+            $endpoint,
+            $realtimeProbeQuery,
+            $sampleStopIds,
+            $logFile
+        );
 
         $networks[] = [
             "region" => $regionCode,
@@ -323,7 +381,8 @@ function rebuildRegionViaAgencies(
                 "maxLon" => $stats["maxLon"]
             ],
             "radiusMeters" => estimateRadiusMeters($stats),
-            "updatedAt" => gmdate(DATE_ATOM)
+            "updatedAt" => gmdate(DATE_ATOM),
+            "hasRealtime" => $hasRealtime
         ];
     }
 
@@ -374,6 +433,45 @@ function executeGraphQL(string $endpoint, string $query, array $variables = []):
     return $decoded;
 }
 
+function detectRealtimeSupport(
+    string $endpoint,
+    string $realtimeQuery,
+    array $stopIds,
+    string $logFile
+): bool
+{
+    if (empty($stopIds)) {
+        return false;
+    }
+    $startTime = time();
+    foreach ($stopIds as $stopId) {
+        if (!$stopId) {
+            continue;
+        }
+        try {
+            $response = executeGraphQL($endpoint, $realtimeQuery, [
+                "id" => $stopId,
+                "startTime" => $startTime,
+                "timeRange" => 3600,
+                "numberOfDepartures" => 5
+            ]);
+        } catch (Throwable $e) {
+            @file_put_contents($logFile, "[realtime][$stopId] " . $e->getMessage() . "\n", FILE_APPEND);
+            continue;
+        }
+        $stoptimes = $response["data"]["stop"]["stoptimesWithoutPatterns"] ?? [];
+        foreach ($stoptimes as $st) {
+            $hasRealtime = !empty($st["realtime"]);
+            $sched = $st["scheduledDeparture"] ?? null;
+            $rt = $st["realtimeDeparture"] ?? null;
+            if ($hasRealtime || (is_numeric($sched) && is_numeric($rt) && $sched !== $rt)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 function collectStops(array $agency): array
 {
     $stopMap = [];
@@ -396,6 +494,9 @@ function collectStops(array $agency): array
                     "lat" => (float)$lat,
                     "lon" => (float)$lon
                 ];
+                if (count($sampleStopIds) < 5) {
+                    $sampleStopIds[] = $stopId;
+                }
             }
         }
     }
@@ -484,4 +585,55 @@ function haversineDistanceKm(float $lat1, float $lon1, float $lat2, float $lon2)
 function sanitizeError(string $message): string
 {
     return trim(strip_tags($message));
+}
+
+function loadExistingAggregated(string $dataDir): array
+{
+    $path = rtrim($dataDir, "/") . "/networks.json";
+    if (!is_file($path)) {
+        return ["generatedAt" => null, "regions" => []];
+    }
+    $raw = @file_get_contents($path);
+    if ($raw === false || $raw === "") {
+        return ["generatedAt" => null, "regions" => []];
+    }
+    $decoded = json_decode($raw, true);
+    if (!is_array($decoded)) {
+        return ["generatedAt" => null, "regions" => []];
+    }
+    $regions = [];
+    if (isset($decoded["regions"]) && is_array($decoded["regions"])) {
+        foreach ($decoded["regions"] as $code => $networks) {
+            if (!is_array($networks)) {
+                continue;
+            }
+            $regions[(string)$code] = $networks;
+        }
+    }
+    return [
+        "generatedAt" => $decoded["generatedAt"] ?? null,
+        "regions" => $regions
+    ];
+}
+
+function loadExistingRegionFiles(string $regionsDir): array
+{
+    if (!is_dir($regionsDir)) {
+        return [];
+    }
+    $regions = [];
+    $files = glob(rtrim($regionsDir, "/") . "/*.json") ?: [];
+    foreach ($files as $file) {
+        $code = basename((string)$file, ".json");
+        $raw = @file_get_contents($file);
+        if ($raw === false) {
+            continue;
+        }
+        $decoded = json_decode($raw, true);
+        if (!is_array($decoded)) {
+            continue;
+        }
+        $regions[$code] = $decoded;
+    }
+    return $regions;
 }

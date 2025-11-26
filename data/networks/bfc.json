@@ -19,7 +19,8 @@
             "maxLon": 3.425804
         },
         "radiusMeters": 2158.7205444445044,
-        "updatedAt": "2025-11-17T13:23:56+00:00"
+        "updatedAt": "2025-11-21T20:46:37+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -76,7 +77,8 @@
             "maxLon": 3.693217
         },
         "radiusMeters": 16617.478719642007,
-        "updatedAt": "2025-11-17T13:22:50+00:00"
+        "updatedAt": "2025-11-21T20:45:38+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -98,7 +100,8 @@
             "maxLon": 7.07911
         },
         "radiusMeters": 50823.754108990826,
-        "updatedAt": "2025-11-17T13:26:42+00:00"
+        "updatedAt": "2025-11-21T20:49:14+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -127,7 +130,8 @@
             "maxLon": 4.498566
         },
         "radiusMeters": 12784.132440822721,
-        "updatedAt": "2025-11-17T13:22:52+00:00"
+        "updatedAt": "2025-11-21T20:45:40+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -162,7 +166,8 @@
             "maxLon": 6.137003
         },
         "radiusMeters": 205446.41187930616,
-        "updatedAt": "2025-11-17T13:24:42+00:00"
+        "updatedAt": "2025-11-21T20:47:20+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -187,7 +192,8 @@
             "maxLon": 5.583188
         },
         "radiusMeters": 2975.9322217482654,
-        "updatedAt": "2025-11-17T13:24:02+00:00"
+        "updatedAt": "2025-11-21T20:46:43+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -227,7 +233,8 @@
             "maxLon": 4.889997
         },
         "radiusMeters": 18946.770375687272,
-        "updatedAt": "2025-11-17T13:21:50+00:00"
+        "updatedAt": "2025-11-21T20:44:40+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -405,7 +412,8 @@
             "maxLon": 6.201003
         },
         "radiusMeters": 21647.130969500693,
-        "updatedAt": "2025-11-17T13:23:26+00:00"
+        "updatedAt": "2025-11-21T20:46:09+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -462,7 +470,8 @@
             "maxLon": 3.462651
         },
         "radiusMeters": 17602.87114363666,
-        "updatedAt": "2025-11-17T13:22:15+00:00"
+        "updatedAt": "2025-11-21T20:45:05+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -525,7 +534,8 @@
             "maxLon": 3.227403
         },
         "radiusMeters": 13593.810227305783,
-        "updatedAt": "2025-11-17T13:22:41+00:00"
+        "updatedAt": "2025-11-21T20:45:30+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -600,7 +610,8 @@
             "maxLon": 5.182949
         },
         "radiusMeters": 14111.623104822169,
-        "updatedAt": "2025-11-17T13:21:46+00:00"
+        "updatedAt": "2025-11-21T20:44:37+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -622,7 +633,8 @@
             "maxLon": 6.771273
         },
         "radiusMeters": 553311.5492112169,
-        "updatedAt": "2025-11-17T13:21:52+00:00"
+        "updatedAt": "2025-11-21T20:44:42+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -644,7 +656,8 @@
             "maxLon": 6.174579
         },
         "radiusMeters": 510457.05649500876,
-        "updatedAt": "2025-11-17T13:22:32+00:00"
+        "updatedAt": "2025-11-21T20:45:20+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -666,7 +679,8 @@
             "maxLon": 7.733882
         },
         "radiusMeters": 664434.6635608046,
-        "updatedAt": "2025-11-17T13:24:39+00:00"
+        "updatedAt": "2025-11-21T20:47:17+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -728,7 +742,8 @@
             "maxLon": 7.117168
         },
         "radiusMeters": 25033.61789797711,
-        "updatedAt": "2025-11-17T13:21:30+00:00"
+        "updatedAt": "2025-11-21T20:44:23+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -756,7 +771,8 @@
             "maxLon": 6.898181
         },
         "radiusMeters": 10052.582678901066,
-        "updatedAt": "2025-11-17T13:21:21+00:00"
+        "updatedAt": "2025-11-21T20:44:15+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -778,7 +794,8 @@
             "maxLon": 4.129333
         },
         "radiusMeters": 2289.004531786727,
-        "updatedAt": "2025-11-17T13:21:35+00:00"
+        "updatedAt": "2025-11-21T20:44:27+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -806,7 +823,8 @@
             "maxLon": 6.371149
         },
         "radiusMeters": 2695.2402782327013,
-        "updatedAt": "2025-11-17T13:22:43+00:00"
+        "updatedAt": "2025-11-21T20:45:32+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -860,7 +878,8 @@
             "maxLon": 5.596151
         },
         "radiusMeters": 101205.89780938064,
-        "updatedAt": "2025-11-17T13:23:33+00:00"
+        "updatedAt": "2025-11-21T20:46:15+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -890,7 +909,8 @@
             "maxLon": 6.815281
         },
         "radiusMeters": 74523.27461907391,
-        "updatedAt": "2025-11-17T13:23:35+00:00"
+        "updatedAt": "2025-11-21T20:46:17+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -925,7 +945,8 @@
             "maxLon": 6.155463
         },
         "radiusMeters": 86770.86307346486,
-        "updatedAt": "2025-11-17T13:23:45+00:00"
+        "updatedAt": "2025-11-21T20:46:27+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -956,7 +977,8 @@
             "maxLon": 4.015602
         },
         "radiusMeters": 62203.925114712954,
-        "updatedAt": "2025-11-17T13:23:37+00:00"
+        "updatedAt": "2025-11-21T20:46:19+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -993,7 +1015,8 @@
             "maxLon": 6.857194
         },
         "radiusMeters": 73732.72622397452,
-        "updatedAt": "2025-11-17T13:23:48+00:00"
+        "updatedAt": "2025-11-21T20:46:30+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1033,7 +1056,8 @@
             "maxLon": 5.55163
         },
         "radiusMeters": 83924.40782079822,
-        "updatedAt": "2025-11-17T13:23:52+00:00"
+        "updatedAt": "2025-11-21T20:46:34+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1077,7 +1101,8 @@
             "maxLon": 4.336963
         },
         "radiusMeters": 81781.30410107967,
-        "updatedAt": "2025-11-17T13:23:42+00:00"
+        "updatedAt": "2025-11-21T20:46:24+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1099,7 +1124,8 @@
             "maxLon": 4.315823
         },
         "radiusMeters": 1744.8187668640808,
-        "updatedAt": "2025-11-17T13:21:19+00:00"
+        "updatedAt": "2025-11-21T20:44:14+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1202,7 +1228,8 @@
             "maxLon": 13.435
         },
         "radiusMeters": 946072.8751750189,
-        "updatedAt": "2025-11-17T13:22:08+00:00"
+        "updatedAt": "2025-11-21T20:44:58+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1239,7 +1266,8 @@
             "maxLon": 7.261904
         },
         "radiusMeters": 697361.8376075977,
-        "updatedAt": "2025-11-17T13:22:29+00:00"
+        "updatedAt": "2025-11-21T20:45:17+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1592,7 +1620,8 @@
             "maxLon": 8.4343
         },
         "radiusMeters": 800017.5600026842,
-        "updatedAt": "2025-11-17T13:26:42+00:00"
+        "updatedAt": "2025-11-21T20:49:14+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1624,7 +1653,8 @@
             "maxLon": 4.086152
         },
         "radiusMeters": 130694.95230847548,
-        "updatedAt": "2025-11-17T13:24:05+00:00"
+        "updatedAt": "2025-11-21T20:46:46+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1647,7 +1677,8 @@
             "maxLon": -1.286292
         },
         "radiusMeters": 49077.1183114006,
-        "updatedAt": "2025-11-17T13:24:42+00:00"
+        "updatedAt": "2025-11-21T20:47:20+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1671,7 +1702,8 @@
             "maxLon": 7.610233
         },
         "radiusMeters": 73442.05028572067,
-        "updatedAt": "2025-11-17T13:24:03+00:00"
+        "updatedAt": "2025-11-21T20:46:44+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1695,7 +1727,8 @@
             "maxLon": 5.869256
         },
         "radiusMeters": 2943.862105260315,
-        "updatedAt": "2025-11-17T13:26:43+00:00"
+        "updatedAt": "2025-11-21T20:49:15+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1765,7 +1798,8 @@
             "maxLon": 4.9936
         },
         "radiusMeters": 22867.630071140993,
-        "updatedAt": "2025-11-17T13:22:25+00:00"
+        "updatedAt": "2025-11-21T20:45:14+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1807,7 +1841,8 @@
             "maxLon": 4.874289
         },
         "radiusMeters": 16128.695738286338,
-        "updatedAt": "2025-11-17T13:24:01+00:00"
+        "updatedAt": "2025-11-21T20:46:43+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1844,7 +1879,8 @@
             "maxLon": 6.925893
         },
         "radiusMeters": 17877.599891175843,
-        "updatedAt": "2025-11-17T13:21:34+00:00"
+        "updatedAt": "2025-11-21T20:44:26+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1867,7 +1903,8 @@
             "maxLon": 6.392885
         },
         "radiusMeters": 1919.7979128450816,
-        "updatedAt": "2025-11-17T13:23:53+00:00"
+        "updatedAt": "2025-11-21T20:46:34+00:00",
+        "hasRealtime": false
     },
     {
         "region": "bfc",
@@ -1902,6 +1939,7 @@
             "maxLon": 6.192035
         },
         "radiusMeters": 5845.632218502332,
-        "updatedAt": "2025-11-17T13:23:55+00:00"
+        "updatedAt": "2025-11-21T20:46:37+00:00",
+        "hasRealtime": false
     }
 ]
