@@ -42,14 +42,15 @@ La description détaillée de chaque fichier est disponible dans :
 - docs/vista-architecture.md
 - docs/vista-objectifs.md
 
-### Modules JS (V0.2)
+### Modules JS (V0.2.1)
 - `main.js` : orchestration pure (sélections, géoloc, synchronisation carte/UI, thème).
-- `map.js` : encapsule MapLibre et expose des callbacks (`fetchStopInfo`, `fetchStationInfo`, `onStopClick`) fournis par `main.js`.
+- `map.js` : encapsule MapLibre et expose des callbacks (`fetchStopInfo`, `fetchStationInfo`, `onStopClick`, `onVehicleClick`) fournis par `main.js`.
 - `api.js` : toutes les requêtes OTP passent par un helper commun (`callOtp`) et retournent des objets normalisés (routes, départs triés).
 - `ui.js` : gère uniquement le DOM/panneaux et relaie les interactions via les handlers injectés.
-- `networkStore.js` : charge/cache les fichiers `data/`, bascule automatiquement sur `data/index.php` lorsque l’hébergement bloque l’accès direct aux `.json`, et propose `findNearestRegionNetwork`, `findNearestNetworkInRegion`, `buildAreaFromNetwork`.
+- `networkStore.js` : charge/cache les fichiers `data/`, bascule automatiquement sur `data/index.php` lorsque l'hébergement bloque l'accès direct aux `.json`, et propose `findNearestRegionNetwork`, `findNearestNetworkInRegion`, `buildAreaFromNetwork`.
+- `vehicles.js` : gestion des véhicules en temps réel (GTFS-RT VehiclePositions), animation fluide, interpolation des positions, filtrage intelligent.
 
-## Layout V0.2 (full-screen)
+## Layout V0.2.1 (full-screen)
 - `div#vista-app` encapsule l’application et véhicule les classes d’état (`sidebar-left-collapsed`, etc.).
 - `header#vista-topbar` contient les sélecteurs région/réseau, boutons Layout/Thème/Debug et affiche le statut de géolocalisation.
 - `main#vista-shell` aligne :
@@ -61,7 +62,7 @@ La description détaillée de chaque fichier est disponible dans :
 
 ---
 
-# 🚀 Fonctionnalités (MVP)
+# 🚀 Fonctionnalités (V0.2.1)
 
 - Carte full-screen (MapTiler)
 - Sélection région / réseau MaaSify
@@ -69,6 +70,7 @@ La description détaillée de chaque fichier est disponible dans :
 - Popup arrêt
 - Panneau latéral liste d'arrêts
 - Panneau latéral fiche arrêt (prochains départs)
+- **Véhicules en temps réel** : affichage animé des véhicules en circulation (GTFS-RT VehiclePositions), popups dynamiques, surbrillance des tracés de lignes
 - Zone debug
 - Thème clair / sombre
 
@@ -167,8 +169,12 @@ Applique la modification demandée en alignement avec docs/vista-architecture.md
 - Amélioration fiches arrêts
 - Intégration SVG Material Symbols propre
 
+## V0.2.1
+- Véhicules temps réel (VehiclePositions) avec animation fluide
+- Popups dynamiques véhicules
+- Surbrillance des tracés de lignes
+
 ## V0.3
-- Véhicules temps réel (VehiclePositions)
 - Perturbations (Alerts)
 - KPI réseau live
 

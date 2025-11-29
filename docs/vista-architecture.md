@@ -22,6 +22,7 @@ vista/
       ui.js
       networkStore.js
       utils.js
+      vehicles.js
   data/
     index.php
     regions.json
@@ -39,8 +40,8 @@ vista/
 # 2. Rôle des fichiers principaux
 
 ## 2.1 index.html
-- Point d’entrée de l’application.
-- Structure V0.2 :
+- Point d'entrée de l'application.
+- Structure V0.2.1 :
   - `div#vista-app` = shell principal qui héberge les classes d’état (`sidebar-left-collapsed`, etc.).
   - `header#vista-topbar` = topbar fixe (logo, statut géoloc, sélecteurs région/réseau, boutons `layout-left-toggle`, `layout-right-toggle`, `theme-toggle`, `debug-toggle`).
   - `main#vista-shell` = layout full-screen :
@@ -130,21 +131,41 @@ vista/
 
 ---
 
-## 2.9 data/
-- Données statiques + relai PHP :
-  - `regions.json`, `networks/*.json`, `networks.json`,
-  - `index.php` : endpoint simple (`?resource=regions|aggregated|region&code=ara`) qui stream les fichiers JSON quand ils ne peuvent pas être servis directement (mutualisé, authentifié, etc.). Utilisé par le front **et** l’admin.
+## 2.9 assets/js/vehicles.js
+- Gestion des véhicules en temps réel sur la carte.
+- Responsabilités :
+  - Récupération des positions via `api.js` (temps réel GTFS-RT ou fallback planifié),
+  - Gestion d'un state local (`vehicleStates`) pour chaque véhicule actif,
+  - Animation fluide entre les mises à jour (60fps via `requestAnimationFrame`),
+  - Interpolation des positions le long des tracés de lignes,
+  - Génération du GeoJSON pour l'affichage sur la carte,
+  - Support des popups dynamiques qui suivent les véhicules.
+- Configuration clé :
+  - `REFRESH_INTERVAL` : 10 secondes entre les appels API,
+  - `ANIMATION_DURATION` : 9 secondes d'interpolation,
+  - `VEHICLE_SPEED` : vitesse de déplacement sur le tracé.
+- Export : `initVehicles()`, `enableVehicles()`, `disableVehicles()`, `setActiveRoutes()`, `getVehicleIconName()`, etc.
+- Aucun accès direct au DOM ou à MapLibre : tout passe par les callbacks fournis par `main.js`.
 
 ---
 
-## 2.10 proxy.php
+## 2.10 data/
+- Données statiques + relai PHP :
+  - `regions.json`, `networks/*.json`, `networks.json`,
+  - `index.php` : endpoint simple (`?resource=regions|aggregated|region&code=ara`) qui stream les fichiers JSON quand ils ne peuvent pas être servis directement (mutualisé, authentifié, etc.). Utilisé par le front **et** l'admin.
+
+---
+
+## 2.11 proxy.php
 - Serveur intermédiaire entre le frontend et les endpoints OTP MaaSify.
 - Rôle :
   - éviter les CORS,
   - router `region → endpoint OTP`,
   - transférer les requêtes GraphQL.
 
-## 2.11 admin/*
+---
+
+## 2.12 admin/*
 - Interface d’administration pour reconstruire le référentiel.
 - `panel.js` consomme désormais les mêmes JSON que le front, avec fallback systématique via `../data/index.php` avant de basculer sur `../data/networks.json`. Permet de fonctionner même quand les fichiers statiques sont protégés.
 
@@ -164,7 +185,7 @@ vista/
 
 ---
 
-# 4. Principes d’architecture
+# 4. Principes d'architecture
 
 - Séparation stricte carte / API / UI / orchestrateur.
 - Pas de framework (pas de React, Vue, bundler).
@@ -174,16 +195,79 @@ vista/
 - Design full-screen avec panneaux overlay.
 - Données OTP isolées dans `api.js`.
 - Réseaux MaaSify isolés dans `networkStore.js`.
+- Véhicules isolés dans `vehicles.js` (state + animation).
 
 ---
 
-# 5. Évolutions futures prévues
+# 4bis. Architecture des véhicules en temps réel
 
-- Vue full-screen NéMO (V0.2).
-- Ajout des véhicules (GTFS-RT VehiclePositions).
+## Flux de données
+
+```
+┌─────────────┐     ┌───────────┐     ┌──────────────┐     ┌─────────────┐
+│  OTP API    │────▶│  api.js   │────▶│ vehicles.js  │────▶│   map.js    │
+│ (GraphQL)   │     │ (fetch)   │     │ (state/anim) │     │ (GeoJSON)   │
+└─────────────┘     └───────────┘     └──────────────┘     └─────────────┘
+                           │                  │                    │
+                           │                  │                    │
+                    ┌──────▼──────┐    ┌──────▼──────┐     ┌───────▼───────┐
+                    │ Patterns +  │    │ VehicleState│     │ Source/Layer  │
+                    │ Stoptimes   │    │   Map       │     │ MapLibre      │
+                    └─────────────┘    └─────────────┘     └───────────────┘
+```
+
+## Cycle de vie
+
+1. **Activation** (`enableVehicles`) :
+   - Démarre le polling API (toutes les 10s).
+   - Démarre la boucle d'animation (60fps).
+
+2. **Fetch API** (`fetchEstimatedVehiclePositions`) :
+   - Récupère les patterns avec géométrie.
+   - Récupère les stoptimes des arrêts clés.
+   - Calcule la position estimée de chaque véhicule.
+   - Filtre les véhicules "actifs" (en transit, départ/arrivée imminents).
+
+3. **Animation** (`animationLoop`) :
+   - Incrémente la progression de chaque véhicule sur son tracé.
+   - Calcule la position interpolée.
+   - Génère le GeoJSON et met à jour la carte.
+   - Met à jour le popup du véhicule suivi.
+
+4. **Désactivation** (`disableVehicles`) :
+   - Arrête le polling et l'animation.
+   - Vide les états et les layers.
+
+## Points d'optimisation identifiés
+
+| Composant | Problème | Solution possible |
+|-----------|----------|-------------------|
+| `animationLoop` | 60fps génère beaucoup de mises à jour GeoJSON | Throttle à 30fps pour la carte |
+| `fetchEstimatedVehiclePositions` | Requêtes lourdes (patterns + stoptimes) | Cache des patterns (stable) |
+| `findStopPositionOnGeometry` | Appelé plusieurs fois par véhicule | Cache des indices stop→tracé |
+| `getVehiclesGeoJSON` | Nouveau GeoJSON à chaque frame | Réutiliser/muter l'objet |
+| Animation | Vitesse constante, pas synchronisée | Sync avec horaires planifiés |
+
+---
+
+# 5. Fonctionnalités implémentées et évolutions prévues
+
+## 5.1 Implémenté
+
+- **Vue full-screen NéMO** (V0.2) : layout avec panneaux latéraux repliables.
+- **Véhicules en circulation** (V0.2.1) :
+  - Affichage des véhicules sur la carte avec animation fluide (60fps).
+  - Source de données : GTFS-RT VehiclePositions (temps réel) ou fallback sur horaires planifiés.
+  - Filtrage intelligent : véhicules en transit, départ imminent (≤5 min), arrivée récente (≤5 min).
+  - Popup dynamique avec destination, prochain arrêt, horaire et retard.
+  - Mise en surbrillance du tracé de la ligne au clic sur un véhicule.
+
+## 5.2 Évolutions prévues
+
 - Ajout des perturbations (GTFS-RT Alerts).
 - KPI temps réel.
 - Refactorisation possible de `map.js` (modules par layer).
+- Optimisation des performances véhicules (cache, throttling).
 
 ---
 
